@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Drag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://script/TouchScreenButton.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.424242, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.734848, 0.734848, 0.734848, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -15,3 +24,11 @@ margin_left = -20.0
 margin_right = 20.0
 margin_bottom = 14.0
 rect_scale = Vector2( 6, 7 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 46, 379 )
+scale = Vector2( 2.73438, 2.67187 )
+normal = ExtResource( 3 )
+pressed = SubResource( 2 )
+action = "left-touch"
+script = ExtResource( 4 )
