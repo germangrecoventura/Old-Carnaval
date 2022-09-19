@@ -14,3 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Timer_timeout():
+	if Gamehandler.tiempo > 0:
+		Gamehandler.tiempo -= 1
+		Gamehandler.update_time()
+	else:
+		print("GO")

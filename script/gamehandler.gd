@@ -1,6 +1,7 @@
 extends Node
 
 var puntos = 0
+var tiempo = 4
 func _ready():
 	pass # Replace with function body.
 
@@ -12,3 +13,7 @@ func _ready():
 
 func update_puntos():
 	get_tree().get_nodes_in_group("puntos")[0].text = String(puntos)
+
+
+func update_time():
+	get_tree().get_nodes_in_group("tiempo")[0].text = String(tiempo%60)
