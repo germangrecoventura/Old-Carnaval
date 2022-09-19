@@ -1,7 +1,7 @@
 extends Node
 
 var puntos = 0
-var tiempo = 4
+var tiempo = 3
 func _ready():
 	pass # Replace with function body.
 
