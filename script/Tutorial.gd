@@ -1,5 +1,6 @@
 extends Control
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,9 +17,8 @@ func _ready():
 
 
 func _on_Jugar_pressed():
-	get_tree().change_scene("res://scenes/Tutorial.tscn")   
+	get_tree().change_scene("res://scenes/HammerLevel.tscn")    
 
 
 func _on_Salir_pressed():
 	get_tree().quit()
-
