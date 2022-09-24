@@ -1,7 +1,6 @@
-extends KinematicBody2D
+extends Control
 
-var speed = 250
-var velocity = Vector2()
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,7 +12,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("arriba"):
-		position.y -= 20
-#	pass$"."
+#func _process(delta):
+#	pass
+
+
+func _on_Jugar_pressed():
+	get_tree().change_scene("res://scenes/HammerLevel.tscn")
+
+
+func _on_Salir_pressed():
+	get_tree().quit()

@@ -20,7 +20,6 @@ func _ready():
 	get_tree().get_nodes_in_group("go")[0].text = "Consiguiendo vaca"
 	get_tree().get_nodes_in_group("go")[0].visible = true
 	$UI/Touch.queue_free()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
