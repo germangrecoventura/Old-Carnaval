@@ -45,6 +45,10 @@ accept={
 "deadzone": 0.5,
 "events": [  ]
 }
+retry={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [input_devices]
 

@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/UI/PNG/Buttons/BTNs_Active/Play_BTN.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/PNG/Buttons/BTNs_Active/Close_BTN.png" type="Texture" id=2]
+[ext_resource path="res://script/LevelFailed.gd" type="Script" id=3]
+[ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Replay_BTN.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/PNG/Buttons/BTNs_Active/Replay_BTN.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Play_BTN.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/PNG/Accept/Close_BTN.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/PNG/You_Lose/Table.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/PNG/You_Lose/Star_01.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/PNG/You_Lose/Window.png" type="Texture" id=10]
+[ext_resource path="res://assets/UI/PNG/You_Lose/Header.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/PNG/You_Lose/Record.png" type="Texture" id=12]
+
+[node name="LevelFailed" type="Control"]
+script = ExtResource( 3 )
+
+[node name="Panel" type="Sprite" parent="."]
+position = Vector2( 512, 312 )
+scale = Vector2( 0.6, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Title" type="Sprite" parent="Panel"]
+position = Vector2( 1.66663, -468 )
+texture = ExtResource( 11 )
+
+[node name="TouchAccept" type="TouchScreenButton" parent="Panel"]
+position = Vector2( -418.333, 295.143 )
+scale = Vector2( 0.666667, 0.857143 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 1 )
+action = "accept"
+
+[node name="TouchCancel" type="TouchScreenButton" parent="Panel"]
+position = Vector2( 269.668, 294 )
+scale = Vector2( 0.666667, 0.857143 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 2 )
+action = "cancel"
+
+[node name="TouchRetry" type="TouchScreenButton" parent="Panel"]
+position = Vector2( -70.33, 294 )
+scale = Vector2( 0.666667, 0.857143 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+action = "retry"
+
+[node name="StarOne" type="Sprite" parent="Panel"]
+position = Vector2( -251.667, -140 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 9 )
+
+[node name="StarTwo" type="Sprite" parent="Panel"]
+position = Vector2( 1.66669, -206 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 9 )
+
+[node name="StartThree" type="Sprite" parent="Panel"]
+position = Vector2( 242.668, -140 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 9 )
+
+[node name="RecordActual" type="Sprite" parent="Panel"]
+position = Vector2( 171.667, 118 )
+texture = ExtResource( 8 )
+
+[node name="RecordTitle" type="Sprite" parent="Panel"]
+position = Vector2( -199.333, 118 )
+texture = ExtResource( 12 )

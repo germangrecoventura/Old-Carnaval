@@ -2,14 +2,25 @@ extends Node2D
 
 var time = 5
 onready var touch = $UI/Touch
+var SceneInformation: String = "res://scenes/InformationLevel.tscn"
+var paused: Object = null
+
 
 func _ready():
+	paused = load(SceneInformation).instance()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
 	touch.visible = false
 	Gamehandler.puntos = 0
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
 	$AnimationPlayer.play("luz")
 	$TimerGo.start()
+
+func on_information_quit() -> void:
+	paused = null
+
 
 func _on_TimerCountDown_timeout():
 	if time != 1:
