@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Cow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ufo.tscn" type="PackedScene" id=2]
@@ -22,10 +22,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 819, 531 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 575.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "abducido"
-length = 3.0
+length = 4.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cow:position")
 tracks/0/interp = 1
@@ -38,10 +50,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 819, 531 ), Vector2( 817, 214 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 575.0, 168.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "fallo 1"
-length = 2.6
+length = 4.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cow:position")
 tracks/0/interp = 1
@@ -54,10 +78,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 814, 532 ), Vector2( 816, 440 ), Vector2( 815, 531 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4, 2.6, 4.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 575.0, 488.0, 579.0, 166.0 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "fallo 2"
-length = 3.4
+length = 4.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cow:position")
 tracks/0/interp = 1
@@ -70,16 +106,40 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 815, 532 ), Vector2( 817, 311 ), Vector2( 817, 530 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3.4, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 578.0, 376.0, 580.0, 166.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "luz"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:margin_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 166.0, 581.0 ]
+}
 
 [node name="HammerLevel" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Cow" parent="." instance=ExtResource( 1 )]
 position = Vector2( 819, 531 )
-
-[node name="Light" parent="." instance=ExtResource( 7 )]
-position = Vector2( 817, 351 )
-scale = Vector2( 0.337866, 0.830935 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -137,6 +197,18 @@ anims/RESET = SubResource( 1 )
 anims/abducido = SubResource( 2 )
 "anims/fallo 1" = SubResource( 3 )
 "anims/fallo 2" = SubResource( 4 )
+anims/luz = SubResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 741.0
+margin_top = 166.0
+margin_right = 898.0
+margin_bottom = 575.0
+rect_clip_content = true
+
+[node name="Light" parent="Control" instance=ExtResource( 7 )]
+position = Vector2( 78, 183 )
+scale = Vector2( 0.337866, 0.830935 )
 
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]

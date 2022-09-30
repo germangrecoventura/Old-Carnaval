@@ -7,6 +7,7 @@ func _ready():
 	touch.visible = false
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
+	$AnimationPlayer.play("luz")
 	$TimerGo.start()
 	
 
@@ -29,12 +30,9 @@ func _on_TimerStart_timeout():
 func _on_TimerGo_timeout():
 	get_tree().get_nodes_in_group("go")[0].visible = false
 	$TimerTimeGame.start()
-	yield(get_tree().create_timer(10), "timeout")
 	
 
 
 func _on_TimerTimeGame_timeout():
-	get_tree().get_nodes_in_group("go")[0].text = "Consiguiendo vaca"
-	get_tree().get_nodes_in_group("go")[0].visible = true
 	touch.queue_free()
 	$AnimationPlayer.play("abducido")
