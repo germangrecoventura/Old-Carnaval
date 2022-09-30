@@ -16,5 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_area_entered(area):
 	$"../Cow".queue_free()

@@ -37,3 +37,4 @@ func _on_TimerTimeGame_timeout():
 	get_tree().get_nodes_in_group("go")[0].text = "Consiguiendo vaca"
 	get_tree().get_nodes_in_group("go")[0].visible = true
 	touch.queue_free()
+	$AnimationPlayer.play("abducido")

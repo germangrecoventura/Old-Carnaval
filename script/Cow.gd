@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Sprite
 
 var speed = 250
 var velocity = Vector2()
