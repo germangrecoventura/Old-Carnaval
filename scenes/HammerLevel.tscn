@@ -153,33 +153,8 @@ tracks/0/keys = {
 [node name="HammerLevel" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Cow" parent="." instance=ExtResource( 1 )]
-position = Vector2( 819, 531 )
-
-[node name="Ufo" parent="." instance=ExtResource( 2 )]
-position = Vector2( 818, 148 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/abducido = SubResource( 2 )
-anims/fade = SubResource( 6 )
-anims/failLow = SubResource( 3 )
-anims/failMedium = SubResource( 4 )
-anims/luz = SubResource( 5 )
-
-[node name="Control" type="Control" parent="."]
-margin_left = 741.0
-margin_top = 166.0
-margin_right = 898.0
-margin_bottom = 575.0
-rect_clip_content = true
-
-[node name="Light" parent="Control" instance=ExtResource( 7 )]
-position = Vector2( 78, 183 )
-scale = Vector2( 0.337866, 0.830935 )
-
 [node name="UI" type="CanvasLayer" parent="."]
-layer = 0
+layer = -1
 
 [node name="CountDown" type="Label" parent="UI" groups=["countdown"]]
 margin_left = 504.0
@@ -216,6 +191,31 @@ script = ExtResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 741.0
+margin_top = 166.0
+margin_right = 898.0
+margin_bottom = 575.0
+rect_clip_content = true
+
+[node name="Light" parent="Control" instance=ExtResource( 7 )]
+position = Vector2( 78, 183 )
+scale = Vector2( 0.337866, 0.830935 )
+
+[node name="Cow" parent="." instance=ExtResource( 1 )]
+position = Vector2( 819, 531 )
+
+[node name="Ufo" parent="." instance=ExtResource( 2 )]
+position = Vector2( 818, 148 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/abducido = SubResource( 2 )
+anims/fade = SubResource( 6 )
+anims/failLow = SubResource( 3 )
+anims/failMedium = SubResource( 4 )
+anims/luz = SubResource( 5 )
 
 [node name="TimerCountDown" type="Timer" parent="."]
 autostart = true

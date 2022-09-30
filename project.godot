@@ -37,6 +37,14 @@ touch={
 "deadzone": 0.5,
 "events": [  ]
 }
+cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+accept={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [input_devices]
 
