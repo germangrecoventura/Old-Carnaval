@@ -5,11 +5,11 @@ onready var touch = $UI/Touch
 
 func _ready():
 	touch.visible = false
+	Gamehandler.puntos = 0
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
 	$AnimationPlayer.play("luz")
 	$TimerGo.start()
-	
 
 func _on_TimerCountDown_timeout():
 	if time != 1:
@@ -35,4 +35,31 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	touch.queue_free()
-	$AnimationPlayer.play("abducido")
+	if Gamehandler.puntos > 100:
+		$AnimationPlayer.play("abducido")
+		$TimerAnimationAbducion.start()
+	elif Gamehandler.puntos > 40:
+		$AnimationPlayer.play("fallo 2")
+		$TimerFalloOne.start()
+	else:
+		$AnimationPlayer.play("fallo 1")
+		$TimerFalloTwo.start()
+	
+
+
+func _on_TimerAnimationAbducion_timeout():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	get_tree().change_scene("res://scenes/Tutorial.tscn")   
+
+func _on_TimerFalloOne_timeout():
+	#$AnimationPlayer.play_backwards("fade")
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	get_tree().change_scene("res://scenes/Menu.tscn")  
+
+
+func _on_TimerFalloTwo_timeout():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	get_tree().change_scene("res://scenes/Menu.tscn")  
