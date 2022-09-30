@@ -1,7 +1,6 @@
 extends Control
 
 export var instructions = ""
-export var sceneGame:PackedScene
 
 
 func _process(delta):
@@ -13,5 +12,4 @@ func _process(delta):
 
 
 func _on_TimerTransitionGame_timeout():
-	$".".visible = false
-	get_tree().change_scene(sceneGame.resource_path)
+	visible = false

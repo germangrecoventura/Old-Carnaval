@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Cow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ufo.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/entity/ufo.png" type="Texture" id=5]
 [ext_resource path="res://script/TouchScreenButton.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/InformationLevel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -242,6 +243,8 @@ one_shot = true
 
 [node name="TimerFailLow" type="Timer" parent="."]
 wait_time = 4.6
+
+[node name="InformationLevel" parent="." instance=ExtResource( 8 )]
 
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/UI/PNG/Accept/Information.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/PNG/Accept/Window.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/UI/PNG/Accept/Close_BTN.png" type="Texture" id=5]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs_Active/Play_BTN.png" type="Texture" id=6]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs_Active/Close_BTN.png" type="Texture" id=7]
-[ext_resource path="res://scenes/HammerLevel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -30,7 +29,6 @@ tracks/0/keys = {
 
 [node name="InformationLevel" type="Control"]
 script = ExtResource( 3 )
-sceneGame = ExtResource( 8 )
 
 [node name="Panel" type="Sprite" parent="."]
 position = Vector2( 512, 312 )
