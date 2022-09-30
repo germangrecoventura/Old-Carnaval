@@ -37,29 +37,30 @@ func _on_TimerTimeGame_timeout():
 	touch.queue_free()
 	if Gamehandler.puntos > 100:
 		$AnimationPlayer.play("abducido")
-		$TimerAnimationAbducion.start()
+		$TimerAbduct.start()
 	elif Gamehandler.puntos > 40:
-		$AnimationPlayer.play("fallo 2")
-		$TimerFalloOne.start()
+		$AnimationPlayer.play("failMedium")
+		$TimerFailMedium.start()
 	else:
-		$AnimationPlayer.play("fallo 1")
-		$TimerFalloTwo.start()
+		$AnimationPlayer.play("failLow")
+		$TimerFailLow.start()
 	
 
 
-func _on_TimerAnimationAbducion_timeout():
+func _on_TimerAbduct_timeout():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://scenes/Tutorial.tscn")   
 
-func _on_TimerFalloOne_timeout():
+func _on_TimerFailMedium_timeout():
 	#$AnimationPlayer.play_backwards("fade")
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://scenes/Menu.tscn")  
 
 
-func _on_TimerFalloTwo_timeout():
+func _on_TimerFailLow_timeout():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://scenes/Menu.tscn")  
+

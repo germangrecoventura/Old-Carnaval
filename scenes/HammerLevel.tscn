@@ -79,7 +79,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "fallo 1"
+resource_name = "failLow"
 length = 4.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cow:position")
@@ -107,7 +107,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "fallo 2"
+resource_name = "failMedium"
 length = 4.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cow:position")
@@ -163,8 +163,8 @@ position = Vector2( 818, 148 )
 anims/RESET = SubResource( 1 )
 anims/abducido = SubResource( 2 )
 anims/fade = SubResource( 6 )
-"anims/fallo 1" = SubResource( 3 )
-"anims/fallo 2" = SubResource( 4 )
+anims/failLow = SubResource( 3 )
+anims/failMedium = SubResource( 4 )
 anims/luz = SubResource( 5 )
 
 [node name="Control" type="Control" parent="."]
@@ -232,21 +232,21 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
-[node name="TimerAnimationAbducion" type="Timer" parent="."]
+[node name="TimerAbduct" type="Timer" parent="."]
 wait_time = 4.3
 one_shot = true
 
-[node name="TimerFalloOne" type="Timer" parent="."]
+[node name="TimerFailMedium" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
-[node name="TimerFalloTwo" type="Timer" parent="."]
+[node name="TimerFailLow" type="Timer" parent="."]
 wait_time = 4.6
 
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
 [connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]
-[connection signal="timeout" from="TimerAnimationAbducion" to="." method="_on_TimerAnimationAbducion_timeout"]
-[connection signal="timeout" from="TimerFalloOne" to="." method="_on_TimerFalloOne_timeout"]
-[connection signal="timeout" from="TimerFalloTwo" to="." method="_on_TimerFalloTwo_timeout"]
+[connection signal="timeout" from="TimerAbduct" to="." method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="TimerFailMedium" to="." method="_on_TimerFailMedium_timeout"]
+[connection signal="timeout" from="TimerFailLow" to="." method="_on_TimerFailLow_timeout"]
