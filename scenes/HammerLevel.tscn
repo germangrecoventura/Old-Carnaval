@@ -49,7 +49,22 @@ script = ExtResource( 6 )
 [node name="Ufo" parent="." instance=ExtResource( 2 )]
 position = Vector2( 901, 150 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerCountDown" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TimerGo" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerTimeGame" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
+[connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
+[connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]

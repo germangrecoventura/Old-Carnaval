@@ -1,34 +1,39 @@
 extends Node2D
 
+var time = 5
+onready var touch = $UI/Touch
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$UI/Touch.visible = false
-	Gamehandler.update_time()
-	yield(get_tree().create_timer(5), "timeout")
+	touch.visible = false
+	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
+	$TimerStart.start()
+	$TimerGo.start()
+	
+
+func _on_TimerCountDown_timeout():
+	if time != 1:
+		time -= 1
+		get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
+	
+
+func _on_TimerStart_timeout():
 	get_tree().get_nodes_in_group("countdown")[0].queue_free()
+	get_tree().get_nodes_in_group("go")[0].visible = true
 	get_tree().get_nodes_in_group("go")[0].text = "Go"
-	$UI/Touch.visible = true
-	yield(get_tree().create_timer(2), "timeout")
+	touch.visible = true
+	$TimerGo.start()
+	
+	
+
+
+func _on_TimerGo_timeout():
 	get_tree().get_nodes_in_group("go")[0].visible = false
+	$TimerTimeGame.start()
 	yield(get_tree().create_timer(10), "timeout")
+	
+
+
+func _on_TimerTimeGame_timeout():
 	get_tree().get_nodes_in_group("go")[0].text = "Consiguiendo vaca"
 	get_tree().get_nodes_in_group("go")[0].visible = true
-	$UI/Touch.queue_free()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Timer_timeout():
-	if Gamehandler.time != 1:
-		Gamehandler.time -= 1
-		Gamehandler.update_time()
-	
+	touch.queue_free()
