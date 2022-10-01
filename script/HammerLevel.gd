@@ -5,6 +5,9 @@ var time = 5
 onready var touch = $UI/ButtonForAddPoints
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
+var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
+var SceneWinnerTwoStar: String = "res://scenes/LevelWinnerTwoStar.tscn"
+var SceneWinnerThreeStar: String = "res://scenes/LevelWinnerThreeStar.tscn"
 var paused: Object = null
 export (int) var dificulty
 
@@ -26,7 +29,6 @@ func on_information_quit() -> void:
 func transitionToFailed():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
-	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	paused = load(SceneFailed).instance()
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
@@ -35,7 +37,43 @@ func transitionToFailed():
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	
-
+func transitionToWinnerStarOne():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	paused = load(SceneWinnerOneStar).instance()
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+	
+func transitionToWinnerStarTwo():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	paused = load(SceneWinnerTwoStar).instance()
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+	
+func transitionToWinnerStarThree():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	paused = load(SceneWinnerThreeStar).instance()
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+	
+	
 func _on_TimerCountDown_timeout():
 	if time != 1:
 		time -= 1
@@ -60,10 +98,11 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	touch.queue_free()
-	if points > 100:
+	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
+	if points > 600:
 		$AnimationPlayer.play("abduct")
 		$TimerAbduct.start()
-	elif points > 40:
+	elif points > 400:
 		$AnimationPlayer.play("failMedium")
 		$TimerFailMedium.start()
 	else:
@@ -73,9 +112,12 @@ func _on_TimerTimeGame_timeout():
 
 
 func _on_TimerAbduct_timeout():
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://scenes/Menu.tscn")   
+	if points > 900:
+		transitionToWinnerStarThree()
+	elif points > 750:
+		transitionToWinnerStarTwo()
+	else:
+		transitionToWinnerStarOne()
 
 func _on_TimerFailMedium_timeout():
 	#$AnimationPlayer.play_backwards("fade")

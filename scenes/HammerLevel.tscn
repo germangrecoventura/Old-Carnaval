@@ -182,6 +182,7 @@ text = "Puntos"
 
 [node name="ButtonForAddPoints" parent="UI" instance=ExtResource( 4 )]
 pressed = null
+points_to_add = 910
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchor_right = 1.0
