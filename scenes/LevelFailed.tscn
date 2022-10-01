@@ -73,5 +73,13 @@ margin_bottom = 216.0
 icon = ExtResource( 14 )
 flat = true
 
+[node name="Label" type="Label" parent="."]
+margin_left = 579.0
+margin_top = 348.0
+margin_right = 601.0
+margin_bottom = 362.0
+rect_scale = Vector2( 3, 3 )
+text = "sda"
+
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]

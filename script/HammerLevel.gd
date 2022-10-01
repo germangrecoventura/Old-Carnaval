@@ -1,19 +1,20 @@
 extends Node2D
 
+var points = 0
 var time = 5
-onready var touch = $UI/Touch
+onready var touch = $UI/ButtonForAddPoints
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var paused: Object = null
 
 
 func _ready():
+	points = 0
 	paused = load(SceneInformation).instance()
 	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	touch.visible = false
-	Gamehandler.puntos = 0
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
 	$AnimationPlayer.play("luz")
@@ -25,7 +26,11 @@ func on_information_quit() -> void:
 func transitionToFailed():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
+	print(points)
+	Gamehandler.update_leardboard("HammerLevel",0,points)
+	print(Gamehandler.leardboard)
 	paused = load(SceneFailed).instance()
+	paused.update_maximus_points()
 	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
@@ -55,10 +60,10 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	touch.queue_free()
-	if Gamehandler.puntos > 100:
+	if points > 100:
 		$AnimationPlayer.play("abducido")
 		$TimerAbduct.start()
-	elif Gamehandler.puntos > 40:
+	elif points > 40:
 		$AnimationPlayer.play("failMedium")
 		$TimerFailMedium.start()
 	else:

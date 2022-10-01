@@ -1,11 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Cow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ufo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://assets/entity/ufo.png" type="Texture" id=5]
-[ext_resource path="res://script/TouchScreenButton.gd" type="Script" id=6]
+[ext_resource path="res://scenes/ButtonForAddPoints.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/InformationLevel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/LevelFailed.tscn" type="PackedScene" id=9]
@@ -182,12 +180,8 @@ margin_right = 392.0
 margin_bottom = 30.0
 text = "Puntos"
 
-[node name="Touch" type="TouchScreenButton" parent="UI"]
-position = Vector2( 73, 529 )
-normal = ExtResource( 4 )
-pressed = ExtResource( 5 )
-action = "touch"
-script = ExtResource( 6 )
+[node name="ButtonForAddPoints" parent="UI" instance=ExtResource( 4 )]
+pressed = null
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchor_right = 1.0
