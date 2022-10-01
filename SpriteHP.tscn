@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://coracaozinho-para-o-luiz-otavio-966526779.png" type="Texture" id=1]
-
-[node name="SpriteHP" type="Sprite" groups=["vida"]]
-position = Vector2( 50, 38 )
-scale = Vector2( 0.113333, 0.0975 )
-texture = ExtResource( 1 )

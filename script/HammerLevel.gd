@@ -17,7 +17,7 @@ func _ready():
 	touch.visible = false
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
-	$AnimationPlayer.play("luz")
+	$AnimationPlayer.play("light")
 	$TimerGo.start()
 
 func on_information_quit() -> void:
@@ -61,7 +61,7 @@ func _on_TimerGo_timeout():
 func _on_TimerTimeGame_timeout():
 	touch.queue_free()
 	if points > 100:
-		$AnimationPlayer.play("abducido")
+		$AnimationPlayer.play("abduct")
 		$TimerAbduct.start()
 	elif points > 40:
 		$AnimationPlayer.play("failMedium")
@@ -75,7 +75,7 @@ func _on_TimerTimeGame_timeout():
 func _on_TimerAbduct_timeout():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://scenes/Tutorial.tscn")   
+	get_tree().change_scene("res://scenes/Menu.tscn")   
 
 func _on_TimerFailMedium_timeout():
 	#$AnimationPlayer.play_backwards("fade")

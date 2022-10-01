@@ -8,7 +8,6 @@ func _on_Accept_pressed():
 	emit_signal("e")
 	$TimerTransitionGame.start()
 	$AnimationPlayer.play("transitionMovie")
-	#yield(get_tree().create_timer(1), "timeout")
 	
 
 func _on_TimerTransitionGame_timeout():
