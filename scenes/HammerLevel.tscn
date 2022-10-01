@@ -173,16 +173,8 @@ margin_right = 278.0
 margin_bottom = 53.0
 rect_scale = Vector2( 6, 6 )
 
-[node name="puntos" type="Label" parent="UI" groups=["puntos"]]
-margin_left = 352.0
-margin_top = 16.0
-margin_right = 392.0
-margin_bottom = 30.0
-text = "Puntos"
-
 [node name="ButtonForAddPoints" parent="UI" instance=ExtResource( 4 )]
 pressed = null
-points_to_add = 910
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchor_right = 1.0

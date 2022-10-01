@@ -1,6 +1,6 @@
 extends Node2D
 
-var points = 0
+var points
 var time = 5
 onready var touch = $UI/ButtonForAddPoints
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
@@ -97,7 +97,7 @@ func _on_TimerGo_timeout():
 
 
 func _on_TimerTimeGame_timeout():
-	touch.queue_free()
+	touch.visible= false
 	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	if points > 600:
 		$AnimationPlayer.play("abduct")
