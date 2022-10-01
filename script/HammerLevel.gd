@@ -6,7 +6,7 @@ onready var touch = $UI/ButtonForAddPoints
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var paused: Object = null
-
+export (int) var dificulty
 
 func _ready():
 	points = 0
@@ -26,10 +26,10 @@ func on_information_quit() -> void:
 func transitionToFailed():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
-	print(points)
-	Gamehandler.update_leardboard("HammerLevel",0,points)
-	print(Gamehandler.leardboard)
+	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	paused = load(SceneFailed).instance()
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
 	paused.update_maximus_points()
 	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
