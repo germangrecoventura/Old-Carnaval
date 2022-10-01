@@ -3,6 +3,7 @@ extends Node2D
 var time = 5
 onready var touch = $UI/Touch
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
+var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var paused: Object = null
 
 
@@ -20,7 +21,15 @@ func _ready():
 
 func on_information_quit() -> void:
 	paused = null
-
+	
+func transitionToFailed():
+	$AnimationPlayer.play("fade")
+	yield(get_tree().create_timer(1), "timeout")
+	paused = load(SceneFailed).instance()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+	
 
 func _on_TimerCountDown_timeout():
 	if time != 1:
@@ -65,13 +74,11 @@ func _on_TimerAbduct_timeout():
 
 func _on_TimerFailMedium_timeout():
 	#$AnimationPlayer.play_backwards("fade")
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://scenes/Menu.tscn")  
+	transitionToFailed()
 
 
 func _on_TimerFailLow_timeout():
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://scenes/Menu.tscn")  
+	transitionToFailed()
+	
+
 
