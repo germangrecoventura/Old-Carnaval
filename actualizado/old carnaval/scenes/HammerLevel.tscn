@@ -264,6 +264,8 @@ visible = false
 [node name="TimerPositionCow" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="Ufo/Control/Light/Area2D" to="Ufo/Control/Light" method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]

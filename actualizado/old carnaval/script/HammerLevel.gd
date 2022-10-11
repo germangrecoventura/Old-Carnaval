@@ -4,6 +4,7 @@ var points
 var time = 3
 onready var touchLeft = $UI/TouchLeft
 onready var touchRight = $UI/TouchRight
+onready var audioStream = $SFX
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
@@ -23,6 +24,10 @@ func _ready():
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
 	$AnimationPlayer.play("light")
+	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
 
 func on_information_quit() -> void:
 	paused = null
@@ -80,8 +85,13 @@ func _on_TimerCountDown_timeout():
 		time -= 1
 		get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	
+	
 
 func _on_TimerStart_timeout():
+	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
 	$TimerGo.start()
 	get_tree().get_nodes_in_group("countdown")[0].queue_free()
 	get_tree().get_nodes_in_group("go")[0].visible = true
@@ -137,4 +147,4 @@ func _on_TimerFailLow_timeout():
 
 
 func _on_TimerPositionCow_timeout():
-	$Cow.position.x = rand_range(810,819)
+	$Cow.position.x = rand_range(418,819)
