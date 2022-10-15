@@ -26,6 +26,10 @@ tracks/0/keys = {
 }
 
 [node name="InformationLevel" type="Control"]
+margin_left = 291.0
+margin_top = 72.0
+margin_right = 291.0
+margin_bottom = 72.0
 script = ExtResource( 3 )
 
 [node name="Panel" type="TextureRect" parent="."]

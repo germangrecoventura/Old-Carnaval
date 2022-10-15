@@ -10,7 +10,7 @@ func _on_Retry_pressed():
 
 func update_maximus_points():
 	var point = Gamehandler.leardboard.get(level)[dificulty]
-	$Record.text = String(point)
+	$Panel/RecordActual/Record.text = String(point)
 
 func _on_Cancel_pressed():
 	get_tree().paused = false

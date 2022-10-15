@@ -23,11 +23,11 @@ func _ready():
 	hide_ui()
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	$TimerStart.start()
+	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
 	#$AnimationPlayer.play("light")
-	#var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
-	#var sfx = load(audio_file)
-	#audioStream.stream = sfx
-	#audioStream.play()
 
 func on_information_quit() -> void:
 	paused = null
@@ -97,14 +97,19 @@ func _on_TimerCountDown_timeout():
 	if time != 1:
 		time -= 1
 		get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
-	
+	else:
+		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
+		var sfx = load(audio_file)
+		audioStream.stream = sfx
 	
 
 func _on_TimerStart_timeout():
 	#var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
 	#var sfx = load(audio_file)
 	#audioStream.stream = sfx
-	#audioStream.play()
+	audioStream.play()
+	yield(get_tree().create_timer(1), "timeout")
+	audioStream.stop()
 	$TimerGo.start()
 	get_tree().get_nodes_in_group("countdown")[0].queue_free()
 	get_tree().get_nodes_in_group("go")[0].visible = true
@@ -120,17 +125,20 @@ func _on_TimerGo_timeout():
 
 
 func _on_TimerTimeGame_timeout():
-	touchLeft.visible= false
-	touchRight.visible= false
+	hide_ui()
 	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	if points > 600:
-		$AnimationPlayer.play("abduct")
+		#$AnimationPlayer.play("abduct")
 		$TimerAbduct.start()
 	elif points > 400:
 		$AnimationPlayer.play("failMedium")
 		$TimerFailMedium.start()
 	else:
-		$AnimationPlayer.play("failLow")
+		#$AnimationPlayer.play("failLow")
+		var audio_file = "res://sound/losegamemusic.ogg"
+		var sfx = load(audio_file)
+		audioStream.stream = sfx
+		audioStream.play()
 		$TimerFailLow.start()
 	
 
