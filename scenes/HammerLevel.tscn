@@ -230,14 +230,6 @@ scale = Vector2( 0.240586, -0.00149449 )
 texture = ExtResource( 7 )
 script = ExtResource( 5 )
 
-[node name="TimerAbduct" type="Timer" parent="Light"]
-wait_time = 4.0
-one_shot = true
-
-[node name="TimerReturnLight" type="Timer" parent="Light"]
-wait_time = 2.0
-one_shot = true
-
 [node name="Area2D" type="Area2D" parent="Light"]
 collision_layer = 4
 collision_mask = 0
@@ -245,6 +237,14 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Light/Area2D"]
 position = Vector2( 2.07861, 23.9139 )
 shape = SubResource( 7 )
+
+[node name="TimerAbduct" type="Timer" parent="Light"]
+wait_time = 4.0
+one_shot = true
+
+[node name="TimerReturnLight" type="Timer" parent="Light"]
+wait_time = 2.0
+one_shot = true
 
 [node name="Cow" parent="." instance=ExtResource( 1 )]
 position = Vector2( 819, 531 )
@@ -275,25 +275,20 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
-[node name="TimerFailMedium" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
-[node name="TimerFailLow" type="Timer" parent="."]
+[node name="TimerFail" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="UI/TouchAbduction" to="UI/TouchAbduction" method="_on_TouchAbduction_pressed"]
+[connection signal="body_entered" from="Light/Area2D" to="Light" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Light/TimerAbduct" to="UI/TouchAbduction" method="_on_TimerAbduct_timeout"]
 [connection signal="timeout" from="Light/TimerReturnLight" to="UI/TouchAbduction" method="_on_TimerReturnLight_timeout"]
-[connection signal="body_entered" from="Light/Area2D" to="Light" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
 [connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]
-[connection signal="timeout" from="TimerFailMedium" to="." method="_on_TimerFailMedium_timeout"]
-[connection signal="timeout" from="TimerFailLow" to="." method="_on_TimerFailLow_timeout"]
+[connection signal="timeout" from="TimerFail" to="." method="_on_TimerFail_timeout"]

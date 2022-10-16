@@ -14,6 +14,9 @@ var SceneWinnerThreeStar: String = "res://scenes/LevelWinnerThreeStar.tscn"
 var paused: Object = null
 export (int) var dificulty
 
+func _add_points(points_to_add):
+	points += points_to_add
+
 func _ready():
 	points = 0
 	paused = load(SceneInformation).instance()
@@ -127,35 +130,19 @@ func _on_TimerGo_timeout():
 func _on_TimerTimeGame_timeout():
 	hide_ui()
 	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
-	if points > 600:
-		#$AnimationPlayer.play("abduct")
-		$TimerAbduct.start()
-	elif points > 400:
-		$AnimationPlayer.play("failMedium")
-		$TimerFailMedium.start()
+	if points == 1:
+		transitionToWinnerStarThree()
+	elif points == 2:
+		transitionToWinnerStarTwo()
+	elif points == 3:
+		transitionToWinnerStarOne()
 	else:
-		#$AnimationPlayer.play("failLow")
 		var audio_file = "res://sound/losegamemusic.ogg"
 		var sfx = load(audio_file)
 		audioStream.stream = sfx
 		audioStream.play()
-		$TimerFailLow.start()
+		$TimerFail.start()
 	
 
-
-func _on_TimerAbduct_timeout():
-	if points > 900:
-		transitionToWinnerStarThree()
-	elif points > 750:
-		transitionToWinnerStarTwo()
-	else:
-		transitionToWinnerStarOne()
-
-func _on_TimerFailMedium_timeout():
-	#$AnimationPlayer.play_backwards("fade")
+func _on_TimerFail_timeout():
 	transitionToFailed()
-
-
-func _on_TimerFailLow_timeout():
-	transitionToFailed()
-	
