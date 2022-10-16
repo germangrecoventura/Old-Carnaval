@@ -52,6 +52,7 @@ func transitionToFailed():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	paused = load(SceneFailed).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.update_maximus_points()
@@ -63,6 +64,7 @@ func transitionToWinnerStarOne():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	paused = load(SceneWinnerOneStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -75,6 +77,7 @@ func transitionToWinnerStarTwo():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	paused = load(SceneWinnerTwoStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -87,6 +90,7 @@ func transitionToWinnerStarThree():
 	$AnimationPlayer.play("fade")
 	yield(get_tree().create_timer(1), "timeout")
 	paused = load(SceneWinnerThreeStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points

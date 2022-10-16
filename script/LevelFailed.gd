@@ -4,9 +4,13 @@ signal e
 
 export (String) var level
 export (int) var dificulty
+var retry:String
 
 func _on_Retry_pressed():
-	pass # Replace with function body.
+	get_tree().paused = false
+	emit_signal("e")
+	get_tree().change_scene(retry)
+	self.queue_free()
 
 func update_maximus_points():
 	var point = Gamehandler.leardboard.get(level)[dificulty]
