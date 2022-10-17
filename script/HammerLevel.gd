@@ -20,6 +20,7 @@ func _add_points(points_to_add):
 func _ready():
 	points = 0
 	paused = load(SceneInformation).instance()
+	paused.text_panel("Abduct the cow with the fewest attempts. \n\n Watch out for the rest of the animals.")
 	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true

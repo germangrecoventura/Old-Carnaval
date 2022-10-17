@@ -1,8 +1,9 @@
 extends Control
-
-export var instructions = ""
 signal e
 
+func text_panel(text_update):
+	$Text.text = text_update
+	
 func _on_Accept_pressed():
 	get_tree().paused = false
 	emit_signal("e")
