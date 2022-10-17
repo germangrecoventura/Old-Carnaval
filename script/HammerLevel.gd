@@ -118,15 +118,13 @@ func _on_TimerStart_timeout():
 	yield(get_tree().create_timer(1), "timeout")
 	audioStream.stop()
 	$TimerGo.start()
-	get_tree().get_nodes_in_group("countdown")[0].queue_free()
-	get_tree().get_nodes_in_group("go")[0].visible = true
-	get_tree().get_nodes_in_group("go")[0].text = "Go"
+	get_tree().get_nodes_in_group("countdown")[0].text = "Go"
 	show_ui()
 	$TimerGo.start()
 	
 
 func _on_TimerGo_timeout():
-	get_tree().get_nodes_in_group("go")[0].visible = false
+	get_tree().get_nodes_in_group("countdown")[0].queue_free()
 	$TimerTimeGame.start()
 	
 
