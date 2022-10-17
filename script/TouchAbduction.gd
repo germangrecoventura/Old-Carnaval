@@ -1,6 +1,8 @@
 extends TouchScreenButton
 onready var touchLeft = $"../TouchLeft"
 onready var touchRight = $"../TouchRight"
+onready var light = $"../../Ufo/Light"
+onready var tween = $"../../Tween"
 
 
 func hide_ui():
@@ -15,18 +17,25 @@ func show_ui():
 	self.visible = true
 
 
+func light_down() -> void:
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,771.694),2.0)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,3.095),2.0)
+	tween.start()
+
 func _on_TimerAbduct_timeout():
-	$"../../Light/TimerReturnLight".start()
-	$"../../AnimationPlayer".play("light_back")
+	$"../../Ufo/Light/TimerReturnLight".start()
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,123.75),2.0)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0),2.0)
+	tween.start()
 	
 
 func _on_TouchAbduction_pressed():
 	hide_ui()
-	$"../../AnimationPlayer".play("light")
-	$"../../Light/TimerAbduct".start()
+	$"../../Ufo/Light/TimerAbduct".start()
+	light_down()
 
 
 func _on_TimerReturnLight_timeout():
 	show_ui()
-	$"../../Light/Area2D".set_process(true)
+	$"../../Ufo/Light/Area2D".set_process(true)
 	
