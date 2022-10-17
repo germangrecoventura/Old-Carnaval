@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://scenes/Cow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ufo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=3]
 [ext_resource path="res://script/TouchScreenButton.gd" type="Script" id=4]
 [ext_resource path="res://script/Light.gd" type="Script" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://assets/entity/luz.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Animal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://script/TouchRight.gd" type="Script" id=10]
 [ext_resource path="res://script/TouchAbduction.gd" type="Script" id=11]
 
@@ -16,7 +17,7 @@ extents = Vector2( 4.15619, 237.346 )
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Cow:position")
+tracks/0/path = NodePath("Light:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,27 +26,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 819, 531 ) ]
+"values": [ Vector2( 816.5, 126 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Light:position")
+tracks/1/path = NodePath("Light:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 816.5, 126 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Light:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -55,18 +44,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=2]
 resource_name = "abduct"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Cow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 819, 531 ) ]
-}
 
 [sub_resource type="Animation" id=6]
 resource_name = "fade"
@@ -86,34 +63,10 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "failLow"
 length = 4.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Cow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.4, 2.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 814, 532 ), Vector2( 816, 440 ), Vector2( 815, 531 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "failMedium"
 length = 4.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("Cow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.9, 3.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 815, 532 ), Vector2( 817, 311 ), Vector2( 817, 530 ) ]
-}
 
 [sub_resource type="Animation" id=5]
 resource_name = "light"
@@ -197,9 +150,9 @@ rect_scale = Vector2( 6, 6 )
 [node name="ColorRect" type="ColorRect" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.0
+margin_left = -11.0
 margin_top = 8.0
-margin_right = -1.0
+margin_right = -11.0
 margin_bottom = 8.0
 color = Color( 0, 0, 0, 0 )
 
@@ -218,7 +171,7 @@ action = "touchRight"
 script = ExtResource( 10 )
 
 [node name="TouchAbduction" type="TouchScreenButton" parent="UI"]
-position = Vector2( 465, 503 )
+position = Vector2( 1450, 503 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 action = "abduction"
@@ -246,9 +199,18 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[node name="Cow" parent="." instance=ExtResource( 1 )]
-position = Vector2( 819, 531 )
+[node name="Cow" parent="." instance=ExtResource( 9 )]
+position = Vector2( 909, 535 )
 collision_mask = 4
+texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png"
+
+[node name="Chicken" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1052, 535 )
+collision_mask = 4
+texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png"
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 388, 78 )
 
 [node name="Ufo" parent="." instance=ExtResource( 2 )]
 position = Vector2( 818, 148 )
@@ -275,7 +237,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 80.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]
