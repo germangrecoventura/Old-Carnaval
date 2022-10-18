@@ -8,6 +8,7 @@ onready var touchAbduction = $UI/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
 onready var colorRect = $ColorRect
+onready var animals_abducted = []
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
@@ -18,6 +19,9 @@ export (int) var dificulty
 
 func _add_points(points_to_add):
 	points += points_to_add
+	
+func add_animal(name):
+	animals_abducted.append(name)
 
 func _ready():
 	points = 0
@@ -117,14 +121,14 @@ func _on_TimerGo_timeout():
 func _on_TimerTimeGame_timeout():
 	hide_ui()
 	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
-	if points == 1:
+	if !animals_abducted.has("Cow"):
+		transitionToFailed()
+	elif points == 1:
 		transitionToWinnerStarThree()
 	elif points == 2:
 		transitionToWinnerStarTwo()
-	elif points == 3:
-		transitionToWinnerStarOne()
 	else:
-		transitionToFailed()
+		transitionToWinnerStarOne()
 
 
 func _on_TimerFail_timeout():

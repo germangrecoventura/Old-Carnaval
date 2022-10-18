@@ -83,9 +83,9 @@ position = Vector2( -371, 0 )
 texture = ExtResource( 12 )
 
 [node name="Record" type="Label" parent="Panel/RecordActual"]
-margin_left = -146.667
+margin_left = -36.0
 margin_top = -36.0
-margin_right = 126.333
+margin_right = 115.0
 margin_bottom = 28.0
 custom_fonts/font = SubResource( 1 )
 
