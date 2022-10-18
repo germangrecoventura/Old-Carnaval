@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cow.png-296dbec12869e77c5b7de411d8fea1ed.stex"
+path="res://.import/MalEfecto.png-105dd1bdfeee7e03621951690ff91a61.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/cow.png"
-dest_files=[ "res://.import/cow.png-296dbec12869e77c5b7de411d8fea1ed.stex" ]
+source_file="res://assets/entity/MalEfecto.png"
+dest_files=[ "res://.import/MalEfecto.png-105dd1bdfeee7e03621951690ff91a61.stex" ]
 
 [params]
 
