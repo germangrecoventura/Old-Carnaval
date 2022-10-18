@@ -224,11 +224,20 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 50.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]
 wait_time = 4.2
+
+[node name="TimerWinnerOne" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerTwo" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerThree" type="Timer" parent="."]
+wait_time = 3.88
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
@@ -245,3 +254,6 @@ wait_time = 4.2
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
 [connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]
 [connection signal="timeout" from="TimerFail" to="." method="_on_TimerFail_timeout"]
+[connection signal="timeout" from="TimerWinnerOne" to="." method="_on_TimerWinnerOne_timeout"]
+[connection signal="timeout" from="TimerWinnerTwo" to="." method="_on_TimerWinnerTwo_timeout"]
+[connection signal="timeout" from="TimerWinnerThree" to="." method="_on_TimerWinnerThree_timeout"]

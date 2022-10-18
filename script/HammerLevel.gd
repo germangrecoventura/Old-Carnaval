@@ -6,6 +6,8 @@ onready var touchLeft = $UI/TouchLeft
 onready var touchRight = $UI/TouchRight
 onready var touchAbduction = $UI/TouchAbduction
 onready var audioStream = $SFX
+onready var tween = $Tween
+onready var colorRect = $UI/ColorRect
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
@@ -46,53 +48,55 @@ func show_ui():
 	touchRight.visible = true
 	touchAbduction.visible = true
 	
+func transition(time) -> void:
+	#tween.interpolate_property(colorRect,"color",Color(0,0,0,0),Color(0,0,0,0.70),4.16)
+	tween.interpolate_property(colorRect,"color",Color(0,0,0,0),Color(0,0,0,0.70),time)
+	tween.start()
 	
 func transitionToFailed():
 	$TimerFail.start()
-	$AnimationPlayer.play("fade")
+	transition(4.16)
 	var audio_file = "res://sound/losegamemusic.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
 	
 func transitionToWinnerStarOne():
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	paused = load(SceneWinnerOneStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
-	paused.level = "HammerLevel"
-	paused.dificulty = dificulty
-	paused.pointNow = points
-	paused.update_points()
-	add_child(paused)
-	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
+	$TimerWinnerOne.start()
+	transition(3.88)
+	var audio_file = "res://sound/winneris.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
+	
+	#$AnimationPlayer.play("fade")
+	#yield(get_tree().create_timer(1), "timeout")
+	
 	
 func transitionToWinnerStarTwo():
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	paused = load(SceneWinnerTwoStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
-	paused.level = "HammerLevel"
-	paused.dificulty = dificulty
-	paused.pointNow = points
-	paused.update_points()
-	add_child(paused)
-	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
+	$TimerWinnerTwo.start()
+	transition(3.88)
+	var audio_file = "res://sound/winneris.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
+	#$AnimationPlayer.play("fade")
+	#yield(get_tree().create_timer(1), "timeout")
+	
 	
 func transitionToWinnerStarThree():
-	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	paused = load(SceneWinnerThreeStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
-	paused.level = "HammerLevel"
-	paused.dificulty = dificulty
-	paused.pointNow = points
-	paused.update_points()
-	add_child(paused)
-	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
+	#tween.interpolate_property($UI/ColorRect,"position",self.position,Vector2(self.position.x,123.75),2.0)
+	#tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,0),2.0)
+	#tween.start()
+	#$AnimationPlayer.play("fade")
+	#yield(get_tree().create_timer(1), "timeout")
+	$TimerWinnerThree.start()
+	transition(3.88)
+	var audio_file = "res://sound/winneris.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
+	
 	
 	
 func _on_TimerCountDown_timeout():
@@ -141,6 +145,44 @@ func _on_TimerFail_timeout():
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.update_maximus_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+
+
+func _on_TimerWinnerOne_timeout():
+	audioStream.stop()
+	paused = load(SceneWinnerOneStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+
+
+func _on_TimerWinnerTwo_timeout():
+	audioStream.stop()
+	paused = load(SceneWinnerTwoStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true
+
+func _on_TimerWinnerThree_timeout():
+	audioStream.stop()
+	paused = load(SceneWinnerThreeStar).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.pointNow = points
+	paused.update_points()
 	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
