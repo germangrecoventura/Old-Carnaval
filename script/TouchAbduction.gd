@@ -32,10 +32,12 @@ func _on_TimerAbduct_timeout():
 func _on_TouchAbduction_pressed():
 	hide_ui()
 	$"../../Ufo/Light/TimerAbduct".start()
+	$"../../TimerTimeGame".set_paused(true)
 	light_down()
 
 
 func _on_TimerReturnLight_timeout():
 	show_ui()
+	$"../../TimerTimeGame".set_paused(false)
 	$"../../Ufo/Light/Area2D".set_process(true)
 	
