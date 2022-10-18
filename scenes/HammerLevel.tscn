@@ -214,8 +214,9 @@ anims/light_back = SubResource( 8 )
 autostart = true
 
 [node name="TimerStart" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.79
 one_shot = true
+autostart = true
 
 [node name="TimerGo" type="Timer" parent="."]
 wait_time = 2.0

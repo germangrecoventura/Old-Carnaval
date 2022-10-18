@@ -26,12 +26,11 @@ func _ready():
 	get_tree().paused = true
 	hide_ui()
 	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
-	$TimerStart.start()
+	#$TimerStart.start()
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
-	#$AnimationPlayer.play("light")
 
 func on_information_quit() -> void:
 	paused = null
@@ -102,23 +101,20 @@ func transitionToWinnerStarThree():
 	
 	
 func _on_TimerCountDown_timeout():
-	if time != 1:
+	if time > 1:
 		time -= 1
 		get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
 	else:
-		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
+		$TimerCountDown.stop()
+		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
 		var sfx = load(audio_file)
 		audioStream.stream = sfx
-	
+		audioStream.play()
+		yield(get_tree().create_timer(0.90), "timeout")
+		audioStream.stop()
+
 
 func _on_TimerStart_timeout():
-	#var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
-	#var sfx = load(audio_file)
-	#audioStream.stream = sfx
-	audioStream.play()
-	yield(get_tree().create_timer(1), "timeout")
-	audioStream.stop()
-	$TimerGo.start()
 	get_tree().get_nodes_in_group("countdown")[0].text = "Go"
 	show_ui()
 	$TimerGo.start()
