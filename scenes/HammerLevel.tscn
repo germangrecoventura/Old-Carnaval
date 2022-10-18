@@ -66,6 +66,16 @@ position = Vector2( 1052, 535 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png"
 
+[node name="Panda" parent="." instance=ExtResource( 9 )]
+position = Vector2( 575, 535 )
+collision_mask = 4
+texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/panda.png"
+
+[node name="Panda2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1284, 535 )
+collision_mask = 4
+texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/zebra.png"
+
 [node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 388, 78 )
 
