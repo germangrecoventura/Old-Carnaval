@@ -25,8 +25,7 @@ func _ready():
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	hide_ui()
-	get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
-	#$TimerStart.start()
+	$UI/CountDown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -49,16 +48,12 @@ func show_ui():
 	
 	
 func transitionToFailed():
+	$TimerFail.start()
 	$AnimationPlayer.play("fade")
-	yield(get_tree().create_timer(1), "timeout")
-	paused = load(SceneFailed).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
-	paused.level = "HammerLevel"
-	paused.dificulty = dificulty
-	paused.update_maximus_points()
-	add_child(paused)
-	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
+	var audio_file = "res://sound/losegamemusic.ogg"
+	var sfx = load(audio_file)
+	audioStream.stream = sfx
+	audioStream.play()
 	
 func transitionToWinnerStarOne():
 	$AnimationPlayer.play("fade")
@@ -103,7 +98,7 @@ func transitionToWinnerStarThree():
 func _on_TimerCountDown_timeout():
 	if time > 1:
 		time -= 1
-		get_tree().get_nodes_in_group("countdown")[0].text = String(time%60)
+		$UI/CountDown.text = String(time%60)
 	else:
 		$TimerCountDown.stop()
 		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
@@ -115,13 +110,13 @@ func _on_TimerCountDown_timeout():
 
 
 func _on_TimerStart_timeout():
-	get_tree().get_nodes_in_group("countdown")[0].text = "Go"
+	$UI/CountDown.text = "Go"
 	show_ui()
 	$TimerGo.start()
 	
 
 func _on_TimerGo_timeout():
-	get_tree().get_nodes_in_group("countdown")[0].queue_free()
+	$UI/CountDown.queue_free()
 	$TimerTimeGame.start()
 	
 
@@ -136,12 +131,16 @@ func _on_TimerTimeGame_timeout():
 	elif points == 3:
 		transitionToWinnerStarOne()
 	else:
-		var audio_file = "res://sound/losegamemusic.ogg"
-		var sfx = load(audio_file)
-		audioStream.stream = sfx
-		audioStream.play()
-		$TimerFail.start()
-	
+		transitionToFailed()
+
 
 func _on_TimerFail_timeout():
-	transitionToFailed()
+	audioStream.stop()
+	paused = load(SceneFailed).instance()
+	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.level = "HammerLevel"
+	paused.dificulty = dificulty
+	paused.update_maximus_points()
+	add_child(paused)
+	paused.connect("e",self,"on_information_quit")
+	get_tree().paused = true

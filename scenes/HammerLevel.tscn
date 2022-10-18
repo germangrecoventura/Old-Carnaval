@@ -48,6 +48,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "fade"
+length = 4.16
 tracks/0/type = "value"
 tracks/0/path = NodePath("UI/ColorRect:color")
 tracks/0/interp = 1
@@ -55,7 +56,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.517647 ) ]
@@ -123,7 +124,7 @@ script = ExtResource( 3 )
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="CountDown" type="Label" parent="UI" groups=["countdown"]]
+[node name="CountDown" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -41.0
@@ -223,11 +224,11 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 80.0
+wait_time = 12.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.2
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
