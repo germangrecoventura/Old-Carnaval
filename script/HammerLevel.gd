@@ -7,7 +7,7 @@ onready var touchRight = $UI/TouchRight
 onready var touchAbduction = $UI/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
-onready var colorRect = $UI/ColorRect
+onready var colorRect = $ColorRect
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
@@ -49,7 +49,6 @@ func show_ui():
 	touchAbduction.visible = true
 	
 func transition(time) -> void:
-	#tween.interpolate_property(colorRect,"color",Color(0,0,0,0),Color(0,0,0,0.70),4.16)
 	tween.interpolate_property(colorRect,"color",Color(0,0,0,0),Color(0,0,0,0.70),time)
 	tween.start()
 	
@@ -69,9 +68,6 @@ func transitionToWinnerStarOne():
 	audioStream.stream = sfx
 	audioStream.play()
 	
-	#$AnimationPlayer.play("fade")
-	#yield(get_tree().create_timer(1), "timeout")
-	
 	
 func transitionToWinnerStarTwo():
 	$TimerWinnerTwo.start()
@@ -80,16 +76,9 @@ func transitionToWinnerStarTwo():
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
-	#$AnimationPlayer.play("fade")
-	#yield(get_tree().create_timer(1), "timeout")
 	
 	
 func transitionToWinnerStarThree():
-	#tween.interpolate_property($UI/ColorRect,"position",self.position,Vector2(self.position.x,123.75),2.0)
-	#tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,0),2.0)
-	#tween.start()
-	#$AnimationPlayer.play("fade")
-	#yield(get_tree().create_timer(1), "timeout")
 	$TimerWinnerThree.start()
 	transition(3.88)
 	var audio_file = "res://sound/winneris.ogg"
