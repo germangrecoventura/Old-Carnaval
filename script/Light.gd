@@ -1,10 +1,19 @@
 extends Sprite
 onready var tween = $"../../Tween"
 onready var abduct = true
+onready var touchLeft = $"../../UI/TouchLeft"
+onready var touchRight = $"../../UI/TouchRight"
+onready var touchAbduction = $"../../UI/TouchAbduction"
+
+func hide_ui():
+	touchLeft.visible = false
+	touchRight.visible = false
+	self.visible = false
+
 
 func light_up() -> void:
-	tween.interpolate_property(self,"position",self.position,Vector2(self.position.x,123.75),2.0)
-	tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,0),2.0)
+	tween.interpolate_property(self,"position",self.position,Vector2(self.position.x,67.094),2.0)
+	tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,-0.001),2.0)
 	tween.start()
 	
 func abduct(body) -> void:
@@ -22,6 +31,7 @@ func abduct(body) -> void:
 	if name == "Cow":
 		$"../..".add_animal(name)
 		$"../../TimerTimeGame".stop()
+		hide_ui()
 		get_parent().get_parent()._on_TimerTimeGame_timeout()
 	else:
 		self.texture= load("res://assets/entity/luz.png")
