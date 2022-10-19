@@ -44,11 +44,6 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-
 [node name="TouchLeft" type="TouchScreenButton" parent="UI"]
 position = Vector2( 28, 503 )
 scale = Vector2( 2, 2 )
@@ -94,7 +89,7 @@ texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/zebra.png"
 position = Vector2( 261, 97 )
 
 [node name="Ufo" type="Sprite" parent="."]
-position = Vector2( 813, 299 )
+position = Vector2( 813, 283 )
 scale = Vector2( 0.280802, 0.254218 )
 texture = ExtResource( 1 )
 
@@ -151,6 +146,13 @@ wait_time = 3.88
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -669.0
+margin_top = -713.0
+margin_right = 2246.0
+margin_bottom = 1177.0
+color = Color( 0, 0, 0, 0 )
 
 [connection signal="pressed" from="UI/TouchLeft" to="UI/TouchLeft" method="_on_TouchLeft_pressed"]
 [connection signal="pressed" from="UI/TouchRight" to="UI/TouchRight" method="_on_TouchRight_pressed"]
