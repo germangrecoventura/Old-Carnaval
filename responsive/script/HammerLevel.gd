@@ -7,7 +7,8 @@ onready var touchRight = $UI/Control2/TouchRight
 onready var touchAbduction = $UI/Control3/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
-onready var colorRect = $ColorRect
+onready var colorRect = $UI/ColorRect
+onready var countdown = $UI/CountDown
 onready var animals_abducted = []
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
@@ -31,7 +32,7 @@ func _ready():
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	hide_ui()
-	$UI/CountDown.text = String(time%60)
+	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -95,7 +96,7 @@ func transitionToWinnerStarThree():
 func _on_TimerCountDown_timeout():
 	if time > 1:
 		time -= 1
-		$UI/CountDown.text = String(time%60)
+		countdown.text = String(time%60)
 	else:
 		$TimerCountDown.stop()
 		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
@@ -107,13 +108,13 @@ func _on_TimerCountDown_timeout():
 
 
 func _on_TimerStart_timeout():
-	$UI/CountDown.text = "Go"
+	countdown.text = "Go"
 	show_ui()
 	$TimerGo.start()
 	
 
 func _on_TimerGo_timeout():
-	$UI/CountDown.queue_free()
+	countdown.queue_free()
 	$TimerTimeGame.start()
 	
 
