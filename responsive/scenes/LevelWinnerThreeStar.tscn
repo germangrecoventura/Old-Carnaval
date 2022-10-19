@@ -19,10 +19,10 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Panel" type="TextureRect" parent="."]
-margin_left = 425.0
-margin_top = 45.0
-margin_right = 1698.0
-margin_bottom = 1337.0
+margin_left = 364.0
+margin_top = 84.0
+margin_right = 1637.0
+margin_bottom = 1376.0
 rect_scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 3 )
 expand = true

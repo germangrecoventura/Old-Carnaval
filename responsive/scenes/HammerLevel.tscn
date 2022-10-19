@@ -44,52 +44,57 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 1
 
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
 [node name="TouchLeft" type="TouchScreenButton" parent="UI"]
-position = Vector2( 52, 503 )
+position = Vector2( 28, 503 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 action = "touchLeft"
 script = ExtResource( 4 )
 
 [node name="TouchRight" type="TouchScreenButton" parent="UI"]
-position = Vector2( 283, 503 )
+position = Vector2( 187, 655 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 action = "touchRight"
 script = ExtResource( 10 )
 
 [node name="TouchAbduction" type="TouchScreenButton" parent="UI"]
-position = Vector2( 1450, 503 )
+position = Vector2( 1248, 506 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 6 )
 action = "abduction"
 script = ExtResource( 11 )
 
 [node name="Cow" parent="." instance=ExtResource( 9 )]
-position = Vector2( 909, 535 )
+position = Vector2( 819, 645 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png"
 
 [node name="Chicken" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1052, 535 )
+position = Vector2( 1012, 645 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png"
 
 [node name="Panda" parent="." instance=ExtResource( 9 )]
-position = Vector2( 575, 535 )
+position = Vector2( 575, 645 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/panda.png"
 
 [node name="Zebra" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1284, 535 )
+position = Vector2( 1154, 645 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/zebra.png"
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 388, 78 )
+position = Vector2( 261, 97 )
 
 [node name="Ufo" type="Sprite" parent="."]
-position = Vector2( 813.45, 146.951 )
+position = Vector2( 813, 299 )
 scale = Vector2( 0.280802, 0.254218 )
 texture = ExtResource( 1 )
 
@@ -146,12 +151,6 @@ wait_time = 3.88
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_top = -1.0
-margin_right = 1601.0
-margin_bottom = 735.0
-color = Color( 0, 0, 0, 0 )
 
 [connection signal="pressed" from="UI/TouchLeft" to="UI/TouchLeft" method="_on_TouchLeft_pressed"]
 [connection signal="pressed" from="UI/TouchRight" to="UI/TouchRight" method="_on_TouchRight_pressed"]

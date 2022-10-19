@@ -22,10 +22,10 @@ margin_bottom = 49.0
 script = ExtResource( 3 )
 
 [node name="Panel" type="TextureRect" parent="."]
-margin_left = 143.0
-margin_top = 13.0
-margin_right = 1311.0
-margin_bottom = 1243.0
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 1232.0
+margin_bottom = 1278.0
 rect_scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 10 )
 expand = true
