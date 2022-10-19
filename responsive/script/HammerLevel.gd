@@ -67,7 +67,7 @@ func transitionToFailed():
 	
 func transitionToWinnerStarOne():
 	$TimerWinnerOne.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -76,7 +76,7 @@ func transitionToWinnerStarOne():
 	
 func transitionToWinnerStarTwo():
 	$TimerWinnerTwo.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -85,7 +85,7 @@ func transitionToWinnerStarTwo():
 	
 func transitionToWinnerStarThree():
 	$TimerWinnerThree.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
