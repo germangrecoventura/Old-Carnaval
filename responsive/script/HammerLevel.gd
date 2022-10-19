@@ -121,14 +121,16 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	hide_ui()
-	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	if !animals_abducted.has("Cow"):
 		transitionToFailed()
 	elif points == 1:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarThree()
 	elif points == 2:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarTwo()
 	else:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarOne()
 
 

@@ -4,7 +4,7 @@ var leardboard = {"HammerLevel": [0,0,0]}
 
 func update_leardboard(level,dificulty,point):
 	var points = leardboard.get(level)
-	if points[dificulty] < point:
+	if points[dificulty] > point:
 		var list = []
 		var i = 0
 		while(i != dificulty):
