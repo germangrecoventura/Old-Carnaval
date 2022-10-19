@@ -2,9 +2,9 @@ extends Node2D
 
 var points
 var time = 3
-onready var touchLeft = $UI/TouchLeft
-onready var touchRight = $UI/TouchRight
-onready var touchAbduction = $UI/TouchAbduction
+onready var touchLeft = $UI/Control2/TouchLeft
+onready var touchRight = $UI/Control2/TouchRight
+onready var touchAbduction = $UI/Control3/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
 onready var colorRect = $ColorRect

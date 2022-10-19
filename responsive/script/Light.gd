@@ -1,9 +1,9 @@
 extends Sprite
 onready var tween = $"../../Tween"
 onready var abduct = true
-onready var touchLeft = $"../../UI/TouchLeft"
-onready var touchRight = $"../../UI/TouchRight"
-onready var touchAbduction = $"../../UI/TouchAbduction"
+onready var touchLeft = $"../../UI/Control2/TouchLeft"
+onready var touchRight = $"../../UI/Control2/TouchRight"
+onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
 
 func hide_ui():
 	touchLeft.visible = false

@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=1]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=3]
 [ext_resource path="res://script/TouchScreenButton.gd" type="Script" id=4]
 [ext_resource path="res://script/Light.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/SinPulsar.png" type="Texture" id=6]
 [ext_resource path="res://assets/entity/luz.png" type="Texture" id=7]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Animal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://script/TouchRight.gd" type="Script" id=10]
 [ext_resource path="res://script/TouchAbduction.gd" type="Script" id=11]
 [ext_resource path="res://assets/Fondo_Granja.png" type="Texture" id=12]
+[ext_resource path="res://assets/Flecha.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -36,7 +37,11 @@ custom_fonts/font = SubResource( 9 )
 align = 1
 valign = 1
 
-[node name="Background" type="TextureRect" parent="UI"]
+[node name="Control" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="UI/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -713.0
@@ -44,23 +49,38 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 1
 
-[node name="TouchLeft" type="TouchScreenButton" parent="UI"]
-position = Vector2( 28, 503 )
-scale = Vector2( 2, 2 )
-normal = ExtResource( 6 )
+[node name="Control2" type="Control" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -800.0
+margin_right = 1400.0
+
+[node name="TouchLeft" type="TouchScreenButton" parent="UI/Control2"]
+position = Vector2( 240, 634 )
+rotation = 3.14159
+scale = Vector2( 0.667683, 0.696517 )
+normal = ExtResource( 13 )
 action = "touchLeft"
 script = ExtResource( 4 )
 
-[node name="TouchRight" type="TouchScreenButton" parent="UI"]
-position = Vector2( 187, 655 )
-scale = Vector2( 2, 2 )
-normal = ExtResource( 6 )
+[node name="TouchRight" type="TouchScreenButton" parent="UI/Control2"]
+position = Vector2( 93, 648 )
+scale = Vector2( 0.668, 0.697 )
+normal = ExtResource( 13 )
 action = "touchRight"
 script = ExtResource( 10 )
 
-[node name="TouchAbduction" type="TouchScreenButton" parent="UI"]
-position = Vector2( 1248, 506 )
-scale = Vector2( 2, 2 )
+[node name="Control3" type="Control" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1400.0
+margin_top = -800.0
+
+[node name="TouchAbduction" type="TouchScreenButton" parent="UI/Control3"]
+position = Vector2( 1232, 579 )
+scale = Vector2( 0.52901, 0.654804 )
 normal = ExtResource( 6 )
 action = "abduction"
 script = ExtResource( 11 )
@@ -128,7 +148,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 800.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]
@@ -154,12 +174,12 @@ margin_right = 2246.0
 margin_bottom = 1177.0
 color = Color( 0, 0, 0, 0 )
 
-[connection signal="pressed" from="UI/TouchLeft" to="UI/TouchLeft" method="_on_TouchLeft_pressed"]
-[connection signal="pressed" from="UI/TouchRight" to="UI/TouchRight" method="_on_TouchRight_pressed"]
-[connection signal="pressed" from="UI/TouchAbduction" to="UI/TouchAbduction" method="_on_TouchAbduction_pressed"]
+[connection signal="pressed" from="UI/Control2/TouchLeft" to="UI/Control2/TouchLeft" method="_on_TouchLeft_pressed"]
+[connection signal="pressed" from="UI/Control2/TouchRight" to="UI/Control2/TouchRight" method="_on_TouchRight_pressed"]
+[connection signal="pressed" from="UI/Control3/TouchAbduction" to="UI/Control3/TouchAbduction" method="_on_TouchAbduction_pressed"]
 [connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="UI/TouchAbduction" method="_on_TimerAbduct_timeout"]
-[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="UI/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="UI/Control3/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="UI/Control3/TouchAbduction" method="_on_TimerReturnLight_timeout"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
