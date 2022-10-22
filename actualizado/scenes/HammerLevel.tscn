@@ -17,7 +17,7 @@
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Backward_BTN.png" type="Texture" id=15]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Forward_BTN.png" type="Texture" id=16]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Hangar_BTN.png" type="Texture" id=17]
-[ext_resource path="res://scenes/InformationHammerLevel.gd" type="Script" id=18]
+[ext_resource path="res://script/InformationHammerLevel.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -162,7 +162,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 3.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]

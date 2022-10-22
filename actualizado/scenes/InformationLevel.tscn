@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/UI/PNG/Accept/Information.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/PNG/Accept/Window.png" type="Texture" id=2]
-[ext_resource path="res://script/InformationHammerLevel.gd" type="Script" id=3]
+[ext_resource path="res://script/InformationLevel.gd" type="Script" id=3]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Play_BTN.png" type="Texture" id=4]
 [ext_resource path="res://assets/UI/PNG/Buttons/BTNs/Close_BTN.png" type="Texture" id=8]
 
