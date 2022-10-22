@@ -25,6 +25,7 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
+	$Cow.get_node("Body").set_material(load("res://scenes/Animal.tres"))
 	points = 0
 	#paused = load(SceneInformation).instance()
 	#$InformationLevel.text_panel("Abduct the cow with the fewest attempts. \n\n Watch out for the rest of the animals.")
