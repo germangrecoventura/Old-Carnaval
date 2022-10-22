@@ -2,12 +2,13 @@ extends Node2D
 
 var points
 var time = 3
-onready var touchLeft = $UI/TouchLeft
-onready var touchRight = $UI/TouchRight
-onready var touchAbduction = $UI/TouchAbduction
+onready var touchLeft = $UI/Control2/TouchLeft
+onready var touchRight = $UI/Control2/TouchRight
+onready var touchAbduction = $UI/Control3/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
-onready var colorRect = $ColorRect
+onready var colorRect = $UI/ColorRect
+onready var countdown = $UI/CountDown
 onready var animals_abducted = []
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
@@ -24,14 +25,15 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
+	$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
 	points = 0
-	paused = load(SceneInformation).instance()
-	paused.text_panel("Abduct the cow with the fewest attempts. \n\n Watch out for the rest of the animals.")
-	add_child(paused)
-	paused.connect("e",self,"on_information_quit")
+	#paused = load(SceneInformation).instance()
+	#$InformationLevel.text_panel("Abduct the cow with the fewest attempts. \n\n Watch out for the rest of the animals.")
+	#add_child(paused)
+	$InformationLevel.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	hide_ui()
-	$UI/CountDown.text = String(time%60)
+	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -66,7 +68,7 @@ func transitionToFailed():
 	
 func transitionToWinnerStarOne():
 	$TimerWinnerOne.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -75,7 +77,7 @@ func transitionToWinnerStarOne():
 	
 func transitionToWinnerStarTwo():
 	$TimerWinnerTwo.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -84,7 +86,7 @@ func transitionToWinnerStarTwo():
 	
 func transitionToWinnerStarThree():
 	$TimerWinnerThree.start()
-	transition(3.88)
+	transition(3.87)
 	var audio_file = "res://sound/winneris.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
@@ -95,7 +97,7 @@ func transitionToWinnerStarThree():
 func _on_TimerCountDown_timeout():
 	if time > 1:
 		time -= 1
-		$UI/CountDown.text = String(time%60)
+		countdown.text = String(time%60)
 	else:
 		$TimerCountDown.stop()
 		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
@@ -107,27 +109,29 @@ func _on_TimerCountDown_timeout():
 
 
 func _on_TimerStart_timeout():
-	$UI/CountDown.text = "Go"
+	countdown.text = "Go"
 	show_ui()
 	$TimerGo.start()
 	
 
 func _on_TimerGo_timeout():
-	$UI/CountDown.queue_free()
+	countdown.queue_free()
 	$TimerTimeGame.start()
 	
 
 
 func _on_TimerTimeGame_timeout():
 	hide_ui()
-	Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 	if !animals_abducted.has("Cow"):
 		transitionToFailed()
 	elif points == 1:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarThree()
 	elif points == 2:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarTwo()
 	else:
+		Gamehandler.update_leardboard("HammerLevel",dificulty,points)
 		transitionToWinnerStarOne()
 
 

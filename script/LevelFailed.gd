@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 signal e
 
@@ -14,7 +14,7 @@ func _on_Retry_pressed():
 
 func update_maximus_points():
 	var point = Gamehandler.leardboard.get(level)[dificulty]
-	$Panel/RecordActual/Record.text = String(point)
+	$Control/RecordActual/Record.text = String(point)
 
 func _on_Cancel_pressed():
 	get_tree().paused = false

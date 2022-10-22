@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 signal e
 
@@ -15,8 +15,8 @@ func _on_Retry_pressed():
 
 func update_points():
 	var point = Gamehandler.leardboard.get(level)[dificulty]
-	$Panel/RecordActual/Record.text = String(point)
-	$Panel/Score/Score.text = String(pointNow)
+	$Control/RecordActual/Record.text = String(point)
+	$Control/Score/Score.text = String(pointNow)
 
 func _on_Next_pressed():
 	get_tree().paused = false
