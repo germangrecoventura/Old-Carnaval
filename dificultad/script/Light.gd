@@ -24,6 +24,10 @@ func abduct(body) -> void:
 	move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,310),2.0)
 	yield(get_tree().create_timer(2), "timeout")
 	body.queue_free()
+	if name != "Cow":
+		$"../../ColorRect".set_material(load("res://shader/Glitch.tres"))
+		yield(get_tree().create_timer(1), "timeout")
+		$"../../ColorRect".set_material(null)		
 	$TimerReturnLight.start()
 	light_up()
 	yield(get_tree().create_timer(2), "timeout")

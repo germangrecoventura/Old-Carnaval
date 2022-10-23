@@ -132,8 +132,8 @@ scale = Vector2( 0.280802, 0.254218 )
 texture = ExtResource( 9 )
 
 [node name="Light" type="Sprite" parent="Ufo"]
-position = Vector2( 3.18652, 67.0938 )
-scale = Vector2( 0.697964, -0.000697471 )
+position = Vector2( 3.18652, 67.0298 )
+scale = Vector2( 0.697964, -0.00092755 )
 texture = ExtResource( 10 )
 script = ExtResource( 18 )
 
@@ -184,6 +184,15 @@ wait_time = 3.88
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1395.0
+margin_bottom = 804.0
+color = Color( 1, 1, 1, 0 )
 
 [node name="InformationLevel" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 4 )
