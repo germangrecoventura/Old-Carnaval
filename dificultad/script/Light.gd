@@ -4,6 +4,7 @@ onready var abduct = true
 onready var touchLeft = $"../../UI/Control2/TouchLeft"
 onready var touchRight = $"../../UI/Control2/TouchRight"
 onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
+onready var glitch = $"../../UI/Glitch"
 
 func hide_ui():
 	touchLeft.visible = false
@@ -25,9 +26,9 @@ func abduct(body) -> void:
 	yield(get_tree().create_timer(2), "timeout")
 	body.queue_free()
 	if name != "Cow":
-		$"../../ColorRect".set_material(load("res://shader/Glitch.tres"))
+		glitch.set_material(load("res://shader/Glitch.tres"))
 		yield(get_tree().create_timer(1), "timeout")
-		$"../../ColorRect".set_material(null)		
+		glitch.set_material(null)		
 	$TimerReturnLight.start()
 	light_up()
 	yield(get_tree().create_timer(2), "timeout")

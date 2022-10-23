@@ -4,6 +4,7 @@ onready var touchRight = $"../../Control2/TouchRight"
 onready var light = $"../../../Ufo/Light"
 onready var tween = $"../../../Tween"
 onready var areaLight = $"../../../Ufo/Light/Area2D/CollisionShape2D"
+onready var glitch = $"../../Glitch"
 
 
 func hide_ui():
@@ -47,11 +48,11 @@ func _on_TouchAbduction_pressed():
 		light_down()
 	else:
 		light_glitch()
-		$"../../../ColorRect".set_material(load("res://shader/Glitch.tres"))
+		glitch.set_material(load("res://shader/Glitch.tres"))
 
 
 func _on_TimerReturnLight_timeout():
-	$"../../../ColorRect".set_material(null)
+	glitch.set_material(null)
 	show_ui()
 	$"../../../TimerTimeGame".set_paused(false)
 	areaLight.disabled = true

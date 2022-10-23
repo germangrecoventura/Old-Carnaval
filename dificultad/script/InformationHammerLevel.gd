@@ -21,7 +21,9 @@ func _on_TimerTransitionGame_timeout():
 	self.queue_free()
 	
 func _on_Cancel_pressed():
-	get_tree().paused = false
-	emit_signal("e")
-	get_tree().change_scene("res://scenes/Menu.tscn")
-	self.queue_free()
+	if selected:
+		selected = false
+		get_tree().paused = false
+		emit_signal("e")
+		get_tree().change_scene("res://scenes/Menu.tscn")
+		self.queue_free()
