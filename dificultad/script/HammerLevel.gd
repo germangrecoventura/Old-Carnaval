@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var points
 var time = 3

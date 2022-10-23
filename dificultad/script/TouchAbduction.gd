@@ -4,7 +4,7 @@ onready var touchRight = $"../../Control2/TouchRight"
 onready var light = $"../../../Ufo/Light"
 onready var tween = $"../../../Tween"
 onready var areaLight = $"../../../Ufo/Light/Area2D/CollisionShape2D"
-onready var glitch = $"../../Glitch"
+onready var glitch = $"../../../Control/Glitch"
 
 
 func hide_ui():
