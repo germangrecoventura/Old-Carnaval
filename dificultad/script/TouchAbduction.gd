@@ -20,8 +20,8 @@ func show_ui():
 
 
 func light_down() -> void:
-	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,771.694),2.0)
-	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,3.095),2.0)
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,394.286),2.0)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,1.526),2.0)
 	tween.start()
 	
 func light_glitch() -> void:
@@ -32,8 +32,8 @@ func light_glitch() -> void:
 
 func _on_TimerAbduct_timeout():
 	$"../../../Ufo/Light/TimerReturnLight".start()
-	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,123.75),2.0)
-	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0),2.0)
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,-42.857),2.0)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,-0),2.0)
 	tween.start()
 	
 

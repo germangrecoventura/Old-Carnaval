@@ -22,7 +22,7 @@ func abduct(body) -> void:
 	print(body) # Replace with function body.
 	get_parent().get_parent()._add_points(1)
 	var move_tween:SceneTreeTween = get_tree().create_tween()
-	move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,310),2.0)
+	move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,280),2.0)
 	yield(get_tree().create_timer(2), "timeout")
 	body.queue_free()
 	if name != "Cow":
