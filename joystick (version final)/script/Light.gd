@@ -2,8 +2,6 @@ extends Sprite
 onready var tween = $"../../Tween"
 onready var abduct = true
 onready var touch = $"../../UI/Control2/Virtual joystick"
-#onready var touchLeft = $"../../UI/Control2/TouchLeft"
-#onready var touchRight = $"../../UI/Control2/TouchRight"
 onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
 onready var glitch = $"../../Control/Glitch"
 
