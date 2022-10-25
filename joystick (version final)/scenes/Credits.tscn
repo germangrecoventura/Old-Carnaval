@@ -71,23 +71,23 @@ bbcode_text = "Created by Germán Greco Ventura and David Salamanca
 
 Assets used
 UI :
-[url=<https://opengameart.org/content/space-shooter-game-user-interface
->]https://opengameart.org/content/space-shooter-game-user-interface[/url] 
+[url=https://opengameart.org/content/space-shooter-game-user-interface
+]https://opengameart.org/content/space-shooter-game-user-interface[/url] 
 
 Animals:
-[url=<https://www.kenney.nl/assets/animal-pack-redux>]https://www.kenney.nl/assets/animal-pack-redux[/url]
+[url=https://www.kenney.nl/assets/animal-pack-redux]https://www.kenney.nl/assets/animal-pack-redux[/url]
 
 
 Font:
-[url=<https://www.dafont.com/arcane-nine.font>]https://www.dafont.com/arcane-nine.font[/url]
+[url=https://www.dafont.com/arcane-nine.font]https://www.dafont.com/arcane-nine.font[/url]
 
 Sounds:
-[url=<https://opengameart.org/content/lose-game-short-music-clip>]https://opengameart.org/content/lose-game-short-music-clip[/url]
+[url=https://opengameart.org/content/lose-game-short-music-clip]https://opengameart.org/content/lose-game-short-music-clip[/url]
 
 
-[url=<https://opengameart.org/content/and-the-winner-is>]https://opengameart.org/content/and-the-winner-is[/url]
+[url=https://opengameart.org/content/and-the-winner-is]https://opengameart.org/content/and-the-winner-is[/url]
 
-[url=<https://opengameart.org/content/race-start-beeps>]https://opengameart.org/content/race-start-beeps[/url]
+[url=https://opengameart.org/content/race-start-beeps]https://opengameart.org/content/race-start-beeps[/url]
 "
 text = "Created by Germán Greco Ventura and David Salamanca
 
@@ -129,4 +129,5 @@ margin_bottom = 216.0
 icon = ExtResource( 4 )
 flat = true
 
+[connection signal="meta_clicked" from="Control2/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="Control2/Container/Return" to="." method="_on_Return_pressed"]
