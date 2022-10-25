@@ -2,8 +2,6 @@ extends Node
 
 var points
 var time = 3
-#onready var touchLeft = $UI/Control2/TouchLeft
-#onready var touchRight = $UI/Control2/TouchRight
 onready var touch = $"UI/Control2/Virtual joystick"
 onready var touchAbduction = $UI/Control3/TouchAbduction
 onready var audioStream = $SFX
@@ -30,9 +28,6 @@ func _ready():
 	$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
 	touch.visible = false
 	points = 0
-	#paused = load(SceneInformation).instance()
-	#$InformationLevel.text_panel("Abduct the cow with the fewest attempts. \n\n Watch out for the rest of the animals.")
-	#add_child(paused)
 	$InformationLevel.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 	hide_ui()
@@ -47,15 +42,11 @@ func on_information_quit() -> void:
 
 
 func hide_ui():
-	#touchLeft.visible = false
-	#touchRight.visible = false
 	touch.visible = false
 	touchAbduction.visible = false
 
 
 func show_ui():
-	#touchLeft.visible = true
-	#touchRight.visible = true
 	touch.visible = true
 	touchAbduction.visible = true
 	

@@ -9,15 +9,15 @@ onready var glitch = $"../../../Control/Glitch"
 
 
 func hide_ui():
-	##touchLeft.visible = false
-	#touchRight.visible = false
+	touch.set_process_input(false)
+	self.set_process_input(false)
 	touch.visible = false
 	self.visible = false
 
 
 func show_ui():
-	#touchLeft.visible = true
-	#touchRight.visible = true
+	touch.set_process_input(true)
+	self.set_process_input(true)
 	touch.visible = true
 	self.visible = true
 
