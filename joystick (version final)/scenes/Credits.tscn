@@ -66,19 +66,45 @@ margin_top = -184.0
 margin_right = 553.0
 margin_bottom = 185.0
 custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Created by Germán Greco Ventura and David Salamanca
+
+Assets used
+UI :
+[url=<https://opengameart.org/content/space-shooter-game-user-interface
+>]https://opengameart.org/content/space-shooter-game-user-interface[/url] 
+
+Animals:
+[url=<https://www.kenney.nl/assets/animal-pack-redux>]https://www.kenney.nl/assets/animal-pack-redux[/url]
+
+
+Font:
+[url=<https://www.dafont.com/arcane-nine.font>]https://www.dafont.com/arcane-nine.font[/url]
+
+Sounds:
+[url=<https://opengameart.org/content/lose-game-short-music-clip>]https://opengameart.org/content/lose-game-short-music-clip[/url]
+
+
+[url=<https://opengameart.org/content/and-the-winner-is>]https://opengameart.org/content/and-the-winner-is[/url]
+
+[url=<https://opengameart.org/content/race-start-beeps>]https://opengameart.org/content/race-start-beeps[/url]
+"
 text = "Created by Germán Greco Ventura and David Salamanca
 
 Assets used
-UI : https://opengameart.org/content/space-shooter-game-user-interface
+UI :
+https://opengameart.org/content/space-shooter-game-user-interface 
 
 Animals:
 https://www.kenney.nl/assets/animal-pack-redux
+
 
 Font:
 https://www.dafont.com/arcane-nine.font
 
 Sounds:
 https://opengameart.org/content/lose-game-short-music-clip
+
 
 https://opengameart.org/content/and-the-winner-is
 

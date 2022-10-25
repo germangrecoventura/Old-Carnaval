@@ -134,7 +134,7 @@ func _on_TimerTimeGame_timeout():
 func _on_TimerFail_timeout():
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.retry = "res://scenes/UfoLevel2.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.update_maximus_points()
@@ -146,7 +146,7 @@ func _on_TimerFail_timeout():
 func _on_TimerWinnerOne_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerOneStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.retry = "res://scenes/UfoLevel2.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -159,7 +159,7 @@ func _on_TimerWinnerOne_timeout():
 func _on_TimerWinnerTwo_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerTwoStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.retry = "res://scenes/UfoLevel2.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -171,7 +171,7 @@ func _on_TimerWinnerTwo_timeout():
 func _on_TimerWinnerThree_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerThreeStar).instance()
-	paused.retry = "res://scenes/HammerLevel.tscn"
+	paused.retry = "res://scenes/UfoLevel2.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points

@@ -27,7 +27,7 @@ extents = Vector2( 4.15619, 237.346 )
 size = 67
 font_data = ExtResource( 2 )
 
-[node name="HammerLevel" type="Node"]
+[node name="UfoLevel1" type="Node"]
 script = ExtResource( 3 )
 
 [node name="Control" type="Control" parent="."]

@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/abduccion.png" type="Texture" id=2]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Animal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Animal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/InformationLevel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=8]
 [ext_resource path="res://script/Light.gd" type="Script" id=9]
@@ -27,7 +27,7 @@ extents = Vector2( 4.15619, 237.346 )
 size = 67
 font_data = ExtResource( 3 )
 
-[node name="Ufo2" type="Node"]
+[node name="UfoLevel2" type="Node"]
 script = ExtResource( 8 )
 
 [node name="Control" type="Control" parent="."]
@@ -93,31 +93,31 @@ margin_left = 5.0
 margin_right = 5.0
 color = Color( 0, 0, 0, 0 )
 
-[node name="Cow" parent="." instance=ExtResource( 5 )]
+[node name="Cow" parent="." instance=ExtResource( 6 )]
 position = Vector2( 819, 621 )
 collision_mask = 5
 speed = 5
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png"
 
-[node name="Chicken" parent="." instance=ExtResource( 5 )]
+[node name="Chicken" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1012, 645 )
 collision_mask = 5
 speed = 5
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png"
 
-[node name="Panda" parent="." instance=ExtResource( 5 )]
+[node name="Panda" parent="." instance=ExtResource( 6 )]
 position = Vector2( 575, 645 )
 collision_mask = 5
 speed = 5
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/panda.png"
 
-[node name="Chick" parent="." instance=ExtResource( 5 )]
+[node name="Chick" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1154, 615 )
 collision_mask = 5
 speed = 5
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chick.png"
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 6 )]
+[node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 261, 97 )
 
 [node name="Ufo" type="Sprite" parent="."]
