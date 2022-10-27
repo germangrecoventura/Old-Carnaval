@@ -157,7 +157,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 9000.0
+wait_time = 80.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]

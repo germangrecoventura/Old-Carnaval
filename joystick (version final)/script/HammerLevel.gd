@@ -42,11 +42,15 @@ func on_information_quit() -> void:
 
 
 func hide_ui():
+	touch.set_process_input(false)
+	touchAbduction.set_process_input(false)
 	touch.visible = false
 	touchAbduction.visible = false
 
 
 func show_ui():
+	touch.set_process_input(true)
+	touchAbduction.set_process_input(true)
 	touch.visible = true
 	touchAbduction.visible = true
 	
@@ -134,7 +138,7 @@ func _on_TimerTimeGame_timeout():
 func _on_TimerFail_timeout():
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
-	paused.retry = "res://scenes/UfoLevel2.tscn"
+	paused.retry = "res://scenes/UfoLevel1.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.update_maximus_points()
@@ -146,7 +150,8 @@ func _on_TimerFail_timeout():
 func _on_TimerWinnerOne_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerOneStar).instance()
-	paused.retry = "res://scenes/UfoLevel2.tscn"
+	paused.retry = "res://scenes/UfoLevel1.tscn"
+	paused.next = "res://scenes/Menu.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -159,7 +164,8 @@ func _on_TimerWinnerOne_timeout():
 func _on_TimerWinnerTwo_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerTwoStar).instance()
-	paused.retry = "res://scenes/UfoLevel2.tscn"
+	paused.retry = "res://scenes/UfoLevel1.tscn"
+	paused.next = "res://scenes/Menu.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points
@@ -171,7 +177,8 @@ func _on_TimerWinnerTwo_timeout():
 func _on_TimerWinnerThree_timeout():
 	audioStream.stop()
 	paused = load(SceneWinnerThreeStar).instance()
-	paused.retry = "res://scenes/UfoLevel2.tscn"
+	paused.retry = "res://scenes/UfoLevel1.tscn"
+	paused.next = "res://scenes/Menu.tscn"
 	paused.level = "HammerLevel"
 	paused.dificulty = dificulty
 	paused.pointNow = points

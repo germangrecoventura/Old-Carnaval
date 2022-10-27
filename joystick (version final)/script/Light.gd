@@ -6,8 +6,10 @@ onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
 onready var glitch = $"../../Control/Glitch"
 
 func hide_ui():
+	touch.set_process_input(false)
+	touchAbduction.set_process_input(false)
 	touch.visible = false
-	self.visible = false
+	touch.visible = false
 
 
 func light_up() -> void:

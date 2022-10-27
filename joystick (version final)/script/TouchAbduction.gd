@@ -9,6 +9,7 @@ onready var glitch = $"../../../Control/Glitch"
 
 
 func hide_ui():
+	$"../../Control2/Virtual joystick"._reset()
 	touch.set_process_input(false)
 	self.set_process_input(false)
 	touch.visible = false
