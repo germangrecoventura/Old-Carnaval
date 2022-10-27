@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 92.106, -0.000106812 )
+scale = Vector2( 0.83866, 1 )
+polygon = PoolVector2Array( 0, 600, 0, 0, 1024, 0, 1024, 600, -16, 600, -16, 616, 1040, 616, 1040, -16, -16, -16, -16, 252.318, -16, 600 )
