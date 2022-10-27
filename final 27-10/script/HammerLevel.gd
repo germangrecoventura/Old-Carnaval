@@ -24,8 +24,8 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
-	$Ufo/Area2D/CollisionShape2D.disabled = true
-	$Ufo/Light/Area2D/CollisionShape2D.disabled = true
+	$UfoResponsive/Ufo/Area2D/CollisionShape2D.disabled = true
+	$UfoResponsive/Ufo/Light/Area2D/CollisionShape2D.disabled = true
 	$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
 	touch.visible = false
 	points = 0
@@ -107,7 +107,7 @@ func _on_TimerCountDown_timeout():
 		audioStream.play()
 		yield(get_tree().create_timer(0.90), "timeout")
 		audioStream.stop()
-		$Ufo/Area2D/CollisionShape2D.disabled = false
+		$UfoResponsive/Ufo/Area2D/CollisionShape2D.disabled = false
 
 
 func _on_TimerStart_timeout():

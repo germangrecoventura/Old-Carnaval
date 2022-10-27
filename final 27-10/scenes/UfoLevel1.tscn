@@ -22,15 +22,15 @@
 size = 61
 font_data = ExtResource( 2 )
 
-[sub_resource type="CapsuleShape2D" id=11]
-radius = 103.175
-height = 0.0
-
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.15619, 237.346 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 232.5, 70.7143 )
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 103.175
+height = 0.0
 
 [sub_resource type="DynamicFont" id=10]
 size = 67
@@ -74,8 +74,63 @@ action = "abduction"
 script = ExtResource( 11 )
 
 [node name="AnimalsResponsive" type="Control" parent="."]
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+margin_left = -700.0
+margin_top = -800.0
+margin_right = 700.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StaticBody2D" parent="AnimalsResponsive" instance=ExtResource( 8 )]
+position = Vector2( 182, 135 )
+scale = Vector2( 1.05, 1 )
+
+[node name="UfoResponsive" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -700.0
+margin_right = 700.0
+margin_bottom = 800.0
+
+[node name="Ufo" type="Sprite" parent="UfoResponsive"]
+position = Vector2( 813, 133 )
+scale = Vector2( 0.6, 0.7 )
+texture = ExtResource( 1 )
+script = ExtResource( 20 )
+
+[node name="Light" type="Sprite" parent="UfoResponsive/Ufo"]
+position = Vector2( 3.18652, -30.7631 )
+scale = Vector2( 0.697964, -0.00274498 )
+texture = ExtResource( 7 )
+script = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="UfoResponsive/Ufo/Light"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UfoResponsive/Ufo/Light/Area2D"]
+position = Vector2( 2.07861, 23.9141 )
+shape = SubResource( 7 )
+
+[node name="TimerAbduct" type="Timer" parent="UfoResponsive/Ufo/Light"]
+wait_time = 4.0
+one_shot = true
+
+[node name="TimerReturnLight" type="Timer" parent="UfoResponsive/Ufo/Light"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="UfoResponsive/Ufo"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UfoResponsive/Ufo/Area2D"]
+position = Vector2( 4.16638, -0.714279 )
+shape = SubResource( 12 )
 
 [node name="Cow" parent="." instance=ExtResource( 9 )]
 position = Vector2( 819, 645 )
@@ -92,10 +147,10 @@ position = Vector2( 575, 645 )
 collision_mask = 4
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/panda.png"
 
-[node name="Zebra" parent="." instance=ExtResource( 9 )]
+[node name="Chick" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1154, 645 )
 collision_mask = 4
-texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/zebra.png"
+texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chick.png"
 
 [node name="Cloud" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 20 )
@@ -116,50 +171,11 @@ position = Vector2( 1180, 86 )
 scale = Vector2( 1.26, 0.88875 )
 shape = SubResource( 11 )
 
-[node name="Ufo" type="Sprite" parent="."]
-position = Vector2( 813, 133 )
-scale = Vector2( 0.6, 0.7 )
-texture = ExtResource( 1 )
-script = ExtResource( 20 )
-
-[node name="Light" type="Sprite" parent="Ufo"]
-position = Vector2( 3.18652, -30.7631 )
-scale = Vector2( 0.697964, -0.00274498 )
-texture = ExtResource( 7 )
-script = ExtResource( 5 )
-
-[node name="Area2D" type="Area2D" parent="Ufo/Light"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Light/Area2D"]
-position = Vector2( 2.07861, 23.9141 )
-shape = SubResource( 7 )
-
-[node name="TimerAbduct" type="Timer" parent="Ufo/Light"]
-wait_time = 4.0
-one_shot = true
-
-[node name="TimerReturnLight" type="Timer" parent="Ufo/Light"]
-wait_time = 2.0
-one_shot = true
-
-[node name="Area2D" type="Area2D" parent="Ufo"]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Area2D"]
-position = Vector2( 4.16638, -0.714279 )
-shape = SubResource( 12 )
-
 [node name="WallCloud" parent="." instance=ExtResource( 8 )]
 position = Vector2( -109, 36 )
 scale = Vector2( 1.54, 0.5 )
 collision_layer = 8
 collision_mask = 8
-
-[node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 261, 97 )
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -268,11 +284,11 @@ scale = Vector2( 0.780952, 0.719048 )
 texture = ExtResource( 4 )
 
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
-[connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
-[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
-[connection signal="body_entered" from="Ufo/Area2D" to="Ufo" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Ufo/Area2D" to="Ufo" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="UfoResponsive/Ufo/Light/Area2D" to="UfoResponsive/Ufo/Light" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="UfoResponsive/Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="UfoResponsive/Ufo/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="body_entered" from="UfoResponsive/Ufo/Area2D" to="UfoResponsive/Ufo" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="UfoResponsive/Ufo/Area2D" to="UfoResponsive/Ufo" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]

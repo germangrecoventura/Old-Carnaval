@@ -1,9 +1,11 @@
 extends Sprite
-onready var tween = $"../../Tween"
+onready var tween = $"../../../Tween"
 onready var abduct = true
-onready var touch = $"../../Virtual joystick"
-onready var touchAbduction = $"../../ControlTouchAbduction"
-onready var glitch = $"../../Glitch"
+onready var touch = $"../../../Virtual joystick"
+onready var touchAbduction = $"../../../ControlTouchAbduction"
+onready var glitch = $"../../../Glitch"
+onready var timerTimeGame =$"../../../TimerTimeGame"
+onready var level =$"../../.."
 
 func hide_ui():
 	touch.set_process_input(false)
@@ -47,8 +49,8 @@ func abduct(body) -> void:
 		yield(get_tree().create_timer(2), "timeout")
 		abduct = true
 		if name == "Cow":
-			$"../..".add_animal(name)
-			$"../../TimerTimeGame".stop()
+			level.add_animal(name)
+			timerTimeGame.stop()
 			hide_ui()
 			get_parent().get_parent()._on_TimerTimeGame_timeout()
 		else:
@@ -56,7 +58,7 @@ func abduct(body) -> void:
 
 func _on_Area2D_body_entered(body):
 	if abduct:
-		get_parent().get_parent()._add_points(1)
+		level._add_points(1)
 		abduct = false
 		var name = body.name
 		if name != "Cow":
