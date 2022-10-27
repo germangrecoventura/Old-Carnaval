@@ -43,6 +43,7 @@ func _on_TimerAbduct_timeout():
 func _on_TouchAbduction_pressed():
 	hide_ui()
 	$"../../UfoResponsive/Ufo/Light/TimerAbduct".start()
+	$"../../TimerTimeGame".paused = true
 	areaLight.disabled = false
 	areaUfo.disabled = true
 	var random = RandomNumberGenerator.new()
@@ -59,4 +60,5 @@ func _on_TimerReturnLight_timeout():
 	show_ui()
 	areaLight.disabled = true
 	areaUfo.disabled = false
+	$"../../TimerTimeGame".paused = false
 	

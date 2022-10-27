@@ -42,7 +42,8 @@ func on_information_quit() -> void:
 	paused = null
 
 
-func hide_ui():
+func hide_ui() -> void:
+	touch._reset()
 	touch.set_process_input(false)
 	touchAbduction.set_process_input(false)
 	touch.visible = false
