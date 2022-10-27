@@ -85,10 +85,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="StaticBody2D" parent="AnimalsResponsive" instance=ExtResource( 8 )]
-position = Vector2( 182, 135 )
-scale = Vector2( 1.05, 1 )
-
 [node name="UfoResponsive" type="Control" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -176,6 +172,10 @@ position = Vector2( -109, 36 )
 scale = Vector2( 1.54, 0.5 )
 collision_layer = 8
 collision_mask = 8
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 182, 135 )
+scale = Vector2( 1.05, 1 )
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
 anchor_right = 1.0
