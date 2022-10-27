@@ -36,33 +36,19 @@ extents = Vector2( 232.5, 70.7143 )
 size = 67
 font_data = ExtResource( 2 )
 
-[node name="UfoLevel1" type="Node"]
+[node name="UfoLevel1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 3 )
 
-[node name="Control" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Glitch" type="ColorRect" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0 )
-
-[node name="UI" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Control" type="Control" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Background" type="TextureRect" parent="UI/Control"]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -713.0
 texture = ExtResource( 12 )
 expand = true
 
-[node name="CountDown" type="Label" parent="UI"]
+[node name="CountDown" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -41.0
@@ -72,15 +58,7 @@ custom_fonts/font = SubResource( 9 )
 align = 1
 valign = 1
 
-[node name="Control2" type="Control" parent="UI"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -800.0
-margin_right = 1400.0
-
-[node name="Virtual joystick" parent="UI/Control2" instance=ExtResource( 19 )]
-
-[node name="Control3" type="Control" parent="UI"]
+[node name="ControlTouchAbduction" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -88,19 +66,16 @@ anchor_bottom = 1.0
 margin_left = -1400.0
 margin_top = -800.0
 
-[node name="TouchAbduction" type="TouchScreenButton" parent="UI/Control3"]
+[node name="TouchAbduction" type="TouchScreenButton" parent="ControlTouchAbduction"]
 position = Vector2( 1222, 565 )
 scale = Vector2( 0.747619, 1.01429 )
 normal = ExtResource( 4 )
 action = "abduction"
 script = ExtResource( 11 )
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
+[node name="AnimalsResponsive" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = 5.0
-color = Color( 0, 0, 0, 0 )
 
 [node name="Cow" parent="." instance=ExtResource( 9 )]
 position = Vector2( 819, 645 )
@@ -186,6 +161,26 @@ collision_mask = 8
 [node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 261, 97 )
 
+[node name="TransitionFinish" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = 5.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Control" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control2" type="Control" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -800.0
+margin_right = 1400.0
+
 [node name="TimerCountDown" type="Timer" parent="."]
 autostart = true
 
@@ -199,7 +194,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TimerTimeGame" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 900.0
 one_shot = true
 
 [node name="TimerFail" type="Timer" parent="."]
@@ -217,6 +212,13 @@ wait_time = 3.88
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Glitch" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
+
+[node name="Virtual joystick" parent="." instance=ExtResource( 19 )]
 
 [node name="InformationLevel" parent="." instance=ExtResource( 14 )]
 script = ExtResource( 18 )
@@ -265,10 +267,10 @@ position = Vector2( 116, 167 )
 scale = Vector2( 0.780952, 0.719048 )
 texture = ExtResource( 4 )
 
-[connection signal="pressed" from="UI/Control3/TouchAbduction" to="UI/Control3/TouchAbduction" method="_on_TouchAbduction_pressed"]
+[connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
 [connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="UI/Control3/TouchAbduction" method="_on_TimerAbduct_timeout"]
-[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="UI/Control3/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
 [connection signal="body_entered" from="Ufo/Area2D" to="Ufo" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Ufo/Area2D" to="Ufo" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]

@@ -1,6 +1,7 @@
 extends Sprite
 
-onready var joystickLeft : VirtualJoystick = $"../UI/Control2/Virtual joystick"
+onready var joystickLeft : VirtualJoystick = $"../Virtual joystick"
+onready var touchAbduction = $"../ControlTouchAbduction/TouchAbduction"
 
 export var speed : float = 400
 func _process(delta: float) -> void:
@@ -17,11 +18,11 @@ func _process(delta: float) -> void:
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Cloud":
-		$"../UI/Control3/TouchAbduction".visible= false
-		$"../UI/Control3/TouchAbduction".set_process_input(false)
+		touchAbduction.visible= false
+		touchAbduction.set_process_input(false)
 
 
 func _on_Area2D_body_exited(body):
 	if body.name == "Cloud":
-		$"../UI/Control3/TouchAbduction".visible= true
-		$"../UI/Control3/TouchAbduction".set_process_input(true)
+		touchAbduction.visible= true
+		touchAbduction.set_process_input(true)

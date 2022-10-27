@@ -1,9 +1,9 @@
 extends TouchScreenButton
-onready var touch = $"../../Control2/Virtual joystick"
-onready var light = $"../../../Ufo/Light"
-onready var tween = $"../../../Tween"
-onready var areaLight = $"../../../Ufo/Light/Area2D/CollisionShape2D"
-onready var glitch = $"../../../Control/Glitch"
+onready var touch = $"../../Virtual joystick"
+onready var light = $"../../Ufo/Light"
+onready var tween = $"../../Tween"
+onready var areaLight = $"../../Ufo/Light/Area2D/CollisionShape2D"
+onready var glitch = $"../../Glitch"
 
 
 func hide_ui():
@@ -33,7 +33,7 @@ func light_glitch() -> void:
 	tween.start()
 
 func _on_TimerAbduct_timeout():
-	$"../../../Ufo/Light/TimerReturnLight".start()
+	$"../../Ufo/Light/TimerReturnLight".start()
 	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,-42.857),2.0)
 	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,-0),2.0)
 	tween.start()
@@ -41,8 +41,9 @@ func _on_TimerAbduct_timeout():
 
 func _on_TouchAbduction_pressed():
 	hide_ui()
-	$"../../../Ufo/Light/TimerAbduct".start()
+	$"../../Ufo/Light/TimerAbduct".start()
 	areaLight.disabled = false
+	$"../../Ufo/Area2D/CollisionShape2D".disabled = true
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	if (random.randfn() >= 0.5):
@@ -56,4 +57,5 @@ func _on_TimerReturnLight_timeout():
 	glitch.set_material(null)
 	show_ui()
 	areaLight.disabled = true
+	$"../../Ufo/Area2D/CollisionShape2D".disabled = false
 	

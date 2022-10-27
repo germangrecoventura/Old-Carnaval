@@ -1,13 +1,13 @@
-extends Node
+extends Control
 
 var points
 var time = 3
-onready var touch = $"UI/Control2/Virtual joystick"
-onready var touchAbduction = $UI/Control3/TouchAbduction
+onready var touch = $"Virtual joystick"
+onready var touchAbduction = $ControlTouchAbduction/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
-onready var colorRect = $UI/ColorRect
-onready var countdown = $UI/CountDown
+onready var transitionFinish = $TransitionFinish
+onready var countdown = $CountDown
 onready var animals_abducted = []
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
@@ -56,7 +56,7 @@ func show_ui():
 	touchAbduction.visible = true
 	
 func transition(time) -> void:
-	tween.interpolate_property(colorRect,"color",Color(0,0,0,0),Color(0,0,0,0.70),time)
+	tween.interpolate_property(transitionFinish,"color",Color(0,0,0,0),Color(0,0,0,0.70),time)
 	tween.start()
 	
 func transitionToFailed():

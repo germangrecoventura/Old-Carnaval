@@ -1,9 +1,9 @@
 extends Sprite
 onready var tween = $"../../Tween"
 onready var abduct = true
-onready var touch = $"../../UI/Control2/Virtual joystick"
-onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
-onready var glitch = $"../../Control/Glitch"
+onready var touch = $"../../Virtual joystick"
+onready var touchAbduction = $"../../ControlTouchAbduction"
+onready var glitch = $"../../Glitch"
 
 func hide_ui():
 	touch.set_process_input(false)
