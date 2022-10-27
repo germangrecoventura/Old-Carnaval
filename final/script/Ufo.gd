@@ -13,3 +13,15 @@ func _process(delta: float) -> void:
 	move.x = Input.get_axis("ui_left", "ui_right")
 	#move.y = Input.get_axis("ui_up", "ui_down")
 	position += move * speed * delta
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Cloud":
+		$"../UI/Control3/TouchAbduction".visible= false
+		$"../UI/Control3/TouchAbduction".set_process_input(false)
+
+
+func _on_Area2D_body_exited(body):
+	if body.name == "Cloud":
+		$"../UI/Control3/TouchAbduction".visible= true
+		$"../UI/Control3/TouchAbduction".set_process_input(true)

@@ -1,6 +1,4 @@
 extends TouchScreenButton
-#onready var touchLeft = $"../../Control2/TouchLeft"
-#onready var touchRight = $"../../Control2/TouchRight"
 onready var touch = $"../../Control2/Virtual joystick"
 onready var light = $"../../../Ufo/Light"
 onready var tween = $"../../../Tween"
@@ -9,7 +7,7 @@ onready var glitch = $"../../../Control/Glitch"
 
 
 func hide_ui():
-	$"../../Control2/Virtual joystick"._reset()
+	touch._reset()
 	touch.set_process_input(false)
 	self.set_process_input(false)
 	touch.visible = false
@@ -44,7 +42,6 @@ func _on_TimerAbduct_timeout():
 func _on_TouchAbduction_pressed():
 	hide_ui()
 	$"../../../Ufo/Light/TimerAbduct".start()
-	$"../../../TimerTimeGame".set_paused(true)
 	areaLight.disabled = false
 	var random = RandomNumberGenerator.new()
 	random.randomize()
@@ -58,6 +55,5 @@ func _on_TouchAbduction_pressed():
 func _on_TimerReturnLight_timeout():
 	glitch.set_material(null)
 	show_ui()
-	$"../../../TimerTimeGame".set_paused(false)
 	areaLight.disabled = true
 	
