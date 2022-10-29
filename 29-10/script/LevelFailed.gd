@@ -6,6 +6,9 @@ export (String) var level
 export (int) var dificulty
 var retry:String
 
+func _ready():
+	pass
+
 func _on_Retry_pressed():
 	get_tree().paused = false
 	emit_signal("e")
