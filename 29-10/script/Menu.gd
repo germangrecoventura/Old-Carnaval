@@ -4,7 +4,7 @@ func _ready():
 	Gamehandler.leardboard = {"HammerLevel": [0,0,0]}
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/UfoLevel1.tscn")   
+	get_tree().change_scene("res://scenes/Level1.tscn")   
 	self.queue_free()
 
 
