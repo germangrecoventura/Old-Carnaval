@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://script/LevelWinner.gd" type="Script" id=1]
 [ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=2]
 [ext_resource path="res://assets/freefantasygui/png/PanelRecord.png" type="Texture" id=3]
 [ext_resource path="res://assets/freefantasygui/png/Start.png" type="Texture" id=4]
+[ext_resource path="res://assets/freefantasygui/png/LuzCorona.png" type="Texture" id=5]
 [ext_resource path="res://assets/freefantasygui/png/Estrella.png" type="Texture" id=6]
 [ext_resource path="res://assets/freefantasygui/png/RetryWinner.png" type="Texture" id=7]
 [ext_resource path="res://assets/freefantasygui/png/EstrellaNoCompletaWinner.png" type="Texture" id=8]
@@ -35,6 +36,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -545.0
+margin_right = 321.0
+margin_bottom = -274.0
+texture = ExtResource( 5 )
 
 [node name="Panel" type="TextureRect" parent="."]
 anchor_left = 0.5

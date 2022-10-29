@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/storm cloud/storm cloud.png" type="Texture" id=3]
 [ext_resource path="res://assets/Fondo_Granja.png" type="Texture" id=4]
 [ext_resource path="res://assets/entity/luz.png" type="Texture" id=5]
-[ext_resource path="res://assets/abduccion.png" type="Texture" id=6]
+[ext_resource path="res://assets/abducirfinal.png" type="Texture" id=6]
 [ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=9]
@@ -92,7 +92,7 @@ margin_left = -1400.0
 margin_top = -800.0
 
 [node name="TouchAbduction" type="TouchScreenButton" parent="ControlTouchAbduction"]
-position = Vector2( 1222, 565 )
+position = Vector2( 1222, 533 )
 scale = Vector2( 0.747619, 1.01429 )
 normal = ExtResource( 6 )
 action = "abduction"

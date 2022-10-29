@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=1]
-[ext_resource path="res://assets/freefantasygui/png/PanelRecord.png" type="Texture" id=2]
+[ext_resource path="res://assets/freefantasygui/png/Estrella.png" type="Texture" id=1]
+[ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=2]
+[ext_resource path="res://assets/freefantasygui/png/PanelRecord.png" type="Texture" id=3]
 [ext_resource path="res://assets/freefantasygui/png/RetryWinner.png" type="Texture" id=4]
-[ext_resource path="res://assets/freefantasygui/png/Estrella.png" type="Texture" id=5]
-[ext_resource path="res://script/LevelWinner.gd" type="Script" id=6]
+[ext_resource path="res://assets/freefantasygui/png/LuzCorona.png" type="Texture" id=5]
+[ext_resource path="res://assets/freefantasygui/png/Start.png" type="Texture" id=6]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://assets/freefantasygui/png/Start.png" type="Texture" id=8]
+[ext_resource path="res://script/LevelWinner.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 68
@@ -33,7 +34,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-script = ExtResource( 6 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = -545.0
+margin_right = 321.0
+margin_bottom = -274.0
+texture = ExtResource( 5 )
 
 [node name="Panel" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -45,7 +57,7 @@ margin_top = -350.0
 margin_right = 1107.0
 margin_bottom = 1054.0
 rect_scale = Vector2( 0.6, 0.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 expand = true
 
 [node name="Label" type="Label" parent="."]
@@ -68,7 +80,7 @@ margin_right = 57.0
 margin_bottom = 93.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 5 )
+texture = ExtResource( 1 )
 expand = true
 
 [node name="StarTwo" type="TextureRect" parent="."]
@@ -82,7 +94,7 @@ margin_right = 318.0
 margin_bottom = 54.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 5 )
+texture = ExtResource( 1 )
 expand = true
 
 [node name="StarThree" type="TextureRect" parent="."]
@@ -96,7 +108,7 @@ margin_right = 595.0
 margin_bottom = 91.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 5 )
+texture = ExtResource( 1 )
 expand = true
 
 [node name="RecordActual" type="TextureRect" parent="."]
@@ -109,7 +121,7 @@ margin_top = 20.0
 margin_right = 356.0
 margin_bottom = 106.0
 rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="RecordTitle" type="Label" parent="RecordActual"]
 margin_left = -457.143
@@ -135,7 +147,7 @@ margin_top = 100.0
 margin_right = 356.0
 margin_bottom = 186.0
 rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="RecordTitle" type="Label" parent="Score"]
 margin_left = -457.143
@@ -175,7 +187,7 @@ pause_mode = 2
 margin_left = 346.0
 margin_right = 540.0
 margin_bottom = 216.0
-icon = ExtResource( 8 )
+icon = ExtResource( 6 )
 flat = true
 
 [node name="Timer" type="Timer" parent="."]
