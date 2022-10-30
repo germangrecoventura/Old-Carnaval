@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=2]
@@ -23,14 +23,17 @@ extents = Vector2( 665.5, 13 )
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 699, 10 )
 
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 113, 363.5 )
-
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 142, 366.5 )
-
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.72681, 235.991 )
+
+[sub_resource type="PhysicsMaterial" id=19]
+bounce = 11.15
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 2, 367 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 4.5, 362 )
 
 [node name="UfoLevel1" type="Control"]
 anchor_right = 1.0
@@ -73,13 +76,13 @@ shape = SubResource( 14 )
 script = ExtResource( 5 )
 
 [node name="Cow" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 756, 490 )
+position = Vector2( 642, 519 )
 impulse = -315
 
 [node name="Chick" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 868, 487 )
+position = Vector2( 780, 514 )
 texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/chick.png"
-velocity = Vector2( 1, 0 )
+velocity = Vector2( 2, 0 )
 
 [node name="ControlTouchAbduction" type="Control" parent="."]
 anchor_left = 1.0
@@ -95,19 +98,6 @@ scale = Vector2( 0.747619, 1.01429 )
 normal = ExtResource( 6 )
 action = "abduction"
 script = ExtResource( 12 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 346, 358 )
-shape = SubResource( 15 )
-
-[node name="Area2D2" type="Area2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 1180, 357 )
-shape = SubResource( 16 )
 
 [node name="Ufo" type="Node2D" parent="."]
 
@@ -184,12 +174,23 @@ color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
 
 [node name="Virtual joystick" parent="." instance=ExtResource( 7 )]
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 0
+physics_material_override = SubResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 256, 357 )
+shape = SubResource( 17 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 0
+
+[node name="StaticBody2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 1207.5, 352 )
+shape = SubResource( 20 )
+
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
-[connection signal="body_entered" from="Area2D" to="Animals/Cow" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Animals/Cow" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Area2D2" to="Animals/Cow" method="_on_Area2D2_body_entered"]
-[connection signal="body_exited" from="Area2D2" to="Animals/Cow" method="_on_Area2D2_body_exited"]
 [connection signal="body_entered" from="Ufo/Ship/Light/Area2D" to="Ufo/Ship/Light" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Ufo/Ship/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
 [connection signal="timeout" from="Ufo/Ship/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
