@@ -35,6 +35,9 @@ func light_glitch() -> void:
 		tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,131.672),2.0)
 		tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.317),2.0)
 		tween.start()
+		glitch.set_material(load("res://shader/Glitch.tres"))
+		yield(get_tree().create_timer(1.5), "timeout")
+		glitch.set_material(null)
 		glitches += 1
 	else:
 		#areaLight.disabled = true
