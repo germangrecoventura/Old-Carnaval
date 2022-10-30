@@ -26,7 +26,7 @@ func add_animal(name):
 
 func _ready():
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
-	#$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
+	$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
 	touch.visible = false
 	points = 0
 	hide_ui()

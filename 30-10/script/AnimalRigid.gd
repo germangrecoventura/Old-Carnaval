@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 export(int) var impulse =-40
+export(String) var texture
 export (Vector2) var velocity = Vector2(-2,0)
 
 var move:bool
@@ -8,6 +9,7 @@ var left = true
 var right = true
 
 func _ready():
+	$Body.texture = load(texture)
 	move = true
 	self.set_gravity_scale(4.0)
 	
