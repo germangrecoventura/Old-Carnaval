@@ -26,7 +26,6 @@ func add_animal(name):
 
 func _ready():
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
-	$Cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
 	touch.visible = false
 	points = 0
 	hide_ui()
@@ -181,8 +180,9 @@ func _on_TimerWinnerThree_timeout():
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
-	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
+	add_child(paused)
+	
 	
 	

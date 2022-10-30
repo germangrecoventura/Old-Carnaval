@@ -13,17 +13,12 @@ func add_position(value):
 	position_actual = value
 
 func hide_ui():
-	touch.set_process_input(false)
-	touchAbduction.set_process_input(false)
-	touch.visible = false
-	touch.visible = false
-
-
-#func light_up() -> void:
-#	tween.interpolate_property(self,"position",self.position,Vector2(self.position.x,50),2.0)
-#	tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,-0.001),2.0)
-#	tween.start()
-	
+	if (touch.visible):
+		touch.set_process_input(false)
+		touch.visible = false
+	if (touchAbduction.visible):
+		touchAbduction.set_process_input(false)
+		touchAbduction.visible = false
 	
 func abduct(body) -> void:
 	print(body) # Replace with function body.

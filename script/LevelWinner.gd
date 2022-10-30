@@ -14,13 +14,13 @@ onready var estrellas = [star_one,star_two,star_three]
 onready var audioStream = $SFX
 
 func _ready():
-#	star_one.visible = false
-#	star_two.visible = false
-#	star_three.visible = false
-#	$RecordActual.visible = false
-#	$Score.visible = false
-#	$VBoxContainer.visible = false
-#	$Timer.start()
+	#star_one.visible = false
+	#star_two.visible = false
+	#star_three.visible = false
+	#$RecordActual.visible = false
+	#$Score.visible = false
+	#$VBoxContainer.visible = false
+	#$Timer.start()
 	pass
 	
 func _on_Retry_pressed():

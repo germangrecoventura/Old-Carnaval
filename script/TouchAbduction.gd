@@ -5,8 +5,8 @@ onready var tween = $"../../Tween"
 onready var areaLight =$"../../Ufo/Ship/Light/Area2D/CollisionShape2D"
 onready var glitch = $"../../Glitch"
 onready var ufo = $"../../Ufo"
-
-
+onready var try = 1
+onready var glitches = 1
 
 func hide_ui():
 	touch._reset()
@@ -30,11 +30,19 @@ func light_down() -> void:
 	tween.start()
 	
 func light_glitch() -> void:
-	#areaLight.disabled = true
-	#tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,210.657),2.0)
-	#tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.516),2.0)
-	#tween.start()
-	pass
+	if glitches % 2 == 1:
+		light.add_position(light.position)
+		tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,131.672),2.0)
+		tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.317),2.0)
+		tween.start()
+		glitches += 1
+	else:
+		#areaLight.disabled = true
+		#tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,210.657),2.0)
+		#tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.516),2.0)
+		#tween.start()
+		glitches += 1
+		
 func _on_TimerAbduct_timeout():
 	$"../../Ufo/Ship/Light/TimerReturnLight".start()
 	tween.interpolate_property(light,"position",light.position,Vector2(light.position_actual.x,light.position_actual.y),2.0)
@@ -54,7 +62,13 @@ func _on_TouchAbduction_pressed():
 	#var random = RandomNumberGenerator.new()
 	#random.randomize()
 	#if (random.randfn() >= 0.5):
-	light_down()
+	try += 1
+	if (try % 3 == 0):
+		try += 1
+		light_glitch()
+	else:
+		try += 1
+		light_down()
 	#else:
 	#	light_glitch()
 	#	glitch.set_material(load("res://shader/Glitch.tres"))
