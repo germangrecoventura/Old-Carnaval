@@ -1,28 +1,11 @@
 extends Node
 
-var leardboard = {"HammerLevel": [0,0,0]}
+var leardboard:Array = [0,0,0]
+var firstActive = true
 
-func update_leardboard(level,dificulty,point):
-	var points = leardboard.get(level)
-	if points[dificulty] == 0 && point > 0:
-		var list = []
-		var i = 0
-		while(i != dificulty):
-			list.append(point[i])
-			points.pop_back()
-			i+= 1
-		points.pop_back()
-		list.append(point)
-		list.append_array(points)
-		leardboard[level]= list
-	elif points[dificulty] > point:
-		var list = []
-		var i = 0
-		while(i != dificulty):
-			list.append(point[i])
-			points.pop_back()
-			i+= 1
-		points.pop_back()
-		list.append(point)
-		list.append_array(points)
-		leardboard[level]= list
+func update_leardboard(level,point):
+	if firstActive:
+		leardboard[level] = point
+		firstActive = false
+	elif leardboard[level] > point:
+		leardboard[level] = point
