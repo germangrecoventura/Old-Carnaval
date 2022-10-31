@@ -42,7 +42,7 @@ expand = true
 [node name="Tween" type="Tween" parent="."]
 
 [node name="TimerEntryLogo" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 
 [node name="TimerEntryUfo" type="Timer" parent="."]

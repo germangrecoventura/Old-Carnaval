@@ -148,7 +148,7 @@ margin_left = -1400.0
 margin_top = -800.0
 
 [node name="TouchAbduction" type="TouchScreenButton" parent="ControlTouchAbduction"]
-position = Vector2( 1222, 533 )
+position = Vector2( 1231, 556 )
 scale = Vector2( 0.747619, 1.01429 )
 normal = ExtResource( 6 )
 action = "abduction"
