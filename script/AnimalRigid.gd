@@ -1,12 +1,13 @@
 extends RigidBody2D
 
 export(int) var impulse =-40
-export(String) var texture
+export(Texture) var texture
 export (Vector2) var velocity = Vector2(-2,0)
+export (int) var gravity = 4.0
 
 func _ready():
-	$Body.texture = load(texture)
-	self.set_gravity_scale(4.0)
+	$Body.texture = texture
+	self.set_gravity_scale(gravity)
 	
 func _physics_process(delta):
 	if position.x < 302:

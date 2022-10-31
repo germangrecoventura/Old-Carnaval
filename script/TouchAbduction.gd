@@ -49,20 +49,13 @@ func _on_TimerAbduct_timeout():
 	tween.interpolate_property(light,"position",light.position,Vector2(light.position_actual.x,light.position_actual.y),2.0)
 	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0),2.0)
 	tween.start()
-	#$"../../UfoResponsive/Ufo/Light/TimerReturnLight".start()
-	#tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,-42.857),2.0)
-	#tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,-0),2.0)
-	#tween.start()
-	pass
 
 func _on_TouchAbduction_pressed():
 	hide_ui()
 	$"../../Ufo/Ship/Light/TimerAbduct".start()
 	$"../../TimerTimeGame".paused = true
+	$"../../AnimationPlayer".stop(false)
 	areaLight.disabled = false
-	#var random = RandomNumberGenerator.new()
-	#random.randomize()
-	#if (random.randfn() >= 0.5):
 	try += 1
 	if (try % 3 == 0):
 		try += 1
@@ -70,9 +63,6 @@ func _on_TouchAbduction_pressed():
 	else:
 		try += 1
 		light_down()
-	#else:
-	#	light_glitch()
-	#	glitch.set_material(load("res://shader/Glitch.tres"))
 
 
 func _on_TimerReturnLight_timeout():
@@ -80,4 +70,5 @@ func _on_TimerReturnLight_timeout():
 	show_ui()
 	areaLight.disabled = true
 	$"../../TimerTimeGame".paused = false
+	$"../../AnimationPlayer".play()
 	

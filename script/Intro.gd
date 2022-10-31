@@ -9,33 +9,39 @@ onready var timerEntryUfo = $TimerEntryUfo
 onready var timerOutLogo = $TimerOutLogo
 onready var timerOutUfo = $TimerOutUfo
 
+export(PackedScene) var next_scene
+
 func _ready():
-	$TimerEntryLogo.start()
+	Gamehandler.leardboard = [0,0,0]
+	timerEntryLogo.start()
 	tween.interpolate_property(logo,"modulate",Color(0,0,0,0),Color(1,1,1,1.1),timerEntryLogo.wait_time)
 	tween.start()
 
 
 func _on_TimerEntryLogo_timeout():
-	$TimerEntryUfo.start()
+	timerEntryLogo.queue_free()
+	timerEntryUfo.start()
 	tween.interpolate_property(ufo,"rect_position",ufo.rect_position,Vector2(ufo.rect_position.x,105),timerEntryUfo.wait_time)
 	tween.start()
 	
 	
 func _on_TimerEntryUfo_timeout():
-	$TimerOutLogo.start()
+	timerEntryUfo.queue_free()
+	timerOutLogo.start()
 	tween.interpolate_property(logo,"modulate",Color(1,1,1,1),Color(0,0,0,0.0),timerOutLogo.wait_time)
 	tween.start()
 
 	
 func _on_TimerOutLogo_timeout():
-	$TimerOutUfo.start()
+	timerOutLogo.queue_free()
+	timerOutUfo.start()
 	tween.interpolate_property(ufo,"rect_position",ufo.rect_position,Vector2(ufo.rect_position.x,-175),timerOutUfo.wait_time)
 	tween.start()
 
 
 func _on_TimerOutUfo_timeout():
-	$TimerOutUfo.stop()
-	get_tree().change_scene("res://scenes/Menu.tscn")   
+	timerOutUfo.stop()
 	self.queue_free()
+	get_tree().change_scene_to(next_scene)   
 
 

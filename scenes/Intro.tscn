@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://script/Intro.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=3]
 [ext_resource path="res://assets/BackgroundBlack.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=5]
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+next_scene = ExtResource( 5 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
