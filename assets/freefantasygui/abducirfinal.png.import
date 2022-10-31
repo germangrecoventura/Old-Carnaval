@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/luz.png-348a9373cf4fe1e21de843ca11a5d98f.stex"
+path="res://.import/abducirfinal.png-bf07b9b297a7e8693df0af6bb1b22fce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entity/luz.png"
-dest_files=[ "res://.import/luz.png-348a9373cf4fe1e21de843ca11a5d98f.stex" ]
+source_file="res://assets/freefantasygui/abducirfinal.png"
+dest_files=[ "res://.import/abducirfinal.png-bf07b9b297a7e8693df0af6bb1b22fce.stex" ]
 
 [params]
 

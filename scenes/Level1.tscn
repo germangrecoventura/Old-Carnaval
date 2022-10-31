@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/entity/light.png" type="Texture" id=3]
 [ext_resource path="res://assets/background transition/Amanecer08.png" type="Texture" id=4]
 [ext_resource path="res://script/Animals.gd" type="Script" id=5]
-[ext_resource path="res://assets/abducirfinal.png" type="Texture" id=6]
+[ext_resource path="res://assets/freefantasygui/abducirfinal.png" type="Texture" id=6]
 [ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/background transition/Amanecer09.png" type="Texture" id=8]
 [ext_resource path="res://script/HammerLevel.gd" type="Script" id=9]
