@@ -20,6 +20,8 @@ onready var animationPlayer= $AnimationPlayer
 
 export (int) var level = 0
 export (String) var retry = "res://scenes/Level1.tscn"
+#export (PackedScene) var retry
+
 
 func _add_points(points_to_add):
 	points += points_to_add
@@ -146,7 +148,7 @@ func _on_TimerTimeGame_timeout():
 func _on_TimerFail_timeout():
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
-	paused.retry = "res://scenes/Level1.tscn"
+	paused.retry = retry
 	paused.level = level
 	paused.update_maximus_points()
 	add_child(paused)

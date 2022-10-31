@@ -230,6 +230,7 @@ color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
 [node name="Virtual joystick" parent="." instance=ExtResource( 7 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/RESET = SubResource( 15 )
 anims/background = SubResource( 16 )
 
