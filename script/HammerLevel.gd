@@ -15,6 +15,9 @@ var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
 var SceneWinnerTwoStar: String = "res://scenes/LevelWinnerTwoStar.tscn"
 var SceneWinnerThreeStar: String = "res://scenes/LevelWinnerThreeStar.tscn"
 var paused: Object = null
+onready var animationPlayer= $AnimationPlayer
+
+
 export (int) var level = 0
 export (String) var retry = "res://scenes/Level1.tscn"
 
@@ -25,6 +28,7 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
+	$Background.texture= load("res://assets/background transition/Amanecer00.png")
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
 	touch.visible = false
 	points = 0
@@ -106,6 +110,7 @@ func _on_TimerCountDown_timeout():
 		yield(get_tree().create_timer(0.90), "timeout")
 		audioStream.stop()
 		$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = false
+		animationPlayer.play("background")
 		
 
 
@@ -123,6 +128,8 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	hide_ui()
+	for child in $Animals.get_children():
+			child.queue_free()
 	if !animals_abducted.has("Cow"):
 		transitionToFailed()
 	elif points == 1:
