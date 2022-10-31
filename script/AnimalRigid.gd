@@ -18,5 +18,4 @@ func _physics_process(delta):
 	apply_impulse(Vector2(0,0),velocity)
 
 func _on_StaticFloor_body_entered(body):
-	print(body)
 	body.apply_impulse(Vector2.ZERO,Vector2(0,impulse))

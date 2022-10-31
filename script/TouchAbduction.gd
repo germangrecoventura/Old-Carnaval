@@ -40,10 +40,8 @@ func light_glitch() -> void:
 		glitch.set_material(null)
 		glitches += 1
 	else:
-		#areaLight.disabled = true
-		#tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,210.657),2.0)
-		#tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.516),2.0)
-		#tween.start()
+		light.activate_glitch()
+		light_down()
 		glitches += 1
 		
 func _on_TimerAbduct_timeout():
