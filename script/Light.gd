@@ -38,7 +38,7 @@ func abduct(body) -> void:
 		$Area2D/CollisionShape2D.disabled = true
 		$TimerReturnLight.start()
 		yield(get_tree().create_timer(2), "timeout")
-		self.texture= load("res://assets/entity/luz.png")
+		self.texture= load("res://assets/entity/light.png")
 		abduct = true
 		glitch_enabled = false
 	else:

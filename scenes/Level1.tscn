@@ -59,7 +59,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=16]
 resource_name = "background"
-length = 10.0
+length = 13.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background:texture")
 tracks/0/interp = 1
@@ -67,7 +67,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.2, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"times": PoolRealArray( 0, 3, 4.2, 5, 6, 7, 8, 9, 10, 11, 12, 13 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 19 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ) ]
@@ -81,7 +81,6 @@ script = ExtResource( 9 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 19 )
 expand = true
 
 [node name="CountDown" type="Label" parent="."]

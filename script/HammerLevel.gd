@@ -30,7 +30,7 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
-	$Background.texture= load("res://assets/background transition/Amanecer00.png")
+	animationPlayer.play("background")
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
 	touch.visible = false
 	points = 0
@@ -112,7 +112,6 @@ func _on_TimerCountDown_timeout():
 		yield(get_tree().create_timer(0.90), "timeout")
 		audioStream.stop()
 		$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = false
-		animationPlayer.play("background")
 		
 
 
