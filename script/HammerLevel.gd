@@ -1,6 +1,6 @@
 extends Control
 
-var points
+var points = 0
 var time = 3
 onready var touch = $"Virtual joystick"
 onready var touchAbduction = $ControlTouchAbduction/TouchAbduction
@@ -11,9 +11,7 @@ onready var countdown = $CountDown
 onready var animals_abducted = []
 var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
-var SceneWinnerOneStar: String = "res://scenes/LevelWinnerOneStar.tscn"
-var SceneWinnerTwoStar: String = "res://scenes/LevelWinnerTwoStar.tscn"
-var SceneWinnerThreeStar: String = "res://scenes/LevelWinnerThreeStar.tscn"
+onready var SceneWinner: String = "res://scenes/LevelWinner.tscn"
 var paused: Object = null
 onready var animationPlayer= $AnimationPlayer
 
@@ -33,7 +31,6 @@ func _ready():
 	animationPlayer.play("background")
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
 	touch.visible = false
-	points = 0
 	hide_ui()
 	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
@@ -128,7 +125,9 @@ func _on_TimerGo_timeout():
 
 
 func _on_TimerTimeGame_timeout():
-	hide_ui()
+	$ControlTouchAbduction.queue_free()
+	$Ufo.queue_free()
+	$"Virtual joystick".queue_free()
 	for child in $Animals.get_children():
 			child.queue_free()
 	if !animals_abducted.has("Cow"):
@@ -145,52 +144,56 @@ func _on_TimerTimeGame_timeout():
 
 
 func _on_TimerFail_timeout():
+	$TimerFail.queue_free()
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
+	add_child(paused)
 	paused.retry = retry
 	paused.level = level
 	paused.update_maximus_points()
-	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 
 
 func _on_TimerWinnerOne_timeout():
+	$TimerWinnerOne.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinnerOneStar).instance()
+	paused = load(SceneWinner).instance()
+	add_child(paused)
+	paused.activate_animation("ThreeStar")
 	paused.retry = retry
 	paused.next = "res://scenes/Menu.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
-	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
 
 
 func _on_TimerWinnerTwo_timeout():
+	$TimerWinnerTwo.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinnerTwoStar).instance()
+	paused = load(SceneWinner).instance()
+	add_child(paused)
+	paused.activate_animation("ThreeStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Menu.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
-	add_child(paused)
 	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
 
 func _on_TimerWinnerThree_timeout():
+	$TimerWinnerThree.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinnerThreeStar).instance()
+	paused = load(SceneWinner).instance()
+	add_child(paused)
+	paused.activate_animation("ThreeStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Menu.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
 	paused.connect("e",self,"on_information_quit")
-	get_tree().paused = true
-	add_child(paused)
 	
 	
 	
