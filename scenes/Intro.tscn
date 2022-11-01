@@ -1,10 +1,75 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Intro.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=3]
 [ext_resource path="res://assets/BackgroundBlack.png" type="Texture" id=4]
 [ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+
+[sub_resource type="Shader" id=2]
+code = "/*
+Shader from Godot Shaders - the free shader library.
+godotshaders.com/shader/teleport-effect
+
+This shader is under CC0 license. Feel free to use, improve and 
+change this shader according to your needs and consider sharing 
+the modified result on godotshaders.com.
+*/
+
+shader_type canvas_item;
+
+uniform float progress : hint_range(0.0, 1.0);
+uniform float noise_desnity = 60;
+uniform float beam_size : hint_range(0.01, 0.15);
+uniform vec4 color : hint_color = vec4(0.0, 1.02, 1.2, 1.0);
+
+// We are generating our own noise here. You could experiment with the 
+// built in SimplexNoise or your own noise texture for other effects.
+vec2 random(vec2 uv){
+    uv = vec2( dot(uv, vec2(127.1,311.7) ),
+               dot(uv, vec2(269.5,183.3) ) );
+    return -1.0 + 2.0 * fract(sin(uv) * 43758.5453123);
+}
+
+float noise(vec2 uv) {
+    vec2 uv_index = floor(uv);
+    vec2 uv_fract = fract(uv);
+
+    vec2 blur = smoothstep(0.0, 1.0, uv_fract);
+
+    return mix( mix( dot( random(uv_index + vec2(0.0,0.0) ), uv_fract - vec2(0.0,0.0) ),
+                     dot( random(uv_index + vec2(1.0,0.0) ), uv_fract - vec2(1.0,0.0) ), blur.x),
+                mix( dot( random(uv_index + vec2(0.0,1.0) ), uv_fract - vec2(0.0,1.0) ),
+                     dot( random(uv_index + vec2(1.0,1.0) ), uv_fract - vec2(1.0,1.0) ), blur.x), blur.y) * 0.5 + 0.5;
+}
+
+void fragment()
+{
+	vec4 tex = texture(TEXTURE, UV);
+	
+	float noise = noise(UV * noise_desnity) * UV.y;
+	
+	float d1 = step(progress, noise);
+	float d2 = step(progress - beam_size, noise);
+	
+	vec3 beam = vec3(d2 - d1) * color.rgb;
+	
+	tex.rgb += beam;
+	tex.a *= d2;
+	
+	COLOR = tex;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/progress = 0.0
+shader_param/noise_desnity = 60.0
+shader_param/beam_size = 0.036
+shader_param/color = Color( 0.792157, 0.901961, 0.0784314, 1 )
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
@@ -27,7 +92,29 @@ margin_right = 237.0
 margin_bottom = -10.0
 texture = ExtResource( 3 )
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TimerEntryLogo" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerEntryUfo" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="TimerOutLogo" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerOutUfo" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Logo" type="TextureRect" parent="WorldEnvironment"]
+material = SubResource( 3 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -38,24 +125,6 @@ margin_right = 227.0
 margin_bottom = 264.0
 texture = ExtResource( 2 )
 expand = true
-
-[node name="Tween" type="Tween" parent="."]
-
-[node name="TimerEntryLogo" type="Timer" parent="."]
-wait_time = 6.0
-one_shot = true
-
-[node name="TimerEntryUfo" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="TimerOutLogo" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="TimerOutUfo" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
 
 [connection signal="timeout" from="TimerEntryLogo" to="." method="_on_TimerEntryLogo_timeout"]
 [connection signal="timeout" from="TimerEntryUfo" to="." method="_on_TimerEntryUfo_timeout"]

@@ -2,7 +2,7 @@ extends Node
 
 onready var tween = $Tween
 onready var background = $Background
-onready var logo = $Logo
+onready var logo = $WorldEnvironment/Logo
 onready var ufo = $Ufo
 onready var timerEntryLogo = $TimerEntryLogo
 onready var timerEntryUfo = $TimerEntryUfo
@@ -28,7 +28,7 @@ func _on_TimerEntryLogo_timeout():
 func _on_TimerEntryUfo_timeout():
 	timerEntryUfo.queue_free()
 	timerOutLogo.start()
-	tween.interpolate_property(logo,"modulate",Color(1,1,1,1),Color(0,0,0,0.0),timerOutLogo.wait_time)
+	tween.interpolate_property(logo.material,"shader_param/progress",0,1,timerOutLogo.wait_time)
 	tween.start()
 
 	
