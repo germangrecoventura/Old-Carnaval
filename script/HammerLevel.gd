@@ -60,42 +60,16 @@ func transition(time) -> void:
 	tween.interpolate_property(transitionFinish,"color",Color(0,0,0,0),Color(0,0,0,0.70),time)
 	tween.start()
 	
-func transitionToFailed():
-	$TimerFail.start()
-	transition(4.16)
-	var audio_file = "res://sound/losegamemusic.ogg"
+	
+func transitionToFinish(timer,sound,time):
+	timer.start()
+	transition(time)
+	var audio_file = sound
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
 	
-func transitionToWinnerStarOne():
-	$TimerWinnerOne.start()
-	transition(3.87)
-	var audio_file = "res://sound/winneris.ogg"
-	var sfx = load(audio_file)
-	audioStream.stream = sfx
-	audioStream.play()
-	
-	
-func transitionToWinnerStarTwo():
-	$TimerWinnerTwo.start()
-	transition(3.87)
-	var audio_file = "res://sound/winneris.ogg"
-	var sfx = load(audio_file)
-	audioStream.stream = sfx
-	audioStream.play()
-	
-	
-func transitionToWinnerStarThree():
-	$TimerWinnerThree.start()
-	transition(3.87)
-	var audio_file = "res://sound/winneris.ogg"
-	var sfx = load(audio_file)
-	audioStream.stream = sfx
-	audioStream.play()
-	
-	
-	
+
 func _on_TimerCountDown_timeout():
 	if time > 1:
 		time -= 1
@@ -131,16 +105,16 @@ func _on_TimerTimeGame_timeout():
 	for child in $Animals.get_children():
 			child.queue_free()
 	if !animals_abducted.has("Cow"):
-		transitionToFailed()
+		transitionToFinish($TimerFail,"res://sound/losegamemusic.ogg",4.16)
 	elif points == 1:
 		Gamehandler.update_leardboard(level,points)
-		transitionToWinnerStarThree()
+		transitionToFinish($TimerWinnerThree,"res://sound/winneris.ogg",3.87)
 	elif points == 2:
 		Gamehandler.update_leardboard(level,points)
-		transitionToWinnerStarTwo()
+		transitionToFinish($TimerWinnerTwo,"res://sound/winneris.ogg",3.87)
 	else:
 		Gamehandler.update_leardboard(level,points)
-		transitionToWinnerStarOne()
+		transitionToFinish($TimerWinnerOne,"res://sound/winneris.ogg",3.87)
 
 
 func _on_TimerFail_timeout():
@@ -148,8 +122,8 @@ func _on_TimerFail_timeout():
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
 	add_child(paused)
-	paused.retry = retry
-	paused.level = level
+	paused.retry = "res://scenes/Level1.tscn"
+	paused.level = 0
 	paused.update_maximus_points()
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
@@ -160,8 +134,8 @@ func _on_TimerWinnerOne_timeout():
 	audioStream.stop()
 	paused = load(SceneWinner).instance()
 	add_child(paused)
-	paused.activate_animation("ThreeStar")
-	paused.retry = retry
+	paused.activate_animation("OneStar")
+	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Menu.tscn"
 	paused.level = 0
 	paused.pointNow = points
@@ -174,7 +148,7 @@ func _on_TimerWinnerTwo_timeout():
 	audioStream.stop()
 	paused = load(SceneWinner).instance()
 	add_child(paused)
-	paused.activate_animation("ThreeStar")
+	paused.activate_animation("TwoStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Menu.tscn"
 	paused.level = 0
