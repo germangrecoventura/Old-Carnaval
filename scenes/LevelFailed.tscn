@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/freefantasygui/png/XFailed.png" type="Texture" id=4]
 [ext_resource path="res://assets/freefantasygui/png/RetryFailed.png" type="Texture" id=5]
 [ext_resource path="res://assets/freefantasygui/png/PanelRecord.png" type="Texture" id=6]
+[ext_resource path="res://assets/freefantasygui/png/MenuLevelFailed.png" type="Texture" id=7]
 [ext_resource path="res://assets/freefantasygui/png/EstrellaFailed.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=2]
@@ -132,11 +133,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -181.0
+margin_left = -285.0
 margin_top = 238.0
-margin_right = 369.0
+margin_right = 619.0
 margin_bottom = 454.0
-rect_scale = Vector2( 0.7, 0.7 )
+rect_scale = Vector2( 0.64, 0.7 )
 custom_constants/separation = 158
 
 [node name="Retry" type="Button" parent="VBoxContainer"]
@@ -146,13 +147,22 @@ margin_bottom = 216.0
 icon = ExtResource( 5 )
 flat = true
 
-[node name="Cancel" type="Button" parent="VBoxContainer"]
+[node name="ListLevel" type="Button" parent="VBoxContainer"]
 pause_mode = 2
 margin_left = 354.0
-margin_right = 550.0
+margin_right = 542.0
+margin_bottom = 216.0
+icon = ExtResource( 7 )
+flat = true
+
+[node name="Cancel" type="Button" parent="VBoxContainer"]
+pause_mode = 2
+margin_left = 700.0
+margin_right = 896.0
 margin_bottom = 216.0
 icon = ExtResource( 4 )
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/ListLevel" to="." method="_on_ListLevel_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]

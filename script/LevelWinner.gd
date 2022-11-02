@@ -47,3 +47,10 @@ func _on_Next_pressed():
 	emit_signal("e")
 	get_tree().change_scene(next)
 	self.queue_free()
+
+
+func _on_ListLevel_pressed():
+	get_tree().paused = false
+	emit_signal("e")
+	get_tree().change_scene("res://scenes/ListLevel.tscn")
+	self.queue_free()

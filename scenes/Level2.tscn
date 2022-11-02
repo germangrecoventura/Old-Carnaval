@@ -1,0 +1,278 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=2]
+[ext_resource path="res://assets/entity/light.png" type="Texture" id=3]
+[ext_resource path="res://assets/background transition/Amanecer08.png" type="Texture" id=4]
+[ext_resource path="res://script/Animals.gd" type="Script" id=5]
+[ext_resource path="res://assets/freefantasygui/abducirfinal.png" type="Texture" id=6]
+[ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/background transition/Amanecer09.png" type="Texture" id=8]
+[ext_resource path="res://script/Level2.gd" type="Script" id=9]
+[ext_resource path="res://assets/background transition/Amanecer10.png" type="Texture" id=10]
+[ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://script/TouchAbduction.gd" type="Script" id=12]
+[ext_resource path="res://script/Ufo.gd" type="Script" id=13]
+[ext_resource path="res://assets/background transition/Amanecer06.png" type="Texture" id=14]
+[ext_resource path="res://script/Light.gd" type="Script" id=15]
+[ext_resource path="res://assets/background transition/Amanecer02.png" type="Texture" id=16]
+[ext_resource path="res://assets/background transition/Amanecer03.png" type="Texture" id=17]
+[ext_resource path="res://assets/background transition/Amanecer01.png" type="Texture" id=18]
+[ext_resource path="res://assets/background transition/Amanecer00.png" type="Texture" id=19]
+[ext_resource path="res://assets/background transition/Amanecer04.png" type="Texture" id=20]
+[ext_resource path="res://assets/background transition/Amanecer05.png" type="Texture" id=21]
+[ext_resource path="res://assets/background transition/Amanecer07.png" type="Texture" id=22]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png" type="Texture" id=23]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png" type="Texture" id=24]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/chick.png" type="Texture" id=25]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/goat.png" type="Texture" id=26]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/bear.png" type="Texture" id=27]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=28]
+[ext_resource path="res://scenes/Kinematic.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/storm cloud/Cloud.png" type="Texture" id=31]
+
+[sub_resource type="DynamicFont" id=9]
+size = 61
+font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 665.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 699, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4.72681, 235.991 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 230, 64.2857 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "background"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4.2, 5, 6, 7, 8, 9, 10, 11, 12, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ) ]
+}
+
+[node name="UfoLevel1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="CountDown" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.0
+margin_right = 6.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="StaticFloor" type="Area2D" parent="StaticBody2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/StaticFloor"]
+position = Vector2( 697.5, 747 )
+scale = Vector2( 1.05, 1 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 689, 744 )
+shape = SubResource( 14 )
+
+[node name="Animals" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Cow" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 642, 519 )
+impulse = -315
+texture = ExtResource( 23 )
+
+[node name="Chick" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 780, 514 )
+texture = ExtResource( 25 )
+velocity = Vector2( 2, 0 )
+
+[node name="Bear" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 517, 517 )
+texture = ExtResource( 27 )
+
+[node name="Chicken" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 927, 513 )
+texture = ExtResource( 24 )
+velocity = Vector2( 1.2, 0 )
+
+[node name="Goat" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 1051, 506 )
+texture = ExtResource( 26 )
+velocity = Vector2( 2, 0 )
+
+[node name="Horse" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 392, 513 )
+texture = ExtResource( 28 )
+
+[node name="ControlTouchAbduction" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1400.0
+margin_top = -800.0
+
+[node name="TouchAbduction" type="TouchScreenButton" parent="ControlTouchAbduction"]
+position = Vector2( 1231, 556 )
+scale = Vector2( 0.747619, 1.01429 )
+normal = ExtResource( 6 )
+action = "abduction"
+script = ExtResource( 12 )
+
+[node name="Ufo" type="Node2D" parent="."]
+
+[node name="Ship" type="Sprite" parent="Ufo"]
+position = Vector2( 813, 133 )
+scale = Vector2( 0.6, 0.7 )
+texture = ExtResource( 2 )
+script = ExtResource( 13 )
+
+[node name="Light" type="Sprite" parent="Ufo/Ship"]
+position = Vector2( -0.208862, 68.9263 )
+scale = Vector2( 0.705, 1e-05 )
+texture = ExtResource( 3 )
+script = ExtResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Ufo/Ship/Light"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Ship/Light/Area2D"]
+position = Vector2( -2.06702, -0.642365 )
+shape = SubResource( 7 )
+
+[node name="TimerAbduct" type="Timer" parent="Ufo/Ship/Light"]
+wait_time = 4.0
+one_shot = true
+
+[node name="TimerReturnLight" type="Timer" parent="Ufo/Ship/Light"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="Ufo/Ship"]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Ship/Area2D"]
+position = Vector2( 1.66638, -2.85713 )
+shape = SubResource( 17 )
+
+[node name="TransitionFinish" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = 5.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="TimerCountDown" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.79
+one_shot = true
+autostart = true
+
+[node name="TimerGo" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerTimeGame" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerFail" type="Timer" parent="."]
+wait_time = 4.2
+
+[node name="TimerWinnerOne" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerTwo" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerThree" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Cloud" parent="." instance=ExtResource( 29 )]
+modulate = Color( 1, 1, 1, 0.298039 )
+position = Vector2( 704, 151 )
+collision_layer = 256
+collision_mask = 512
+texture = ExtResource( 31 )
+
+[node name="Virtual joystick" parent="." instance=ExtResource( 7 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 15 )
+anims/background = SubResource( 16 )
+
+[node name="Glitch" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
+
+[node name="Wall" parent="." instance=ExtResource( 30 )]
+position = Vector2( -31, 34 )
+scale = Vector2( 1.4, 0.4 )
+collision_layer = 0
+collision_mask = 256
+
+[connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]
+[connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
+[connection signal="body_entered" from="Ufo/Ship/Light/Area2D" to="Ufo/Ship/Light" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Ufo/Ship/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="Ufo/Ship/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="body_entered" from="Ufo/Ship/Area2D" to="Ufo/Ship" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Ufo/Ship/Area2D" to="Ufo/Ship" method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
+[connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
+[connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]
+[connection signal="timeout" from="TimerFail" to="." method="_on_TimerFail_timeout"]
+[connection signal="timeout" from="TimerWinnerOne" to="." method="_on_TimerWinnerOne_timeout"]
+[connection signal="timeout" from="TimerWinnerTwo" to="." method="_on_TimerWinnerTwo_timeout"]
+[connection signal="timeout" from="TimerWinnerThree" to="." method="_on_TimerWinnerThree_timeout"]

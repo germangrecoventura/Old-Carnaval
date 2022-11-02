@@ -21,3 +21,10 @@ func _on_Cancel_pressed():
 	emit_signal("e")
 	self.queue_free()
 	get_tree().change_scene("res://scenes/Menu.tscn")
+
+
+func _on_ListLevel_pressed():
+	get_tree().paused = false
+	emit_signal("e")
+	self.queue_free()
+	get_tree().change_scene("res://scenes/ListLevel.tscn")

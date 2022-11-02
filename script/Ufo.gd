@@ -1,7 +1,7 @@
 extends Sprite
 
 onready var joystickLeft : VirtualJoystick = $"../../Virtual joystick"
-onready var touchAbduction = $"../../ControlTouchAbduction"
+onready var touchAbduction = $"../../ControlTouchAbduction/TouchAbduction"
 
 export var speed : float = 400
 func _process(delta: float) -> void:
