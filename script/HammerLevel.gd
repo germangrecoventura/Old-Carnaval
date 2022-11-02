@@ -136,7 +136,7 @@ func _on_TimerWinnerOne_timeout():
 	add_child(paused)
 	paused.activate_animation("OneStar")
 	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Menu.tscn"
+	paused.next = "res://scenes/Level2.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
@@ -150,7 +150,7 @@ func _on_TimerWinnerTwo_timeout():
 	add_child(paused)
 	paused.activate_animation("TwoStar")
 	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Menu.tscn"
+	paused.next = "res://scenes/Level2.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
@@ -163,7 +163,7 @@ func _on_TimerWinnerThree_timeout():
 	add_child(paused)
 	paused.activate_animation("ThreeStar")
 	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Menu.tscn"
+	paused.next = "res://scenes/Level2.tscn"
 	paused.level = 0
 	paused.pointNow = points
 	paused.update_points()
