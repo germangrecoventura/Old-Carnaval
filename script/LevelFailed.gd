@@ -3,14 +3,15 @@ extends Node
 signal e
 
 export (String) var level
-export (int) var dificulty
 export (PackedScene) var retry
+export (PackedScene) var home
+export (PackedScene) var listLevel
 
 func _on_Retry_pressed():
 	get_tree().paused = false
 	emit_signal("e")
 	self.queue_free()
-	get_tree().change_scene(retry)
+	get_tree().change_scene_to(retry)
 
 func update_maximus_points():
 	var point = Gamehandler.leardboard[level]
@@ -20,11 +21,11 @@ func _on_Cancel_pressed():
 	get_tree().paused = false
 	emit_signal("e")
 	self.queue_free()
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	get_tree().change_scene_to(home)
 
 
 func _on_ListLevel_pressed():
 	get_tree().paused = false
 	emit_signal("e")
 	self.queue_free()
-	get_tree().change_scene("res://scenes/ListLevel.tscn")
+	get_tree().change_scene_to(listLevel)

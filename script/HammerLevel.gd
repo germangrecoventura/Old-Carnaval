@@ -9,7 +9,6 @@ onready var tween = $Tween
 onready var transitionFinish = $TransitionFinish
 onready var countdown = $CountDown
 onready var animals_abducted = []
-var SceneInformation: String = "res://scenes/InformationLevel.tscn"
 var SceneFailed: String = "res://scenes/LevelFailed.tscn"
 onready var SceneWinner: String = "res://scenes/LevelWinner.tscn"
 var paused: Object = null
@@ -18,6 +17,7 @@ onready var animationPlayer= $AnimationPlayer
 
 export (int) var level = 0
 export (String) var retry = "res://scenes/Level1.tscn"
+export (PackedScene) var ala
 #export (PackedScene) var retry
 
 
@@ -122,8 +122,9 @@ func _on_TimerFail_timeout():
 	audioStream.stop()
 	paused = load(SceneFailed).instance()
 	add_child(paused)
-	paused.retry = "res://scenes/Level1.tscn"
-	paused.level = 0
+	#paused.retry = "res://scenes/Level1.tscn"
+	paused.retry = ala
+	paused.level = level
 	paused.update_maximus_points()
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
@@ -137,7 +138,7 @@ func _on_TimerWinnerOne_timeout():
 	paused.activate_animation("OneStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Level2.tscn"
-	paused.level = 0
+	paused.level = level
 	paused.pointNow = points
 	paused.update_points()
 	paused.connect("e",self,"on_information_quit")
@@ -151,7 +152,7 @@ func _on_TimerWinnerTwo_timeout():
 	paused.activate_animation("TwoStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Level2.tscn"
-	paused.level = 0
+	paused.level = level
 	paused.pointNow = points
 	paused.update_points()
 	paused.connect("e",self,"on_information_quit")
@@ -164,7 +165,7 @@ func _on_TimerWinnerThree_timeout():
 	paused.activate_animation("ThreeStar")
 	paused.retry = "res://scenes/Level1.tscn"
 	paused.next = "res://scenes/Level2.tscn"
-	paused.level = 0
+	paused.level = level
 	paused.pointNow = points
 	paused.update_points()
 	paused.connect("e",self,"on_information_quit")
