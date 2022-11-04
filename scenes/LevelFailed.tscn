@@ -35,8 +35,8 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 script = ExtResource( 3 )
-home = ExtResource( 9 )
 listLevel = ExtResource( 10 )
+menu = ExtResource( 9 )
 
 [node name="Panel" type="TextureRect" parent="."]
 anchor_left = 0.5

@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/freefantasygui/abducirfinal.png" type="Texture" id=6]
 [ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/background transition/Amanecer09.png" type="Texture" id=8]
-[ext_resource path="res://script/HammerLevel.gd" type="Script" id=9]
+[ext_resource path="res://script/Level.gd" type="Script" id=9]
 [ext_resource path="res://assets/background transition/Amanecer10.png" type="Texture" id=10]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://script/TouchAbduction.gd" type="Script" id=12]
@@ -84,7 +84,6 @@ script = ExtResource( 9 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 10 )
 expand = true
 
 [node name="CountDown" type="Label" parent="."]

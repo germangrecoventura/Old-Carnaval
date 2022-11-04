@@ -2,10 +2,7 @@ extends Control
 
 signal e
 
-var level:int
 var pointNow: int
-var retry:String
-var next:String
 var stars_to_add = 3
 onready var star_one = $StarOne
 onready var star_two = $StarTwo
@@ -14,6 +11,11 @@ onready var estrellas = [star_one,star_two,star_three]
 onready var audioStream = $SFX
 onready var animationStar = $AnimationPlayer
 
+export (int) var level
+export (String) var retry
+export (PackedScene) var listLevel
+export (String) var next
+
 func _ready():
 	star_one.visible = false
 	star_two.visible = false
@@ -21,6 +23,7 @@ func _ready():
 	$RecordActual.visible = false
 	$Score.visible = false
 	$VBoxContainer.visible = false
+	
 	
 func activate_animation(star):
 	match star:
@@ -31,11 +34,15 @@ func activate_animation(star):
 		_:
 			animationStar.play(star)
 	
-func _on_Retry_pressed():
+	
+func acept_signal():
 	get_tree().paused = false
 	emit_signal("e")
-	get_tree().change_scene(retry)
 	self.queue_free()
+	
+func _on_Retry_pressed():
+	acept_signal()
+	get_tree().change_scene(retry)
 
 func update_points():
 	var point = Gamehandler.leardboard[level]
@@ -43,14 +50,10 @@ func update_points():
 	$Score/Score.text = String(pointNow)
 
 func _on_Next_pressed():
-	get_tree().paused = false
-	emit_signal("e")
+	acept_signal()
 	get_tree().change_scene(next)
-	self.queue_free()
 
 
 func _on_ListLevel_pressed():
-	get_tree().paused = false
-	emit_signal("e")
-	get_tree().change_scene("res://scenes/ListLevel.tscn")
-	self.queue_free()
+	acept_signal()
+	get_tree().change_scene_to(listLevel)

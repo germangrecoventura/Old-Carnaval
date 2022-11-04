@@ -1,11 +1,10 @@
 extends Node
 
-export(PackedScene) var home
+export(String) var home = "res://scenes/Menu.tscn"
 	
 func _on_Return_pressed():
 	self.queue_free()
-	#get_tree().change_scene_to(home) 
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	get_tree().change_scene(home)
 
 
 func _on_RichTextLabel_meta_clicked(meta):

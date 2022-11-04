@@ -9,16 +9,15 @@ onready var tween = $Tween
 onready var transitionFinish = $TransitionFinish
 onready var countdown = $CountDown
 onready var animals_abducted = []
-var SceneFailed: String = "res://scenes/LevelFailed.tscn"
-onready var SceneWinner: String = "res://scenes/LevelWinner.tscn"
 var paused: Object = null
 onready var animationPlayer= $AnimationPlayer
 
 
 export (int) var level = 0
+onready var sceneFailed: String = "res://scenes/LevelFailed.tscn"
+onready var sceneWinner: String = "res://scenes/LevelWinner.tscn"
 export (String) var retry = "res://scenes/Level1.tscn"
-export (PackedScene) var ala
-#export (PackedScene) var retry
+export (String) var next = "res://scenes/Level2.tscn"
 
 
 func _add_points(points_to_add):
@@ -75,7 +74,7 @@ func _on_TimerCountDown_timeout():
 		time -= 1
 		countdown.text = String(time%60)
 	else:
-		$TimerCountDown.stop()
+		$TimerCountDown.queue_free()
 		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
 		var sfx = load(audio_file)
 		audioStream.stream = sfx
@@ -120,10 +119,9 @@ func _on_TimerTimeGame_timeout():
 func _on_TimerFail_timeout():
 	$TimerFail.queue_free()
 	audioStream.stop()
-	paused = load(SceneFailed).instance()
+	paused = load(sceneFailed).instance()
 	add_child(paused)
-	#paused.retry = "res://scenes/Level1.tscn"
-	paused.retry = ala
+	paused.retry = retry
 	paused.level = level
 	paused.update_maximus_points()
 	paused.connect("e",self,"on_information_quit")
@@ -133,42 +131,29 @@ func _on_TimerFail_timeout():
 func _on_TimerWinnerOne_timeout():
 	$TimerWinnerOne.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinner).instance()
-	add_child(paused)
-	paused.activate_animation("OneStar")
-	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Level2.tscn"
-	paused.level = level
-	paused.pointNow = points
-	paused.update_points()
-	paused.connect("e",self,"on_information_quit")
-
+	paused = load(sceneWinner).instance()
+	activate_scene_winner(paused,"OneStar")
 
 func _on_TimerWinnerTwo_timeout():
 	$TimerWinnerTwo.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinner).instance()
-	add_child(paused)
-	paused.activate_animation("TwoStar")
-	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Level2.tscn"
-	paused.level = level
-	paused.pointNow = points
-	paused.update_points()
-	paused.connect("e",self,"on_information_quit")
+	paused = load(sceneWinner).instance()
+	activate_scene_winner(paused,"TwoStar")
 
 func _on_TimerWinnerThree_timeout():
 	$TimerWinnerThree.queue_free()
 	audioStream.stop()
-	paused = load(SceneWinner).instance()
-	add_child(paused)
-	paused.activate_animation("ThreeStar")
-	paused.retry = "res://scenes/Level1.tscn"
-	paused.next = "res://scenes/Level2.tscn"
+	paused = load(sceneWinner).instance()
+	activate_scene_winner(paused,"ThreeStar")
+	
+func activate_scene_winner(scene,animation):
+	add_child(scene)
+	paused.activate_animation(animation)
+	paused.retry = retry
+	paused.next = next#
 	paused.level = level
 	paused.pointNow = points
 	paused.update_points()
 	paused.connect("e",self,"on_information_quit")
-	
 	
 	
