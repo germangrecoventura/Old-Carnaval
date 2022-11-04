@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://script/AnimalRigid.gd" type="Script" id=1]
+[ext_resource path="res://script/AnimalStateMachine.gd" type="Script" id=2]
+[ext_resource path="res://script/WalkStateAnimal.gd" type="Script" id=3]
+[ext_resource path="res://script/AbducedGoodStateAnimal.gd" type="Script" id=4]
+[ext_resource path="res://script/DeadStateAnimal.gd" type="Script" id=5]
+[ext_resource path="res://script/AbducedFailStateAnimal.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.2567
@@ -8,7 +13,6 @@ radius = 70.2567
 [node name="Animal" type="RigidBody2D"]
 collision_mask = 0
 script = ExtResource( 1 )
-texture = "res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png"
 
 [node name="Body" type="Sprite" parent="."]
 scale = Vector2( 0.7, 0.7 )
@@ -16,3 +20,20 @@ scale = Vector2( 0.7, 0.7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.7, 0.7 )
 shape = SubResource( 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="AbducedGood" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="AbducedFail" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]

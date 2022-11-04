@@ -28,13 +28,9 @@ func hide_ui():
 func abduct(body) -> void:
 	var name = body.name
 	if glitch_enabled:
-		tween.interpolate_property(body,"position",body.position,Vector2(body.position.x,393),1.0)
-		tween.start()
-		yield(get_tree().create_timer(1), "timeout")
-		tween.interpolate_property(body,"position",body.position,Vector2(body.position.x,513),1.0)
-		tween.start()
+		body.abduct_glitched = true
 		glitch.set_material(load("res://shader/Glitch.tres"))
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
 		$Area2D/CollisionShape2D.disabled = true
 		$TimerReturnLight.start()
 		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
@@ -42,12 +38,10 @@ func abduct(body) -> void:
 		abduct = true
 		glitch_enabled = false
 	else:
-		var move_tween:SceneTreeTween = get_tree().create_tween()
-		move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,280),$TimerReturnLight.wait_time)
+		body.abduct = true
 		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
-		body.queue_free()
 		$TimerReturnLight.start()
-		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
+		yield(get_tree().create_timer(1.5), "timeout")
 		abduct = true
 		if name == "Cow":
 			level.add_animal(name)

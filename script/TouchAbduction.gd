@@ -6,8 +6,8 @@ onready var areaLight =$"../../Ufo/Ship/Light/Area2D/CollisionShape2D"
 onready var glitch = $"../../Glitch"
 onready var ufo = $"../../Ufo"
 onready var timerLight = $"../../Ufo/Ship/Light/TimerReturnLight"
-onready var try = 1
-onready var glitches = 1
+onready var try = 2
+onready var glitches = 0
 
 func hide_ui():
 	touch._reset()
