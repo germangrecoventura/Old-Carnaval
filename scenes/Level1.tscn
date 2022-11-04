@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=2]
@@ -28,6 +28,9 @@
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/goat.png" type="Texture" id=26]
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/bear.png" type="Texture" id=27]
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=28]
+[ext_resource path="res://script/UfoStateMachine.gd" type="Script" id=29]
+[ext_resource path="res://script/IdleStateUfo.gd" type="Script" id=30]
+[ext_resource path="res://script/WalkStateUfo.gd" type="Script" id=31]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -156,12 +159,12 @@ action = "abduction"
 script = ExtResource( 12 )
 
 [node name="Ufo" type="Node2D" parent="."]
+script = ExtResource( 13 )
 
 [node name="Ship" type="Sprite" parent="Ufo"]
 position = Vector2( 813, 133 )
 scale = Vector2( 0.6, 0.7 )
 texture = ExtResource( 2 )
-script = ExtResource( 13 )
 
 [node name="Light" type="Sprite" parent="Ufo/Ship"]
 position = Vector2( -0.208862, 68.9263 )
@@ -183,6 +186,15 @@ one_shot = true
 [node name="TimerReturnLight" type="Timer" parent="Ufo/Ship/Light"]
 wait_time = 1.5
 one_shot = true
+
+[node name="StateMachine" type="Node" parent="Ufo"]
+script = ExtResource( 29 )
+
+[node name="Idle" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 30 )
+
+[node name="Walk" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 31 )
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
 anchor_right = 1.0
