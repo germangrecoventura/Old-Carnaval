@@ -6,8 +6,8 @@ onready var areaLight =$"../../Ufo/Ship/Light/Area2D/CollisionShape2D"
 onready var glitch = $"../../Glitch"
 onready var ufo = $"../../Ufo"
 onready var timerLight = $"../../Ufo/Ship/Light/TimerReturnLight"
-onready var try = 2
-onready var glitches = 0
+onready var try = 1
+onready var glitches = 1
 
 func hide_ui():
 	touch._reset()
@@ -57,7 +57,7 @@ func _on_TouchAbduction_pressed():
 	$"../../TimerTimeGame".paused = true
 	$"../../AnimationPlayer".stop(false)
 	areaLight.disabled = false
-	try += 1
+	ufo.statusUfo += 1
 	if (try % 3 == 0):
 		try += 1
 		light_glitch()

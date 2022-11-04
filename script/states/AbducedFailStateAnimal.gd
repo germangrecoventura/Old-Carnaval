@@ -1,4 +1,4 @@
-extends "res://script/AbstractState.gd"
+extends "res://script/states/AbstractState.gd"
 
 onready var tween = $"../../Tween"
 

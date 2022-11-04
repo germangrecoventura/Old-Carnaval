@@ -28,9 +28,9 @@
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/goat.png" type="Texture" id=26]
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/bear.png" type="Texture" id=27]
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=28]
-[ext_resource path="res://script/UfoStateMachine.gd" type="Script" id=29]
-[ext_resource path="res://script/IdleStateUfo.gd" type="Script" id=30]
-[ext_resource path="res://script/WalkStateUfo.gd" type="Script" id=31]
+[ext_resource path="res://script/states/UfoStateMachine.gd" type="Script" id=29]
+[ext_resource path="res://script/states/IdleStateUfo.gd" type="Script" id=30]
+[ext_resource path="res://script/states/WalkStateUfo.gd" type="Script" id=31]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61

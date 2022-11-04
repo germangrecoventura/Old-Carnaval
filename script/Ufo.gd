@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var touchAbduction = $"../ControlTouchAbduction/TouchAbduction"
+onready var statusUfo = 0
 
 export var speed : float = 400
 
