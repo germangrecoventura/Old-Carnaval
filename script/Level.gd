@@ -14,8 +14,8 @@ onready var animationPlayer= $AnimationPlayer
 
 
 export (int) var level = 0
-onready var sceneFailed: String = "res://scenes/LevelFailed.tscn"
-onready var sceneWinner: String = "res://scenes/LevelWinner.tscn"
+export (String) var sceneFailed = "res://scenes/LevelFailed.tscn"
+export (String) var sceneWinner = "res://scenes/LevelWinner.tscn"
 export (String) var retry = "res://scenes/Level1.tscn"
 export (String) var next = "res://scenes/Level2.tscn"
 
