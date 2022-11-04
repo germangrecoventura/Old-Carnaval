@@ -5,6 +5,7 @@ onready var tween = $"../../Tween"
 onready var areaLight =$"../../Ufo/Ship/Light/Area2D/CollisionShape2D"
 onready var glitch = $"../../Glitch"
 onready var ufo = $"../../Ufo"
+onready var timerLight = $"../../Ufo/Ship/Light/TimerReturnLight"
 onready var try = 1
 onready var glitches = 1
 
@@ -25,18 +26,18 @@ func show_ui():
 
 func light_down() -> void:
 	light.add_position(light.position)
-	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,458.895),2.0)
-	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,1.637),2.0)
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,458.895),timerLight.wait_time)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,1.637),timerLight.wait_time)
 	tween.start()
 	
 func light_glitch() -> void:
 	if glitches % 2 == 1:
 		light.add_position(light.position)
-		tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,131.672),2.0)
-		tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.317),2.0)
+		tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,131.672),timerLight.wait_time)
+		tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.317),timerLight.wait_time)
 		tween.start()
 		glitch.set_material(load("res://shader/Glitch.tres"))
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(timerLight.wait_time), "timeout")
 		glitch.set_material(null)
 		glitches += 1
 	else:
@@ -46,8 +47,8 @@ func light_glitch() -> void:
 		
 func _on_TimerAbduct_timeout():
 	$"../../Ufo/Ship/Light/TimerReturnLight".start()
-	tween.interpolate_property(light,"position",light.position,Vector2(light.position_actual.x,light.position_actual.y),2.0)
-	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0),2.0)
+	tween.interpolate_property(light,"position",light.position,Vector2(light.position_actual.x,light.position_actual.y),timerLight.wait_time)
+	tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0),timerLight.wait_time)
 	tween.start()
 
 func _on_TouchAbduction_pressed():

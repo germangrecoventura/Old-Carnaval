@@ -34,20 +34,20 @@ func abduct(body) -> void:
 		tween.interpolate_property(body,"position",body.position,Vector2(body.position.x,513),1.0)
 		tween.start()
 		glitch.set_material(load("res://shader/Glitch.tres"))
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(1.5), "timeout")
 		$Area2D/CollisionShape2D.disabled = true
 		$TimerReturnLight.start()
-		yield(get_tree().create_timer(2), "timeout")
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
 		self.texture= load("res://assets/entity/light.png")
 		abduct = true
 		glitch_enabled = false
 	else:
 		var move_tween:SceneTreeTween = get_tree().create_tween()
-		move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,280),2.0)
-		yield(get_tree().create_timer(2), "timeout")
+		move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,280),$TimerReturnLight.wait_time)
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
 		body.queue_free()
 		$TimerReturnLight.start()
-		yield(get_tree().create_timer(2), "timeout")
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
 		abduct = true
 		if name == "Cow":
 			level.add_animal(name)

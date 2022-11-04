@@ -177,11 +177,11 @@ position = Vector2( -2.06702, -0.642365 )
 shape = SubResource( 7 )
 
 [node name="TimerAbduct" type="Timer" parent="Ufo/Ship/Light"]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [node name="TimerReturnLight" type="Timer" parent="Ufo/Ship/Light"]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
