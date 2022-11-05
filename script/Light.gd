@@ -54,7 +54,6 @@ func abduct(body) -> void:
 func _on_Area2D_body_entered(body):
 	if abduct:
 		abduct = false
-		level._add_points(1)
 		var name = body.name
 		if name != "Cow":
 			self.texture= load("res://assets/entity/lightFail.png")

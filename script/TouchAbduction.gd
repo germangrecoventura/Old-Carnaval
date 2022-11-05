@@ -8,6 +8,7 @@ onready var ufo = $"../../Ufo"
 onready var timerLight = $"../../Ufo/Ship/Light/TimerReturnLight"
 onready var try = 1
 onready var glitches = 1
+onready var level = $"../.."
 
 func hide_ui():
 	touch._reset()
@@ -53,6 +54,7 @@ func _on_TimerAbduct_timeout():
 
 func _on_TouchAbduction_pressed():
 	hide_ui()
+	level._add_points(1)
 	$"../../Ufo/Ship/Light/TimerAbduct".start()
 	$"../../TimerTimeGame".paused = true
 	$"../../AnimationPlayer".stop(false)

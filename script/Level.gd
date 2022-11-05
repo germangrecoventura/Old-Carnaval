@@ -2,7 +2,7 @@ extends Control
 
 var points = 0
 var time = 3
-onready var touch = $"Virtual joystick"
+onready var joystyck = $"Virtual joystick"
 onready var touchAbduction = $ControlTouchAbduction/TouchAbduction
 onready var audioStream = $SFX
 onready var tween = $Tween
@@ -11,6 +11,11 @@ onready var countdown = $CountDown
 onready var animals_abducted = []
 var paused: Object = null
 onready var animationPlayer= $AnimationPlayer
+onready var ufo= $Ufo
+onready var timerFail= $TimerFail
+onready var timerWinnerOne= $TimerWinnerOne
+onready var timerWinnerTwo= $TimerWinnerTwo
+onready var timerWinnerThree= $TimerWinnerThree
 
 
 export (int) var level = 0
@@ -27,9 +32,10 @@ func add_animal(name):
 	animals_abducted.append(name)
 
 func _ready():
+	points = 0
 	animationPlayer.play("background")
 	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
-	touch.visible = false
+	joystyck.visible = false
 	hide_ui()
 	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
@@ -42,17 +48,17 @@ func on_information_quit() -> void:
 
 
 func hide_ui() -> void:
-	touch._reset()
-	touch.set_process_input(false)
+	joystyck._reset()
+	joystyck.set_process_input(false)
+	joystyck.visible = false
 	touchAbduction.set_process_input(false)
-	touch.visible = false
 	touchAbduction.visible = false
 
 
 func show_ui():
-	touch.set_process_input(true)
+	joystyck.set_process_input(true)
+	joystyck.visible = true
 	touchAbduction.set_process_input(true)
-	touch.visible = true
 	touchAbduction.visible = true
 	
 func transition(time) -> void:
@@ -98,50 +104,48 @@ func _on_TimerGo_timeout():
 
 
 func _on_TimerTimeGame_timeout():
-	$ControlTouchAbduction.queue_free()
-	$Ufo.queue_free()
-	$"Virtual joystick".queue_free()
+	touchAbduction.queue_free()
+	ufo.queue_free()
+	joystyck.queue_free()
 	for child in $Animals.get_children():
 			child.queue_free()
 	if !animals_abducted.has("Cow"):
-		transitionToFinish($TimerFail,"res://sound/losegamemusic.ogg",4.16)
+		transitionToFinish(timerFail,"res://sound/losegamemusic.ogg",4.16)
 	elif points == 1:
 		Gamehandler.update_leardboard(level,points)
-		transitionToFinish($TimerWinnerThree,"res://sound/winneris.ogg",3.87)
+		transitionToFinish(timerWinnerThree,"res://sound/winneris.ogg",3.87)
 	elif points == 2:
 		Gamehandler.update_leardboard(level,points)
-		transitionToFinish($TimerWinnerTwo,"res://sound/winneris.ogg",3.87)
+		transitionToFinish(timerWinnerTwo,"res://sound/winneris.ogg",3.87)
 	else:
 		Gamehandler.update_leardboard(level,points)
-		transitionToFinish($TimerWinnerOne,"res://sound/winneris.ogg",3.87)
+		transitionToFinish(timerWinnerOne,"res://sound/winneris.ogg",3.87)
 
 
 func _on_TimerFail_timeout():
-	$TimerFail.queue_free()
+	timerFail.queue_free()
 	audioStream.stop()
 	paused = load(sceneFailed).instance()
 	add_child(paused)
-	paused.retry = retry
-	paused.level = level
-	paused.update_maximus_points()
+	paused.update_results(retry,level)
 	paused.connect("e",self,"on_information_quit")
 	get_tree().paused = true
 
 
 func _on_TimerWinnerOne_timeout():
-	$TimerWinnerOne.queue_free()
+	timerWinnerOne.queue_free()
 	audioStream.stop()
 	paused = load(sceneWinner).instance()
 	activate_scene_winner(paused,"OneStar")
 
 func _on_TimerWinnerTwo_timeout():
-	$TimerWinnerTwo.queue_free()
+	timerWinnerTwo.queue_free()
 	audioStream.stop()
 	paused = load(sceneWinner).instance()
 	activate_scene_winner(paused,"TwoStar")
 
 func _on_TimerWinnerThree_timeout():
-	$TimerWinnerThree.queue_free()
+	timerWinnerThree.queue_free()
 	audioStream.stop()
 	paused = load(sceneWinner).instance()
 	activate_scene_winner(paused,"ThreeStar")
@@ -149,11 +153,7 @@ func _on_TimerWinnerThree_timeout():
 func activate_scene_winner(scene,animation):
 	add_child(scene)
 	paused.activate_animation(animation)
-	paused.retry = retry
-	paused.next = next#
-	paused.level = level
-	paused.pointNow = points
-	paused.update_points()
+	paused.update_results(retry,next,level,points)
 	paused.connect("e",self,"on_information_quit")
 	
 	

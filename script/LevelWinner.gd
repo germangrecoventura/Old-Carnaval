@@ -24,7 +24,6 @@ func _ready():
 	$Score.visible = false
 	$VBoxContainer.visible = false
 	
-	
 func activate_animation(star):
 	match star:
 		"OneStar":
@@ -44,10 +43,16 @@ func _on_Retry_pressed():
 	acept_signal()
 	get_tree().change_scene(retry)
 
-func update_points():
+
+func update_results(retryToPlay,nextToPlay,levelToPlay,pointToGame):
+	self.retry = retryToPlay
+	self.next = nextToPlay#
+	self.level = levelToPlay
+	self.pointNow = pointToGame
 	var point = Gamehandler.leardboard[level]
 	$RecordActual/Record.text = String(point)
 	$Score/Score.text = String(pointNow)
+
 
 func _on_Next_pressed():
 	acept_signal()
