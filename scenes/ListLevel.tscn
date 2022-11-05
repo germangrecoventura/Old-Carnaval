@@ -60,16 +60,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -288.0
-margin_top = -73.0
+margin_top = -201.0
 margin_right = 616.0
-margin_bottom = 143.0
+margin_bottom = 15.0
 rect_scale = Vector2( 0.64, 0.7 )
 custom_constants/separation = 158
 
 [node name="Level1" type="Button" parent="VBoxContainer"]
 pause_mode = 2
 margin_right = 372.0
-margin_bottom = 216.0
+margin_bottom = 215.0
 icon = ExtResource( 4 )
 flat = true
 
@@ -85,7 +85,7 @@ text = "1"
 pause_mode = 2
 margin_left = 530.0
 margin_right = 902.0
-margin_bottom = 216.0
+margin_bottom = 215.0
 icon = ExtResource( 4 )
 flat = true
 
@@ -97,5 +97,33 @@ margin_bottom = 148.286
 custom_fonts/font = SubResource( 1 )
 text = "2"
 
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.0
+margin_top = 3.0
+margin_right = 250.0
+margin_bottom = 219.0
+rect_scale = Vector2( 0.64, 0.7 )
+custom_constants/separation = 158
+
+[node name="Level3" type="Button" parent="VBoxContainer2"]
+pause_mode = 2
+margin_right = 372.0
+margin_bottom = 216.0
+icon = ExtResource( 4 )
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer2/Level3"]
+margin_left = 168.75
+margin_top = 54.2857
+margin_right = 208.75
+margin_bottom = 148.286
+custom_fonts/font = SubResource( 1 )
+text = "3"
+
 [connection signal="pressed" from="VBoxContainer/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level3" to="." method="_on_Level3_pressed"]
