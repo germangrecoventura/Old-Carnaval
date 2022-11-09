@@ -38,6 +38,7 @@ func abduct(body) -> void:
 		self.texture= load("res://assets/entity/light.png")
 		abduct = true
 		glitch_enabled = false
+		ufo.statusUfo = 0
 	else:
 		body.abduct = true
 		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")

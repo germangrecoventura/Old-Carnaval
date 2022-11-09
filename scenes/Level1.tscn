@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull01.png" type="Texture" id=2]
@@ -29,8 +29,8 @@
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/bear.png" type="Texture" id=27]
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=28]
 [ext_resource path="res://script/states/UfoStateMachine.gd" type="Script" id=29]
-[ext_resource path="res://script/states/IdleStateUfo.gd" type="Script" id=30]
-[ext_resource path="res://script/states/WalkStateUfo.gd" type="Script" id=31]
+[ext_resource path="res://script/states/NormalStateUfo.gd" type="Script" id=30]
+[ext_resource path="res://script/states/DamagedStateUfo.gd" type="Script" id=31]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull03.png" type="Texture" id=32]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull06.png" type="Texture" id=33]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull07.png" type="Texture" id=34]
@@ -42,6 +42,7 @@
 [ext_resource path="res://assets/entity/Ufo Full/onviFull04.png" type="Texture" id=40]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull11.png" type="Texture" id=41]
 [ext_resource path="res://assets/entity/Ufo Full/onviFull10.png" type="Texture" id=42]
+[ext_resource path="res://script/states/GlitchStateUfo.gd" type="Script" id=43]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -103,7 +104,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=19]
-resource_name = "ufo_medio"
+resource_name = "ufo_damaged"
 length = 2.2
 loop = true
 tracks/0/type = "value"
@@ -117,6 +118,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 39 ), ExtResource( 2 ), ExtResource( 35 ), ExtResource( 32 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 42 ), ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "ufo_glitch"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ null, null ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -249,11 +267,14 @@ one_shot = true
 [node name="StateMachine" type="Node" parent="Ufo"]
 script = ExtResource( 29 )
 
-[node name="Idle" type="Node" parent="Ufo/StateMachine"]
+[node name="Normal" type="Node" parent="Ufo/StateMachine"]
 script = ExtResource( 30 )
 
-[node name="Walk" type="Node" parent="Ufo/StateMachine"]
+[node name="Damaged" type="Node" parent="Ufo/StateMachine"]
 script = ExtResource( 31 )
+
+[node name="Glitch" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 43 )
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -309,7 +330,8 @@ anims/background = SubResource( 16 )
 
 [node name="UfoAnimation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 18 )
-anims/ufo_medio = SubResource( 19 )
+anims/ufo_damaged = SubResource( 19 )
+anims/ufo_glitch = SubResource( 20 )
 anims/ufo_normal = SubResource( 17 )
 
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]

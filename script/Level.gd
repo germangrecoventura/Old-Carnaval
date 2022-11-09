@@ -16,6 +16,7 @@ onready var timerFail= $TimerFail
 onready var timerWinnerOne= $TimerWinnerOne
 onready var timerWinnerTwo= $TimerWinnerTwo
 onready var timerWinnerThree= $TimerWinnerThree
+onready var animationUfo= $UfoAnimation
 
 
 export (int) var level = 0
@@ -105,6 +106,7 @@ func _on_TimerGo_timeout():
 
 func _on_TimerTimeGame_timeout():
 	touchAbduction.queue_free()
+	animationUfo.stop()
 	ufo.queue_free()
 	joystyck.queue_free()
 	for child in $Animals.get_children():
