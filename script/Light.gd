@@ -28,6 +28,7 @@ func hide_ui():
 	
 func abduct(body) -> void:
 	var name = body.name
+	
 	if glitch_enabled:
 		body.abduct_glitched = true
 		glitch.set_material(load("res://shader/Glitch.tres"))
@@ -38,7 +39,7 @@ func abduct(body) -> void:
 		self.texture= load("res://assets/entity/light.png")
 		abduct = true
 		glitch_enabled = false
-		ufo.statusUfo = 0
+		ufo.statusUfo += 1
 	else:
 		body.abduct = true
 		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")

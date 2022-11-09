@@ -39,6 +39,7 @@ func light_glitch() -> void:
 		tween.start()
 		glitch.set_material(load("res://shader/Glitch.tres"))
 		yield(get_tree().create_timer(timerLight.wait_time), "timeout")
+		ufo.statusUfo += 1
 		glitch.set_material(null)
 		glitches += 1
 	else:
@@ -60,6 +61,7 @@ func _on_TouchAbduction_pressed():
 	$"../../AnimationPlayer".stop(false)
 	areaLight.disabled = false
 	ufo.statusUfo += 1
+	print(ufo.statusUfo)
 	if (try % 3 == 0):
 		try += 1
 		light_glitch()
