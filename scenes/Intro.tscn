@@ -1,10 +1,21 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://script/Intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/OldCarnaval.png" type="Texture" id=2]
-[ext_resource path="res://assets/entity/onvi2.png" type="Texture" id=3]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull01.png" type="Texture" id=3]
 [ext_resource path="res://assets/BackgroundBlack.png" type="Texture" id=4]
 [ext_resource path="res://scenes/Menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull03.png" type="Texture" id=6]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull06.png" type="Texture" id=7]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull07.png" type="Texture" id=8]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull02.png" type="Texture" id=9]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull08.png" type="Texture" id=10]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull05.png" type="Texture" id=11]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull09.png" type="Texture" id=12]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull00.png" type="Texture" id=13]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull04.png" type="Texture" id=14]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull11.png" type="Texture" id=15]
+[ext_resource path="res://assets/entity/Ufo Full/onviFull10.png" type="Texture" id=16]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -71,6 +82,38 @@ shader_param/noise_desnity = 60.0
 shader_param/beam_size = 0.036
 shader_param/color = Color( 0.792157, 0.901961, 0.0784314, 1 )
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "ufo"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 15 ) ]
+}
+
 [node name="Intro" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -90,7 +133,7 @@ margin_left = -237.0
 margin_top = -152.0
 margin_right = 237.0
 margin_bottom = -10.0
-texture = ExtResource( 3 )
+texture = ExtResource( 13 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -125,6 +168,10 @@ margin_right = 227.0
 margin_bottom = 224.0
 texture = ExtResource( 2 )
 expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/ufo = SubResource( 5 )
 
 [connection signal="timeout" from="TimerEntryLogo" to="." method="_on_TimerEntryLogo_timeout"]
 [connection signal="timeout" from="TimerEntryUfo" to="." method="_on_TimerEntryUfo_timeout"]

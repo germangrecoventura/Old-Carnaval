@@ -8,6 +8,7 @@ onready var timerEntryLogo = $TimerEntryLogo
 onready var timerEntryUfo = $TimerEntryUfo
 onready var timerOutLogo = $TimerOutLogo
 onready var timerOutUfo = $TimerOutUfo
+onready var animation = $AnimationPlayer
 
 export(PackedScene) var next_scene
 
@@ -21,6 +22,7 @@ func _ready():
 func _on_TimerEntryLogo_timeout():
 	timerEntryLogo.queue_free()
 	timerEntryUfo.start()
+	animation.play("ufo")
 	tween.interpolate_property(ufo,"rect_position",ufo.rect_position,Vector2(ufo.rect_position.x,105),timerEntryUfo.wait_time)
 	tween.start()
 	
