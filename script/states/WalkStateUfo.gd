@@ -15,7 +15,7 @@ func update(delta:float):
 	if parent.statusUfo % 3 == 0:
 		animationUfo.play("ufo_normal")
 	if parent.statusUfo % 3 == 1:
-		animationUfo.play("ufo_normal")
+		animationUfo.play("ufo_medio")
 	if parent.statusUfo % 3 == 2:
 		animationUfo.play("ufo_normal")
 	parent.position.x += joystickLeft.get_output().y * parent.speed * delta

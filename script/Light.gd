@@ -8,6 +8,7 @@ onready var timerTimeGame =$"../../../TimerTimeGame"
 onready var level =$"../../.."
 var position_actual
 onready var glitch_enabled = false
+onready var ufo = get_parent().get_parent()
 
 func add_position(value):
 	position_actual = value
