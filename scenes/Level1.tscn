@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull01.png" type="Texture" id=2]
@@ -68,7 +68,18 @@
 [ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio02.png" type="Texture" id=66]
 [ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio09.png" type="Texture" id=67]
 [ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio10.png" type="Texture" id=68]
-[ext_resource path="res://assets/BackgroundBlack.png" type="Texture" id=69]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch02.png" type="Texture" id=69]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch05.png" type="Texture" id=70]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch01.png" type="Texture" id=71]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch03.png" type="Texture" id=72]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch06.png" type="Texture" id=73]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch07.png" type="Texture" id=74]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch09.png" type="Texture" id=75]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch10.png" type="Texture" id=76]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch11.png" type="Texture" id=77]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch04.png" type="Texture" id=78]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch08.png" type="Texture" id=79]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch00.png" type="Texture" id=80]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -157,10 +168,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 69 ), ExtResource( 69 ) ]
+"values": [ ExtResource( 80 ), ExtResource( 71 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 70 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ]
 }
 
 [sub_resource type="Animation" id=17]
