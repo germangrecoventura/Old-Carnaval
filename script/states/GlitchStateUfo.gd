@@ -5,7 +5,6 @@ onready var animationUfo = $"../../../UfoAnimation"
 
 func enter():
 	animationUfo.play("ufo_glitch")
-	print("Pase al glitch")
 
 func update(delta:float):
 	if parent.statusUfo % 4 == 0:
