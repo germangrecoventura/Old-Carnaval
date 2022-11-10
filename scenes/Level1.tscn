@@ -297,27 +297,6 @@ position = Vector2( 813, 133 )
 scale = Vector2( 0.6, 0.7 )
 texture = ExtResource( 39 )
 
-[node name="Light" type="Sprite" parent="Ufo/Ship"]
-position = Vector2( -0.208862, 68.9263 )
-scale = Vector2( 0.705, 1e-05 )
-texture = ExtResource( 3 )
-script = ExtResource( 15 )
-
-[node name="Area2D" type="Area2D" parent="Ufo/Ship/Light"]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Ship/Light/Area2D"]
-position = Vector2( -2.06702, -0.642365 )
-shape = SubResource( 7 )
-
-[node name="TimerAbduct" type="Timer" parent="Ufo/Ship/Light"]
-wait_time = 3.0
-one_shot = true
-
-[node name="TimerReturnLight" type="Timer" parent="Ufo/Ship/Light"]
-wait_time = 1.5
-one_shot = true
-
 [node name="StateMachine" type="Node" parent="Ufo"]
 script = ExtResource( 29 )
 
@@ -332,6 +311,27 @@ script = ExtResource( 56 )
 
 [node name="Glitch" type="Node" parent="Ufo/StateMachine"]
 script = ExtResource( 43 )
+
+[node name="Light" type="Sprite" parent="Ufo"]
+position = Vector2( 812.875, 180.563 )
+scale = Vector2( 0.423, -0.000451636 )
+texture = ExtResource( 3 )
+script = ExtResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Ufo/Light"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Light/Area2D"]
+position = Vector2( -2.06702, -0.642365 )
+shape = SubResource( 7 )
+
+[node name="TimerAbduct" type="Timer" parent="Ufo/Light"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerReturnLight" type="Timer" parent="Ufo/Light"]
+wait_time = 1.5
+one_shot = true
 
 [node name="TransitionFinish" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -394,9 +394,9 @@ anims/ufo_pre_glitch = SubResource( 21 )
 
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
-[connection signal="body_entered" from="Ufo/Ship/Light/Area2D" to="Ufo/Ship/Light" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="Ufo/Ship/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
-[connection signal="timeout" from="Ufo/Ship/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
 [connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 [connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]

@@ -1,20 +1,24 @@
 extends Sprite
-onready var tween = $"../../../Tween"
+onready var tween = $"../../Tween"
 onready var abduct = true
-onready var touch = $"../../../Virtual joystick"
-onready var touchAbduction = $"../../../ControlTouchAbduction/TouchAbduction"
-onready var glitch = $"../../../Glitch"
-onready var timerTimeGame =$"../../../TimerTimeGame"
-onready var level =$"../../.."
+onready var touch = $"../../Virtual joystick"
+onready var touchAbduction = $"../../ControlTouchAbduction/TouchAbduction"
+onready var glitch = $"../../Glitch"
+onready var timerTimeGame =$"../../TimerTimeGame"
+onready var level =$"../.."
 var position_actual
 onready var glitch_enabled = false
-onready var ufo = get_parent().get_parent()
+onready var ufo = get_parent()
 
 func add_position(value):
 	position_actual = value
 
 func activate_glitch() -> void:
 	glitch_enabled = true
+
+
+func _ready():
+	$Area2D/CollisionShape2D.disabled = true
 
 
 func hide_ui():

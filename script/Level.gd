@@ -35,7 +35,7 @@ func add_animal(name):
 func _ready():
 	points = 0
 	animationPlayer.play("background")
-	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = true
+	$Ufo/Light/Area2D/CollisionShape2D.disabled = true
 	joystyck.visible = false
 	hide_ui()
 	countdown.text = String(time%60)
@@ -88,7 +88,7 @@ func _on_TimerCountDown_timeout():
 		audioStream.play()
 		yield(get_tree().create_timer(0.90), "timeout")
 		audioStream.stop()
-		$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = false
+	#	$Ufo/Ship/Light/Area2D/CollisionShape2D.disabled = false
 		
 
 
