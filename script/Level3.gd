@@ -4,6 +4,8 @@ extends "res://script/Level.gd"
 func _on_TimerTimeGame_timeout():
 	$Cloud.queue_free()
 	touchAbduction.queue_free()
+	animationUfo.stop()
+	animationUfo.queue_free()
 	ufo.queue_free()
 	joystyck.queue_free()
 	for child in $Animals.get_children():

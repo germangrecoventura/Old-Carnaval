@@ -107,6 +107,7 @@ func _on_TimerGo_timeout():
 func _on_TimerTimeGame_timeout():
 	touchAbduction.queue_free()
 	animationUfo.stop()
+	animationUfo.queue_free()
 	ufo.queue_free()
 	joystyck.queue_free()
 	for child in $Animals.get_children():
