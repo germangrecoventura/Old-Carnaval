@@ -53,7 +53,6 @@ func abduct(body) -> void:
 		if level.is_winner():
 			timerTimeGame.stop()
 			level._on_TimerTimeGame_timeout()
-			print("LLEGO")
 			hide_ui()
 		else:
 			self.texture= load("res://assets/entity/light.png")
@@ -61,8 +60,7 @@ func abduct(body) -> void:
 func _on_Area2D_body_entered(body):
 	if abduct:
 		abduct = false
-		var name = body.name
-		if name != "Cow":
+		if !get_tree().get_nodes_in_group("cow").has(body):
 			self.texture= load("res://assets/entity/lightFail.png")
 			abduct(body)
 		else:
