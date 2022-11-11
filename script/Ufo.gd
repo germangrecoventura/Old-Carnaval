@@ -16,7 +16,7 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D_body_exited(body):
-	if body.name == "Cloud":
+	if body.name == "Cloud" && $"../TimerCountDown".is_stopped() && $Light/TimerAbduct.is_stopped() && $Light/TimerReturnLight.is_stopped():
 		body.get_node("Body").texture = load("res://assets/storm cloud/Cloud.png")
 		touchAbduction.visible= true
 		touchAbduction.set_process_input(true)

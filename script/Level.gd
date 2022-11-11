@@ -84,7 +84,7 @@ func _on_TimerCountDown_timeout():
 		time -= 1
 		countdown.text = String(time%60)
 	else:
-		$TimerCountDown.queue_free()
+		$TimerCountDown.stop()
 		var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-start_race.ogg"
 		var sfx = load(audio_file)
 		audioStream.stream = sfx

@@ -40,3 +40,7 @@ func _on_TimerTimeGame_timeout():
 	else:
 		Gamehandler.update_leardboard(level,points)
 		transitionToFinish(timerWinnerOne,"res://sound/winneris.ogg",3.87)
+
+func _on_TimerStart_timeout():
+	countdown.text = "Go"
+	$TimerGo.start()
