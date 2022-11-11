@@ -17,6 +17,7 @@ onready var timerWinnerOne= $TimerWinnerOne
 onready var timerWinnerTwo= $TimerWinnerTwo
 onready var timerWinnerThree= $TimerWinnerThree
 onready var animationUfo= $UfoAnimation
+onready var cows= []
 
 
 export (int) var level
@@ -29,10 +30,12 @@ export (String) var next = "res://scenes/Level2.tscn"
 func _add_points(points_to_add):
 	points += points_to_add
 	
-func add_animal(name):
-	animals_abducted.append(name)
+func add_animal(body):
+	animals_abducted.append(body)
 
 func _ready():
+	for animal in get_tree().get_nodes_in_group("cow"):
+		cows.append(animal.name)
 	points = 0
 	animationPlayer.play("background")
 	$Ufo/Light/Area2D/CollisionShape2D.disabled = true
@@ -160,3 +163,8 @@ func activate_scene_winner(scene,animation):
 	paused.connect("e",self,"on_information_quit")
 	
 	
+func is_winner():
+	var result = true
+	for animal in cows:
+		result = result && animals_abducted.has(animal)
+	return result

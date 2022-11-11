@@ -31,8 +31,7 @@ func hide_ui():
 	
 	
 func abduct(body) -> void:
-	var name = body.name
-	
+	var name = String(body.name)
 	if glitch_enabled:
 		body.abduct_glitched = true
 		glitch.set_material(load("res://shader/Glitch.tres"))
@@ -50,11 +49,12 @@ func abduct(body) -> void:
 		$TimerReturnLight.start()
 		yield(get_tree().create_timer(1.5), "timeout")
 		abduct = true
-		if name == "Cow":
-			level.add_animal(name)
+		level.add_animal(name)
+		if level.is_winner():
 			timerTimeGame.stop()
-			hide_ui()
 			level._on_TimerTimeGame_timeout()
+			print("LLEGO")
+			hide_ui()
 		else:
 			self.texture= load("res://assets/entity/light.png")
 #
