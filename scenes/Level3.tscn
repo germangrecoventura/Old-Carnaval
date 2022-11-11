@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=1]
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=2]
@@ -83,6 +83,10 @@
 [ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio06.png" type="Texture" id=81]
 [ext_resource path="res://assets/entity/Ufo glitch/onviGlitch00.png" type="Texture" id=82]
 [ext_resource path="res://assets/entity/Ufo damaged/onviMedio03.png" type="Texture" id=83]
+[ext_resource path="res://assets/storm cloud/Rain/rain_drops-04.png" type="Texture" id=84]
+[ext_resource path="res://assets/storm cloud/Rain/rain_drops-01.png" type="Texture" id=85]
+[ext_resource path="res://assets/storm cloud/Rain/rain_drops-03.png" type="Texture" id=86]
+[ext_resource path="res://assets/storm cloud/Rain/rain_drops-02.png" type="Texture" id=87]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -129,6 +133,38 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 19 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 14 ), ExtResource( 18 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rain:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 85 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "rain"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rain:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 85 ), ExtResource( 87 ), ExtResource( 86 ), ExtResource( 84 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -225,6 +261,14 @@ next = "res://scenes/Menu.tscn"
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
+
+[node name="Rain" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.572549 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 84 )
 expand = true
 
 [node name="CountDown" type="Label" parent="."]
@@ -398,6 +442,11 @@ reset_on_save = false
 anims/RESET = SubResource( 15 )
 anims/background = SubResource( 16 )
 
+[node name="AnimationRain" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 23 )
+anims/rain = SubResource( 24 )
+
 [node name="UfoAnimation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 18 )
 anims/ufo_damaged = SubResource( 19 )
@@ -411,7 +460,7 @@ one_shot = true
 autostart = true
 
 [node name="Cloud" parent="." instance=ExtResource( 32 )]
-modulate = Color( 1, 1, 1, 0.443137 )
+modulate = Color( 1, 1, 1, 0.639216 )
 position = Vector2( 704, 151 )
 collision_layer = 256
 collision_mask = 512
@@ -422,6 +471,9 @@ position = Vector2( -31, 34 )
 scale = Vector2( 1.4, 0.4 )
 collision_layer = 0
 collision_mask = 256
+
+[node name="SFXRain" type="AudioStreamPlayer2D" parent="."]
+volume_db = 11.286
 
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
