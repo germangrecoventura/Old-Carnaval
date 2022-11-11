@@ -1,11 +1,13 @@
 extends Control
 
-func _ready():
-	Gamehandler.leardboard = {"HammerLevel": [0,0,0]}
+export (PackedScene) var scene_play
+export (PackedScene) var credits
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/HammerLevel.tscn")   
+	self.queue_free()
+	get_tree().change_scene_to(scene_play)   
 
 
 func _on_Credits_pressed():
-	get_tree().change_scene("res://scenes/Credits.tscn")  
+	self.queue_free()
+	get_tree().change_scene_to(credits)  

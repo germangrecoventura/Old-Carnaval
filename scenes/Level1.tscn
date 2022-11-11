@@ -1,0 +1,408 @@
+[gd_scene load_steps=92 format=2]
+
+[ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull01.png" type="Texture" id=2]
+[ext_resource path="res://assets/entity/light.png" type="Texture" id=3]
+[ext_resource path="res://assets/background transition/Amanecer08.png" type="Texture" id=4]
+[ext_resource path="res://script/Animals.gd" type="Script" id=5]
+[ext_resource path="res://assets/freefantasygui/abducirfinal.png" type="Texture" id=6]
+[ext_resource path="res://scenes/virtual_joystick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/background transition/Amanecer09.png" type="Texture" id=8]
+[ext_resource path="res://script/Level.gd" type="Script" id=9]
+[ext_resource path="res://assets/background transition/Amanecer10.png" type="Texture" id=10]
+[ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://script/TouchAbduction.gd" type="Script" id=12]
+[ext_resource path="res://script/Ufo.gd" type="Script" id=13]
+[ext_resource path="res://assets/background transition/Amanecer06.png" type="Texture" id=14]
+[ext_resource path="res://script/Light.gd" type="Script" id=15]
+[ext_resource path="res://assets/background transition/Amanecer02.png" type="Texture" id=16]
+[ext_resource path="res://assets/background transition/Amanecer03.png" type="Texture" id=17]
+[ext_resource path="res://assets/background transition/Amanecer01.png" type="Texture" id=18]
+[ext_resource path="res://assets/background transition/Amanecer00.png" type="Texture" id=19]
+[ext_resource path="res://assets/background transition/Amanecer04.png" type="Texture" id=20]
+[ext_resource path="res://assets/background transition/Amanecer05.png" type="Texture" id=21]
+[ext_resource path="res://assets/background transition/Amanecer07.png" type="Texture" id=22]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png" type="Texture" id=23]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/chicken.png" type="Texture" id=24]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/chick.png" type="Texture" id=25]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/goat.png" type="Texture" id=26]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/bear.png" type="Texture" id=27]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=28]
+[ext_resource path="res://script/states/UfoStateMachine.gd" type="Script" id=29]
+[ext_resource path="res://script/states/NormalStateUfo.gd" type="Script" id=30]
+[ext_resource path="res://script/states/DamagedStateUfo.gd" type="Script" id=31]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull03.png" type="Texture" id=32]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull06.png" type="Texture" id=33]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull07.png" type="Texture" id=34]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull02.png" type="Texture" id=35]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull08.png" type="Texture" id=36]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull05.png" type="Texture" id=37]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull09.png" type="Texture" id=38]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull00.png" type="Texture" id=39]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull04.png" type="Texture" id=40]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull11.png" type="Texture" id=41]
+[ext_resource path="res://assets/entity/Ufo normal/onviFull10.png" type="Texture" id=42]
+[ext_resource path="res://script/states/GlitchStateUfo.gd" type="Script" id=43]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio08.png" type="Texture" id=44]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio03.png" type="Texture" id=45]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio02.png" type="Texture" id=46]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio10.png" type="Texture" id=47]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio04.png" type="Texture" id=48]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio05.png" type="Texture" id=49]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio00.png" type="Texture" id=50]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio11.png" type="Texture" id=51]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio07.png" type="Texture" id=52]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio06.png" type="Texture" id=53]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio01.png" type="Texture" id=54]
+[ext_resource path="res://assets/entity/Ufo damaged/onviMedio09.png" type="Texture" id=55]
+[ext_resource path="res://script/states/Pre-GlitchStateUfo.gd" type="Script" id=56]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio11.png" type="Texture" id=57]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio03.png" type="Texture" id=58]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio08.png" type="Texture" id=59]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio01.png" type="Texture" id=60]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio04.png" type="Texture" id=61]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio05.png" type="Texture" id=62]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio06.png" type="Texture" id=63]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio07.png" type="Texture" id=64]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio00.png" type="Texture" id=65]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio02.png" type="Texture" id=66]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio09.png" type="Texture" id=67]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio10.png" type="Texture" id=68]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch02.png" type="Texture" id=69]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch05.png" type="Texture" id=70]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch01.png" type="Texture" id=71]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch03.png" type="Texture" id=72]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch06.png" type="Texture" id=73]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch07.png" type="Texture" id=74]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch09.png" type="Texture" id=75]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch10.png" type="Texture" id=76]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch11.png" type="Texture" id=77]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch04.png" type="Texture" id=78]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch08.png" type="Texture" id=79]
+[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch00.png" type="Texture" id=80]
+
+[sub_resource type="DynamicFont" id=9]
+size = 61
+font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 665.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 699, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4.72681, 235.991 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "background"
+length = 19.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4.6, 6.2, 7.8, 9.4, 11, 12.6, 14.2, 15.8, 17.4, 18.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 39 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "ufo_damaged"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 50 ), ExtResource( 54 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 47 ), ExtResource( 51 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "ufo_glitch"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 80 ), ExtResource( 71 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 70 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "ufo_normal"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 39 ), ExtResource( 2 ), ExtResource( 35 ), ExtResource( 32 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 42 ), ExtResource( 41 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "ufo_pre_glitch"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ufo/Ship:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 65 ), ExtResource( 60 ), ExtResource( 66 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 59 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 57 ) ]
+}
+
+[node name="UfoLevel1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="CountDown" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.0
+margin_right = 6.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="StaticFloor" type="Area2D" parent="StaticBody2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/StaticFloor"]
+position = Vector2( 697.5, 747 )
+scale = Vector2( 1.05, 1 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 689, 744 )
+shape = SubResource( 14 )
+
+[node name="Animals" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Cow" parent="Animals" groups=["cow"] instance=ExtResource( 1 )]
+position = Vector2( 642, 519 )
+impulse = -315
+texture = ExtResource( 23 )
+
+[node name="Chick" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 720, 514 )
+impulse = -315
+texture = ExtResource( 25 )
+
+[node name="Bear" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 373, 512 )
+impulse = -315
+texture = ExtResource( 27 )
+
+[node name="Chicken" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 447, 509 )
+impulse = -315
+texture = ExtResource( 24 )
+
+[node name="Goat" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 533, 514 )
+impulse = -315
+texture = ExtResource( 26 )
+
+[node name="Horse" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 770, 514 )
+impulse = -315
+texture = ExtResource( 28 )
+
+[node name="ControlTouchAbduction" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1400.0
+margin_top = -800.0
+
+[node name="TouchAbduction" type="TouchScreenButton" parent="ControlTouchAbduction"]
+position = Vector2( 1231, 556 )
+scale = Vector2( 0.747619, 1.01429 )
+normal = ExtResource( 6 )
+action = "abduction"
+script = ExtResource( 12 )
+
+[node name="Ufo" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Ship" type="Sprite" parent="Ufo"]
+position = Vector2( 813, 133 )
+scale = Vector2( 0.6, 0.7 )
+texture = ExtResource( 39 )
+
+[node name="StateMachine" type="Node" parent="Ufo"]
+script = ExtResource( 29 )
+
+[node name="Normal" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 30 )
+
+[node name="Damaged" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 31 )
+
+[node name="PreGlitch" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 56 )
+
+[node name="Glitch" type="Node" parent="Ufo/StateMachine"]
+script = ExtResource( 43 )
+
+[node name="Light" type="Sprite" parent="Ufo"]
+position = Vector2( 812.875, 180.563 )
+scale = Vector2( 0.423, -0.000451636 )
+texture = ExtResource( 3 )
+script = ExtResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Ufo/Light"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo/Light/Area2D"]
+position = Vector2( -2.06702, -0.642365 )
+shape = SubResource( 7 )
+
+[node name="TimerAbduct" type="Timer" parent="Ufo/Light"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerReturnLight" type="Timer" parent="Ufo/Light"]
+wait_time = 1.5
+one_shot = true
+
+[node name="TransitionFinish" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = 5.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="TimerCountDown" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.79
+one_shot = true
+autostart = true
+
+[node name="TimerGo" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerTimeGame" type="Timer" parent="."]
+wait_time = 16.0
+one_shot = true
+
+[node name="TimerFail" type="Timer" parent="."]
+wait_time = 4.2
+
+[node name="TimerWinnerOne" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerTwo" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="TimerWinnerThree" type="Timer" parent="."]
+wait_time = 3.88
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Glitch" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
+
+[node name="Virtual joystick" parent="." instance=ExtResource( 7 )]
+pressed_color = Color( 0.929412, 0.956863, 0.0196078, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 15 )
+anims/background = SubResource( 16 )
+
+[node name="UfoAnimation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 18 )
+anims/ufo_damaged = SubResource( 19 )
+anims/ufo_glitch = SubResource( 20 )
+anims/ufo_normal = SubResource( 17 )
+anims/ufo_pre_glitch = SubResource( 21 )
+
+[connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals" method="_on_StaticFloor_body_entered"]
+[connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
+[connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]
+[connection signal="timeout" from="Ufo/Light/TimerReturnLight" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerReturnLight_timeout"]
+[connection signal="timeout" from="TimerCountDown" to="." method="_on_TimerCountDown_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
+[connection signal="timeout" from="TimerGo" to="." method="_on_TimerGo_timeout"]
+[connection signal="timeout" from="TimerTimeGame" to="." method="_on_TimerTimeGame_timeout"]
+[connection signal="timeout" from="TimerFail" to="." method="_on_TimerFail_timeout"]
+[connection signal="timeout" from="TimerWinnerOne" to="." method="_on_TimerWinnerOne_timeout"]
+[connection signal="timeout" from="TimerWinnerTwo" to="." method="_on_TimerWinnerTwo_timeout"]
+[connection signal="timeout" from="TimerWinnerThree" to="." method="_on_TimerWinnerThree_timeout"]

@@ -1,50 +1,70 @@
 extends Sprite
 onready var tween = $"../../Tween"
 onready var abduct = true
-onready var touchLeft = $"../../UI/Control2/TouchLeft"
-onready var touchRight = $"../../UI/Control2/TouchRight"
-onready var touchAbduction = $"../../UI/Control3/TouchAbduction"
+onready var touch = $"../../Virtual joystick"
+onready var touchAbduction = $"../../ControlTouchAbduction/TouchAbduction"
+onready var glitch = $"../../Glitch"
+onready var timerTimeGame =$"../../TimerTimeGame"
+onready var level =$"../.."
+var position_actual
+onready var glitch_enabled = false
+onready var ufo = get_parent()
+
+func add_position(value):
+	position_actual = value
+
+func activate_glitch() -> void:
+	glitch_enabled = true
+
+
+func _ready():
+	$Area2D/CollisionShape2D.disabled = true
+
 
 func hide_ui():
-	touchLeft.visible = false
-	touchRight.visible = false
-	self.visible = false
-
-
-func light_up() -> void:
-	tween.interpolate_property(self,"position",self.position,Vector2(self.position.x,50),2.0)
-	tween.interpolate_property(self,"scale",self.scale,Vector2(self.scale.x,-0.001),2.0)
-	tween.start()
+	if (touch.visible):
+		touch.set_process_input(false)
+		touch.visible = false
+	if (touchAbduction.visible):
+		touchAbduction.set_process_input(false)
+		touchAbduction.visible = false
+	
 	
 func abduct(body) -> void:
-	var name = body.name
-	print(body) # Replace with function body.
-	get_parent().get_parent()._add_points(1)
-	var move_tween:SceneTreeTween = get_tree().create_tween()
-	move_tween.tween_property(body,"global_position",Vector2(body.global_position.x,310),2.0)
-	yield(get_tree().create_timer(2), "timeout")
-	body.queue_free()
-	$TimerReturnLight.start()
-	light_up()
-	yield(get_tree().create_timer(2), "timeout")
-	abduct = true
-	if name == "Cow":
-		$"../..".add_animal(name)
-		$"../../TimerTimeGame".stop()
-		hide_ui()
-		get_parent().get_parent()._on_TimerTimeGame_timeout()
+	var name = String(body.name)
+	if glitch_enabled:
+		body.abduct_glitched = true
+		glitch.set_material(load("res://shader/Glitch.tres"))
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
+		$Area2D/CollisionShape2D.disabled = true
+		$TimerReturnLight.start()
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
+		self.texture= load("res://assets/entity/light.png")
+		abduct = true
+		glitch_enabled = false
+		ufo.statusUfo += 1
 	else:
-		self.texture= load("res://assets/entity/luz.png")
-
+		body.abduct = true
+		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
+		$TimerReturnLight.start()
+		yield(get_tree().create_timer(1.5), "timeout")
+		abduct = true
+		level.add_animal(name)
+		if level.is_winner():
+			timerTimeGame.stop()
+			level._on_TimerTimeGame_timeout()
+			hide_ui()
+		else:
+			self.texture= load("res://assets/entity/light.png")
+#
 func _on_Area2D_body_entered(body):
 	if abduct:
 		abduct = false
-		var name = body.name
-		if name != "Cow":
-			self.texture= load("res://assets/entity/MalEfecto.png")
+		if !get_tree().get_nodes_in_group("cow").has(body):
+			self.texture= load("res://assets/entity/lightFail.png")
 			abduct(body)
 		else:
-			self.texture= load("res://assets//entity/Luz3.png")
+			self.texture= load("res://assets//entity/lightWinner.png")
 			abduct(body)
 		
 
