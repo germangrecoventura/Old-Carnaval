@@ -10,11 +10,13 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Cloud":
+		body.get_node("Body").texture = load("res://assets/storm cloud/Cloud with ray.png")
 		touchAbduction.visible= false
 		touchAbduction.set_process_input(false)
 
 
 func _on_Area2D_body_exited(body):
 	if body.name == "Cloud":
+		body.get_node("Body").texture = load("res://assets/storm cloud/Cloud.png")
 		touchAbduction.visible= true
 		touchAbduction.set_process_input(true)

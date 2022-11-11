@@ -411,7 +411,7 @@ one_shot = true
 autostart = true
 
 [node name="Cloud" parent="." instance=ExtResource( 32 )]
-modulate = Color( 1, 1, 1, 0.298039 )
+modulate = Color( 1, 1, 1, 0.443137 )
 position = Vector2( 704, 151 )
 collision_layer = 256
 collision_mask = 512
