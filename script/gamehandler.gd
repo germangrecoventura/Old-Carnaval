@@ -1,11 +1,14 @@
 extends Node
 
 var leardboard:Array = [0,0,0]
-var firstActive = true
+var already_played:Array = [false,false,false]
 
 func update_leardboard(level,point):
-	if firstActive:
+	if !already_played[level]:
+		already_played.remove(level)
+		already_played.insert(level,true)
 		leardboard[level] = point
-		firstActive = false
+		print(already_played)
+		print(leardboard)
 	elif leardboard[level] > point:
 		leardboard[level] = point

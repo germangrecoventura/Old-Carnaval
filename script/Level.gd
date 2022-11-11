@@ -19,7 +19,7 @@ onready var timerWinnerThree= $TimerWinnerThree
 onready var animationUfo= $UfoAnimation
 
 
-export (int) var level = 0
+export (int) var level
 export (String) var sceneFailed = "res://scenes/LevelFailed.tscn"
 export (String) var sceneWinner = "res://scenes/LevelWinner.tscn"
 export (String) var retry = "res://scenes/Level1.tscn"

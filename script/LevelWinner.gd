@@ -46,7 +46,7 @@ func _on_Retry_pressed():
 
 func update_results(retryToPlay,nextToPlay,levelToPlay,pointToGame):
 	self.retry = retryToPlay
-	self.next = nextToPlay#
+	self.next = nextToPlay
 	self.level = levelToPlay
 	self.pointNow = pointToGame
 	var point = Gamehandler.leardboard[level]
