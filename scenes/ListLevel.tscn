@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/ListLevel.gd" type="Script" id=1]
 [ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=2]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/freefantasygui/png/FondoBoton.png" type="Texture" id=4]
 [ext_resource path="res://assets/BackgroundMenu.png" type="Texture" id=5]
+[ext_resource path="res://assets/freefantasygui/png/Home.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 61
@@ -69,7 +70,7 @@ custom_constants/separation = 158
 [node name="Level1" type="Button" parent="VBoxContainer"]
 pause_mode = 2
 margin_right = 372.0
-margin_bottom = 215.0
+margin_bottom = 216.0
 icon = ExtResource( 4 )
 flat = true
 
@@ -85,7 +86,7 @@ text = "1"
 pause_mode = 2
 margin_left = 530.0
 margin_right = 902.0
-margin_bottom = 215.0
+margin_bottom = 216.0
 icon = ExtResource( 4 )
 flat = true
 
@@ -124,6 +125,25 @@ margin_bottom = 148.286
 custom_fonts/font = SubResource( 1 )
 text = "3"
 
+[node name="Container" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.0001
+margin_top = 247.0
+margin_right = 135.0
+margin_bottom = 435.841
+rect_scale = Vector2( 0.68, 0.653 )
+
+[node name="Return" type="Button" parent="Container"]
+pause_mode = 2
+margin_right = 188.0
+margin_bottom = 188.0
+icon = ExtResource( 6 )
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level2" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="Container/Return" to="." method="_on_Return_pressed"]
