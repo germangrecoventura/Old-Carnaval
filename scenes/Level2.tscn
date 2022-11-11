@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull01.png" type="Texture" id=2]
@@ -79,6 +79,9 @@
 [ext_resource path="res://script/states/GlitchStateUfo.gd" type="Script" id=77]
 [ext_resource path="res://script/states/DamagedStateUfo.gd" type="Script" id=78]
 [ext_resource path="res://script/states/NormalStateUfo.gd" type="Script" id=79]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/moose.png" type="Texture" id=80]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/owl.png" type="Texture" id=81]
+[ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/parrot.png" type="Texture" id=82]
 [ext_resource path="res://script/Level2.gd" type="Script" id=83]
 
 [sub_resource type="DynamicFont" id=9]
@@ -250,32 +253,59 @@ shape = SubResource( 14 )
 script = ExtResource( 5 )
 
 [node name="Cow" parent="Animals" groups=["cow"] instance=ExtResource( 1 )]
-position = Vector2( 642, 519 )
+position = Vector2( 633, 514 )
+impulse = -315
+texture = ExtResource( 23 )
+
+[node name="Cow2" parent="Animals" groups=["cow"] instance=ExtResource( 1 )]
+position = Vector2( 958, 519 )
+impulse = -315
+texture = ExtResource( 23 )
+
+[node name="Cow3" parent="Animals" groups=["cow"] instance=ExtResource( 1 )]
+position = Vector2( 823, 514 )
 impulse = -315
 texture = ExtResource( 23 )
 
 [node name="Chick" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 780, 514 )
+position = Vector2( 720, 514 )
+impulse = -315
 texture = ExtResource( 25 )
-velocity = Vector2( 2, 0 )
 
 [node name="Bear" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 517, 517 )
+position = Vector2( 373, 512 )
+impulse = -315
 texture = ExtResource( 27 )
 
 [node name="Chicken" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 927, 513 )
+position = Vector2( 447, 509 )
+impulse = -315
 texture = ExtResource( 24 )
-velocity = Vector2( 1.2, 0 )
 
 [node name="Goat" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 1051, 506 )
+position = Vector2( 533, 514 )
+impulse = -315
 texture = ExtResource( 26 )
-velocity = Vector2( 2, 0 )
 
 [node name="Horse" parent="Animals" instance=ExtResource( 1 )]
-position = Vector2( 392, 513 )
+position = Vector2( 770, 514 )
+impulse = -315
 texture = ExtResource( 28 )
+
+[node name="Moose" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 892, 512 )
+impulse = -315
+texture = ExtResource( 80 )
+
+[node name="Owl" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 1015, 514 )
+impulse = -315
+texture = ExtResource( 81 )
+
+[node name="Parrot" parent="Animals" instance=ExtResource( 1 )]
+position = Vector2( 1137, 514 )
+impulse = -315
+texture = ExtResource( 82 )
 
 [node name="ControlTouchAbduction" type="Control" parent="."]
 anchor_left = 1.0
@@ -394,7 +424,7 @@ anims/ufo_glitch = SubResource( 20 )
 anims/ufo_normal = SubResource( 17 )
 anims/ufo_pre_glitch = SubResource( 21 )
 
-[connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals/Cow" method="_on_StaticFloor_body_entered"]
+[connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
 [connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Ufo/Light/TimerAbduct" to="ControlTouchAbduction/TouchAbduction" method="_on_TimerAbduct_timeout"]

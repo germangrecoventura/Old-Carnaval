@@ -15,5 +15,5 @@ func _ready():
 	$Body.texture = texture
 	self.set_gravity_scale(gravity)
 
-func _on_StaticFloor_body_entered(body):
-	body.apply_impulse(Vector2.ZERO,Vector2(0,impulse))
+#func _on_StaticFloor_body_entered(body):
+#	body.apply_impulse(Vector2.ZERO,Vector2(0,impulse))

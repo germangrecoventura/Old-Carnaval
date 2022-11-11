@@ -8,3 +8,7 @@ func _ready():
 
 	for cow in get_tree().get_nodes_in_group("cow"):
 		cow.get_node("Body").set_material(load("res://shader/Animal.tres"))
+
+
+func _on_StaticFloor_body_entered(body):
+	body.apply_impulse(Vector2.ZERO,Vector2(0,body.impulse))
