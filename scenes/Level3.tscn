@@ -299,7 +299,7 @@ shape = SubResource( 14 )
 [node name="Animals" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="Cow" parent="Animals" instance=ExtResource( 2 )]
+[node name="Cow" parent="Animals" groups=["cow"] instance=ExtResource( 2 )]
 position = Vector2( 642, 519 )
 impulse = -315
 texture = ExtResource( 31 )

@@ -11,7 +11,7 @@ func _ready():
 	hide_ui()
 	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
-	var audio_rain = "res://sound/rain_thunder_loop.wav"
+	var audio_rain = "res://sound/rain_thunder_loop.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
