@@ -9,6 +9,7 @@ func _ready():
 	$Ufo/Light/Area2D/CollisionShape2D.disabled = true
 	joystyck.visible = false
 	hide_ui()
+	joystyck.visible = true
 	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var audio_rain = "res://sound/rain_thunder_loop.ogg"

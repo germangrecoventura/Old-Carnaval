@@ -43,43 +43,43 @@
 [ext_resource path="res://assets/entity/Ufo normal/onviFull11.png" type="Texture" id=41]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull10.png" type="Texture" id=42]
 [ext_resource path="res://script/states/GlitchStateUfo.gd" type="Script" id=43]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio08.png" type="Texture" id=44]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio03.png" type="Texture" id=45]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio02.png" type="Texture" id=46]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio10.png" type="Texture" id=47]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio04.png" type="Texture" id=48]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio05.png" type="Texture" id=49]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio00.png" type="Texture" id=50]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio11.png" type="Texture" id=51]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio07.png" type="Texture" id=52]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio06.png" type="Texture" id=53]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio01.png" type="Texture" id=54]
-[ext_resource path="res://assets/entity/Ufo damaged/onviMedio09.png" type="Texture" id=55]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul10.png" type="Texture" id=44]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul09.png" type="Texture" id=45]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul11.png" type="Texture" id=46]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul07.png" type="Texture" id=47]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul00.png" type="Texture" id=48]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul04.png" type="Texture" id=49]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul01.png" type="Texture" id=50]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul02.png" type="Texture" id=51]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul08.png" type="Texture" id=52]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul06.png" type="Texture" id=53]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul03.png" type="Texture" id=54]
+[ext_resource path="res://assets/entity/Ufo damaged/onvi azul05.png" type="Texture" id=55]
 [ext_resource path="res://script/states/Pre-GlitchStateUfo.gd" type="Script" id=56]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio11.png" type="Texture" id=57]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio03.png" type="Texture" id=58]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio08.png" type="Texture" id=59]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio01.png" type="Texture" id=60]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio04.png" type="Texture" id=61]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio05.png" type="Texture" id=62]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio06.png" type="Texture" id=63]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio07.png" type="Texture" id=64]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio00.png" type="Texture" id=65]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio02.png" type="Texture" id=66]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio09.png" type="Texture" id=67]
-[ext_resource path="res://assets/entity/Ufo pre-glitch/onviMedio10.png" type="Texture" id=68]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch02.png" type="Texture" id=69]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch05.png" type="Texture" id=70]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch01.png" type="Texture" id=71]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch03.png" type="Texture" id=72]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch06.png" type="Texture" id=73]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch07.png" type="Texture" id=74]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch09.png" type="Texture" id=75]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch10.png" type="Texture" id=76]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch11.png" type="Texture" id=77]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch04.png" type="Texture" id=78]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch08.png" type="Texture" id=79]
-[ext_resource path="res://assets/entity/Ufo glitch/onviGlitch00.png" type="Texture" id=80]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta02.png" type="Texture" id=57]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta01.png" type="Texture" id=58]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta04.png" type="Texture" id=59]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta03.png" type="Texture" id=60]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta11.png" type="Texture" id=61]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta06.png" type="Texture" id=62]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta07.png" type="Texture" id=63]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta09.png" type="Texture" id=64]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta00.png" type="Texture" id=65]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta08.png" type="Texture" id=66]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta05.png" type="Texture" id=67]
+[ext_resource path="res://assets/entity/Ufo pre-glitch/onviVioleta10.png" type="Texture" id=68]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo01.png" type="Texture" id=69]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo04.png" type="Texture" id=70]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo03.png" type="Texture" id=71]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo07.png" type="Texture" id=72]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo09.png" type="Texture" id=73]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo05.png" type="Texture" id=74]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo02.png" type="Texture" id=75]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo08.png" type="Texture" id=76]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo00.png" type="Texture" id=77]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo10.png" type="Texture" id=78]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo06.png" type="Texture" id=79]
+[ext_resource path="res://assets/entity/Ufo glitch/OnviRojo11.png" type="Texture" id=80]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -154,7 +154,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 50 ), ExtResource( 54 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 47 ), ExtResource( 51 ) ]
+"values": [ ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -171,7 +171,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 80 ), ExtResource( 71 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 70 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 79 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ]
+"values": [ ExtResource( 77 ), ExtResource( 69 ), ExtResource( 75 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 74 ), ExtResource( 79 ), ExtResource( 72 ), ExtResource( 76 ), ExtResource( 73 ), ExtResource( 78 ), ExtResource( 80 ) ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -205,7 +205,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 65 ), ExtResource( 60 ), ExtResource( 66 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 59 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 57 ) ]
+"values": [ ExtResource( 65 ), ExtResource( 58 ), ExtResource( 57 ), ExtResource( 60 ), ExtResource( 59 ), ExtResource( 67 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 64 ), ExtResource( 68 ), ExtResource( 61 ) ]
 }
 
 [node name="UfoLevel1" type="Control"]
@@ -380,6 +380,7 @@ anchor_bottom = 1.0
 color = Color( 0.160784, 0.0627451, 0.0627451, 0 )
 
 [node name="Virtual joystick" parent="." instance=ExtResource( 7 )]
+light_mask = 16
 pressed_color = Color( 0.929412, 0.956863, 0.0196078, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
