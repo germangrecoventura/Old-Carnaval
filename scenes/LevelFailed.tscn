@@ -56,13 +56,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -126.0
+margin_left = -111.0
 margin_top = -351.0
-margin_right = 216.0
+margin_right = 231.0
 margin_bottom = -249.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = SubResource( 2 )
-text = "YOU LOSE"
+text = "Perdiste"
 
 [node name="StarOne" type="TextureRect" parent="."]
 anchor_left = 0.5
