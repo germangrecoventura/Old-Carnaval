@@ -36,6 +36,10 @@ func light_down() -> void:
 	
 func light_glitch() -> void:
 	if glitches % 2 == 1:
+		var audio_file = "res://sound/glitch-sound-effect-12796.ogg"
+		var sound = load(audio_file)
+		sfx.stream = sound
+		sfx.play()
 		light.add_position(light.position)
 		tween.interpolate_property(light,"position",light.position,Vector2(light.position.x,231.835),timerLight.wait_time)
 		tween.interpolate_property(light,"scale",light.scale,Vector2(light.scale.x,0.215),timerLight.wait_time)
