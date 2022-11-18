@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=1]
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=2]
@@ -33,7 +33,6 @@
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/cow.png" type="Texture" id=31]
 [ext_resource path="res://scenes/Kinematic.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/storm cloud/Cloud.png" type="Texture" id=34]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull03.png" type="Texture" id=35]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull06.png" type="Texture" id=36]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull07.png" type="Texture" id=37]
@@ -410,7 +409,6 @@ modulate = Color( 1, 1, 1, 0.639216 )
 position = Vector2( 704, 151 )
 collision_layer = 256
 collision_mask = 512
-texture = ExtResource( 34 )
 
 [node name="Wall" parent="." instance=ExtResource( 33 )]
 position = Vector2( -31, 34 )
