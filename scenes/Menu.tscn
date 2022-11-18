@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/BackgroundMenu.png" type="Texture" id=4]
 [ext_resource path="res://sound/background-menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Level1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Loading.tscn" type="PackedScene" id=7]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
