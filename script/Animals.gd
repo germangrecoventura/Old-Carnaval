@@ -11,4 +11,5 @@ func _ready():
 
 
 func _on_StaticFloor_body_entered(body):
+	body.sound_jump()
 	body.apply_impulse(Vector2.ZERO,Vector2(0,body.impulse))
