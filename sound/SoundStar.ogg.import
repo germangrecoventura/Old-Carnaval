@@ -11,5 +11,5 @@ dest_files=[ "res://.import/SoundStar.ogg-1050b6c6c697b10892a1b7459b97e7ac.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
