@@ -427,6 +427,9 @@ anims/ufo_pre_glitch = SubResource( 21 )
 [node name="SFXBackground" type="AudioStreamPlayer" parent="."]
 bus = "Background"
 
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
 [connection signal="body_entered" from="Ufo/Light/Area2D" to="Ufo/Light" method="_on_Area2D_body_entered"]

@@ -10,6 +10,7 @@ onready var try = 1
 onready var glitches = 1
 onready var level = $"../.."
 onready var is_abduct = false
+onready var sfx = $"../../SFX"
 
 
 func hide_ui():
@@ -76,6 +77,10 @@ func _abduced():
 		try += 1
 		light_glitch()
 	else:
+		var audio_file = "res://sound/abudced.ogg"
+		var sound = load(audio_file)
+		sfx.stream = sound
+		sfx.play()
 		try += 1
 		light_down()
 

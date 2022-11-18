@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://assets/kenney_animalpackredux/PNG/Round (outline)/horse.png" type="Texture" id=1]
 [ext_resource path="res://scenes/AnimalRigid.tscn" type="PackedScene" id=2]
@@ -83,7 +83,6 @@
 [ext_resource path="res://assets/entity/Ufo glitch/OnviRojo11.png" type="Texture" id=81]
 [ext_resource path="res://assets/entity/Ufo damaged/onvi azul03.png" type="Texture" id=82]
 [ext_resource path="res://assets/entity/Ufo damaged/onvi azul05.png" type="Texture" id=83]
-[ext_resource path="res://assets/storm cloud/Rain/rain_drops-04.png" type="Texture" id=84]
 
 [sub_resource type="DynamicFont" id=9]
 size = 61
@@ -227,13 +226,6 @@ next = "res://scenes/Menu.tscn"
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 18 )
-expand = true
-
-[node name="Rain" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.572549 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 84 )
 expand = true
 
 [node name="CountDown" type="Label" parent="."]
@@ -435,6 +427,9 @@ anims/ufo_pre_glitch = SubResource( 29 )
 
 [node name="SFXBackground" type="AudioStreamPlayer" parent="."]
 bus = "Background"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]
