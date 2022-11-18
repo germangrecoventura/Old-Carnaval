@@ -687,7 +687,7 @@ margin_right = 318.0
 margin_bottom = 54.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="StarThree" type="TextureRect" parent="."]
@@ -701,7 +701,7 @@ margin_right = 595.0
 margin_bottom = 91.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="RecordActual" type="TextureRect" parent="."]
@@ -802,7 +802,8 @@ anims/ThreeStar = SubResource( 12 )
 anims/TwoStar = SubResource( 9 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( -263, -136 )
+position = Vector2( -260, -120 )
+emitting = false
 lifetime = 0.5
 explosiveness = 1.0
 process_material = SubResource( 11 )

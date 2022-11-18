@@ -17,6 +17,7 @@ export (PackedScene) var listLevel
 export (String) var next
 
 func _ready():
+	$Particles2D.emitting = false
 	star_one.visible = false
 	star_two.visible = false
 	star_three.visible = false
