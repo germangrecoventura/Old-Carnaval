@@ -401,7 +401,7 @@ wait_time = 3.88
 [node name="TimerWinnerThree" type="Timer" parent="."]
 wait_time = 3.88
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+[node name="SFXCountDown" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -423,6 +423,9 @@ anims/ufo_damaged = SubResource( 18 )
 anims/ufo_glitch = SubResource( 19 )
 anims/ufo_normal = SubResource( 20 )
 anims/ufo_pre_glitch = SubResource( 21 )
+
+[node name="SFXBackground" type="AudioStreamPlayer" parent="."]
+bus = "Background"
 
 [connection signal="body_entered" from="StaticBody2D/StaticFloor" to="Animals" method="_on_StaticFloor_body_entered"]
 [connection signal="pressed" from="ControlTouchAbduction/TouchAbduction" to="ControlTouchAbduction/TouchAbduction" method="_on_TouchAbduction_pressed"]

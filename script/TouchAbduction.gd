@@ -57,6 +57,14 @@ func _on_TimerAbduct_timeout():
 	tween.start()
 
 func _on_TouchAbduction_pressed():
+	_abduced()
+		
+func _process(delta):
+	if Input.is_action_just_pressed("abduction") && self.visible == true:
+		_abduced()
+
+
+func _abduced():
 	hide_ui()
 	level._add_points(1)
 	$"../../Ufo/Light/TimerAbduct".start()
@@ -70,24 +78,6 @@ func _on_TouchAbduction_pressed():
 	else:
 		try += 1
 		light_down()
-		
-func _process(delta):
-	if Input.is_action_just_pressed("abduction") && !is_abduct:
-		is_abduct = true
-		hide_ui()
-		level._add_points(1)
-		$"../../Ufo/Light/TimerAbduct".start()
-		$"../../TimerTimeGame".paused = true
-		$"../../AnimationPlayer".stop(false)
-		areaLight.disabled = false
-		ufo.statusUfo += 1
-		if (try % 3 == 0):
-			try += 1
-			light_glitch()
-		else:
-			try += 1
-			light_down()
-
 
 func _on_TimerReturnLight_timeout():
 	glitch.set_material(null)
@@ -95,5 +85,4 @@ func _on_TimerReturnLight_timeout():
 	areaLight.disabled = true
 	$"../../TimerTimeGame".paused = false
 	$"../../AnimationPlayer".play()
-	is_abduct = false
 	

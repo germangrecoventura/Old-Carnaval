@@ -1,6 +1,7 @@
 extends "res://script/Level.gd"
 
 func _on_TimerTimeGame_timeout():
+	audioBackground.stop()
 	touchAbduction.queue_free()
 	animationUfo.stop()
 	animationUfo.queue_free()

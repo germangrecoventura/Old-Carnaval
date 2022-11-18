@@ -4,7 +4,8 @@ var points = 0
 var time = 3
 onready var joystyck = $"Virtual joystick"
 onready var touchAbduction = $ControlTouchAbduction/TouchAbduction
-onready var audioStream = $SFX
+onready var audioStream = $SFXCountDown
+onready var audioBackground = $SFXBackground
 onready var tween = $Tween
 onready var transitionFinish = $TransitionFinish
 onready var countdown = $CountDown
@@ -46,6 +47,10 @@ func _ready():
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
+	audio_file = "res://sound/night-sounds-august-54695.ogg"
+	sfx = load(audio_file)
+	audioBackground.stream = sfx
+	audioBackground.play()
 
 func on_information_quit() -> void:
 	paused = null
@@ -108,6 +113,7 @@ func _on_TimerGo_timeout():
 
 
 func _on_TimerTimeGame_timeout():
+	audioBackground.stop()
 	touchAbduction.queue_free()
 	animationUfo.stop()
 	animationUfo.queue_free()
