@@ -11,13 +11,15 @@ func enter():
 		move_tween.tween_property(parent,"global_position",Vector2(parent.global_position.x,280),1.3)
 		if get_tree().get_nodes_in_group("cow").has(parent):
 			particles.texture = load("res://assets/freefantasygui/png/Estrella.png")
+			particles.process_material.spread = 45
 			particles.emitting = true
 			var audio_file = "res://sound/SoundStar.ogg"
 			var sfx = load(audio_file)
 			sfxAnimal.stream = sfx
 			sfxAnimal.play()
 		else:
-			particles.texture = load("res://assets/freefantasygui/png/EstrellaFailed.png")
+			particles.texture = load("res://assets/enojo.png")
+			particles.process_material.spread = 1
 			particles.emitting = true
 			var audio_file = "res://sound/invalid-selection-39351.ogg"
 			var sfx = load(audio_file)
