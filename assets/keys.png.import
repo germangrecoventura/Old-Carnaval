@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cloud with ray.png-9063d8375236b03a03a70a17cb5fbfad.stex"
+path="res://.import/keys.png-ffd22c3018535eb04f375ef9c344b944.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/storm cloud/Cloud with ray.png"
-dest_files=[ "res://.import/Cloud with ray.png-9063d8375236b03a03a70a17cb5fbfad.stex" ]
+source_file="res://assets/keys.png"
+dest_files=[ "res://.import/keys.png-ffd22c3018535eb04f375ef9c344b944.stex" ]
 
 [params]
 

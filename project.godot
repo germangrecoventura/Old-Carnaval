@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Old Carnaval"
+config/name="Abduce la vaca"
 run/main_scene="res://scenes/Intro.tscn"
 config/icon="res://icon.png"
 
