@@ -24,7 +24,6 @@ func _ready():
 	$RecordActual.visible = false
 	$Score.visible = false
 	$VBoxContainer.visible = false
-	activate_animation("ThreeStar")
 	
 func activate_animation(star):
 	match star:
