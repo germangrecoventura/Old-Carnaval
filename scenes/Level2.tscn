@@ -11,7 +11,7 @@
 [ext_resource path="res://script/states/Pre-GlitchStateUfo.gd" type="Script" id=9]
 [ext_resource path="res://assets/background transition/Amanecer10.png" type="Texture" id=10]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=11]
-[ext_resource path="res://script/TouchAbduction.gd" type="Script" id=12]
+[ext_resource path="res://script/TouchAbductionExtend.gd" type="Script" id=12]
 [ext_resource path="res://script/Ufo.gd" type="Script" id=13]
 [ext_resource path="res://assets/background transition/Amanecer06.png" type="Texture" id=14]
 [ext_resource path="res://script/Light.gd" type="Script" id=15]
