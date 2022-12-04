@@ -7,6 +7,7 @@ export (int) var gravity = 4.0
 
 onready var abduct = false
 onready var abduct_glitched = false
+onready var sfxJump = $SFXJump
 
 onready var state = $StateMachine
 
@@ -15,5 +16,8 @@ func _ready():
 	$Body.texture = texture
 	self.set_gravity_scale(gravity)
 
-#func _on_StaticFloor_body_entered(body):
-#	body.apply_impulse(Vector2.ZERO,Vector2(0,impulse))
+func sound_jump():
+	var audio_file = "res://sound/cartoon-jump-6462.ogg"
+	var sfx = load(audio_file)
+	sfxJump.stream = sfx
+	sfxJump.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://script/Intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/OldCarnaval.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/entity/Ufo normal/onviFull04.png" type="Texture" id=14]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull11.png" type="Texture" id=15]
 [ext_resource path="res://assets/entity/Ufo normal/onviFull10.png" type="Texture" id=16]
+[ext_resource path="res://sound/ufo-landing-93632.ogg" type="AudioStream" id=17]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -172,6 +173,10 @@ expand = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/ufo = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
 
 [connection signal="timeout" from="TimerEntryLogo" to="." method="_on_TimerEntryLogo_timeout"]
 [connection signal="timeout" from="TimerEntryUfo" to="." method="_on_TimerEntryUfo_timeout"]

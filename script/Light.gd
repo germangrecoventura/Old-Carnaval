@@ -9,6 +9,7 @@ onready var level =$"../.."
 var position_actual
 onready var glitch_enabled = false
 onready var ufo = get_parent()
+onready var sfx = $"../../SFX"
 
 func add_position(value):
 	position_actual = value
@@ -34,6 +35,10 @@ func abduct(body) -> void:
 	var name = String(body.name)
 	if glitch_enabled:
 		body.abduct_glitched = true
+		var audio_file = "res://sound/glitch-sound-effect-12796.ogg"
+		var sound = load(audio_file)
+		sfx.stream = sound
+		sfx.play()
 		glitch.set_material(load("res://shader/Glitch.tres"))
 		yield(get_tree().create_timer($TimerReturnLight.wait_time), "timeout")
 		$Area2D/CollisionShape2D.disabled = true

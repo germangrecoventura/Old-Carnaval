@@ -8,7 +8,5 @@ func update_leardboard(level,point):
 		already_played.remove(level)
 		already_played.insert(level,true)
 		leardboard[level] = point
-		print(already_played)
-		print(leardboard)
 	elif leardboard[level] > point:
 		leardboard[level] = point

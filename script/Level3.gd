@@ -1,26 +1,26 @@
 extends "res://script/Level.gd"
 
-onready var sfx_rain = $SFXRain
-
 func _ready():
 	points = 0
 	animationPlayer.play("background")
-	$AnimationRain.play("rain")
 	$Ufo/Light/Area2D/CollisionShape2D.disabled = true
 	joystyck.visible = false
 	hide_ui()
+	joystyck.visible = true
 	countdown.text = String(time%60)
 	var audio_file = "res://sound/qubodup-(Ulrich Metzner Bell)-pre_start_race.ogg"
 	var audio_rain = "res://sound/rain_thunder_loop.ogg"
 	var sfx = load(audio_file)
 	audioStream.stream = sfx
 	audioStream.play()
-	var sfxRain = load(audio_rain)
-	sfx_rain.stream = sfxRain
-	sfx_rain.play()
+	audio_file = "res://sound/night-sounds-august-54695.ogg"
+	sfx = load(audio_file)
+	audioBackground.stream = sfx
+	audioBackground.play()
 
 
 func _on_TimerTimeGame_timeout():
+	audioBackground.stop()
 	$Cloud.queue_free()
 	touchAbduction.queue_free()
 	animationUfo.stop()

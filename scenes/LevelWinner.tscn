@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://script/LevelWinner.gd" type="Script" id=2]
@@ -144,6 +144,30 @@ tracks/8/keys = {
 "update": 1,
 "values": [ ExtResource( 8 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -263, -136 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -255,8 +279,44 @@ tracks/8/keys = {
 "update": 0,
 "values": [ ExtResource( 8 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -260, -120 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Particles2D:lifetime")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 resource_name = "ThreeStar"
 length = 9.0
 tracks/0/type = "value"
@@ -366,6 +426,42 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 9 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.8, 1, 1.9, 2.1, 3, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8, 1.3, 1.9, 2.4, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, -120 ), Vector2( -260, -120 ), Vector2( 0, -143 ), Vector2( 0, -143 ), Vector2( 270, -133 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Particles2D:lifetime")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -479,6 +575,52 @@ tracks/8/keys = {
 "update": 1,
 "values": [ ExtResource( 8 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("Particles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.8, 1, 1.9, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Particles2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.8, 1.3, 1.9, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, -120 ), Vector2( -260, -120 ), Vector2( 0, -143 ), Vector2( 0, -143 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Particles2D:lifetime")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 206.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
 
 [node name="LevelWinner" type="Control"]
 anchor_left = 0.5
@@ -518,7 +660,7 @@ margin_top = -338.0
 margin_right = 148.0
 margin_bottom = -260.0
 custom_fonts/font = SubResource( 2 )
-text = "YOU WIN!"
+text = "GANASTE!"
 
 [node name="StarOne" type="TextureRect" parent="."]
 material = SubResource( 4 )
@@ -546,7 +688,7 @@ margin_right = 318.0
 margin_bottom = 54.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="StarThree" type="TextureRect" parent="."]
@@ -560,7 +702,7 @@ margin_right = 595.0
 margin_bottom = 91.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_clip_content = true
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="RecordActual" type="TextureRect" parent="."]
@@ -657,8 +799,15 @@ stream = ExtResource( 7 )
 reset_on_save = false
 anims/OneStar = SubResource( 10 )
 anims/RESET = SubResource( 7 )
-anims/ThreeStar = SubResource( 8 )
+anims/ThreeStar = SubResource( 12 )
 anims/TwoStar = SubResource( 9 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -263, -136 )
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource( 11 )
+texture = ExtResource( 9 )
 
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="VBoxContainer/ListLevel" to="." method="_on_ListLevel_pressed"]

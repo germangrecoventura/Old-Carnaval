@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://script/Credits.gd" type="Script" id=1]
 [ext_resource path="res://assets/freefantasygui/png/PanelInformation.png" type="Texture" id=2]
 [ext_resource path="res://assets/freefantasygui/png/Home.png" type="Texture" id=3]
 [ext_resource path="res://assets/BackgroundMenu.png" type="Texture" id=4]
+[ext_resource path="res://sound/background-menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/Arcane Nine.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=2]
-size = 92
+size = 73
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
@@ -47,14 +48,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -159.078
-margin_top = -440.591
-margin_right = 120.922
-margin_bottom = -335.591
+margin_left = -154.392
+margin_top = -436.578
+margin_right = 125.608
+margin_bottom = -331.578
 rect_scale = Vector2( 1.085, 0.77 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "CREDITS"
+text = "CREDITOS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.5
@@ -98,6 +99,8 @@ https://opengameart.org/content/ui-and-item-sound-effect-jingles-sample-2[/url]
 
 [url=https://opengameart.org/content/rain-and-thunder-loop]https://opengameart.org/content/rain-and-thunder-loop[/url]
 
+[url=https://freesound.org/people/dobroide/sounds/50929/]https://freesound.org/people/dobroide/sounds/50929/[/url]
+
 Some of the sounds in this project were created by ViRiX Dreamcore soundcloud.com/virix"
 text = "Creado por Germán Greco Ventura y David Salamanca
 
@@ -129,6 +132,8 @@ https://opengameart.org/content/ui-and-item-sound-effect-jingles-sample-2
 
 https://opengameart.org/content/rain-and-thunder-loop
 
+https://freesound.org/people/dobroide/sounds/50929/
+
 Some of the sounds in this project were created by ViRiX Dreamcore soundcloud.com/virix"
 
 [node name="Container" type="HBoxContainer" parent="."]
@@ -148,6 +153,10 @@ margin_right = 188.0
 margin_bottom = 188.0
 icon = ExtResource( 3 )
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="Container/Return" to="." method="_on_Return_pressed"]
